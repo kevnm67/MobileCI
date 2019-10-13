@@ -1,0 +1,10 @@
+# Rules specific to auto correction.
+
+whitelist_rules:
+  - anyobject_protocol
+  - closing_brace
+  - trailing_whitespace
+  - trailing_newline
+  - vertical_whitespace
+
+  - nimble_operator
