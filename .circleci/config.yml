@@ -1,5 +1,4 @@
 version: 2.1
-
 orbs:
   ios-quality-checks: storytel/ios-quality-checks@0.0.1
   danger: ngs/danger@0.0.1
@@ -8,19 +7,22 @@ orbs:
 
 jobs:
   danger:
+    executor: kjm-dev/v11-1
     description: Run danger-swift
-    executor: danger
     steps:
       - kjm-dev/danger:
 
-  # run_lane:
-  #   steps:
-  #     - fastlane/bundle-install:
-  #         bundle_path: 'vendor/bundler'
+  test:
+    description: Run tests
+    executor: kjm-dev/v11-1
+    steps:
+      - kjm-dev/bundle-install:
+          bundle_path: 'vendor/bundler'
+      - kjm-dev/lane:
+          named: test_iphone_x
 
 workflows:
-  build-and-deploy:
+  build-and-test:
     jobs:
       - danger
-      - kjm-dev/lane:
-          named: test
+      - test
