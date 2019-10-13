@@ -19,17 +19,21 @@ jobs:
     <<: *defaults
     description: Run danger-swift
     steps:
+      - checkout
       - kjm-dev/danger
 
   test:
     <<: *defaults
     description: Run tests
     steps:
+      - checkout
+      - kjm-dev/danger
+      - kjm-dev/lane:
+          named: carthage_ci
       - kjm-dev/lane:
           named: test_iphone_x
 
 workflows:
   build-and-test:
     jobs:
-      - danger
       - test
