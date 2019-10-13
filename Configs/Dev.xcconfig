@@ -1,0 +1,12 @@
+//
+//  Dev.xcconfig
+//  CircleCI
+//
+//  Created by Kevin Morton on 10/13/19.
+//  Copyright © 2019 CircleCI. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BUNDLE_ID_SUFFIX = .development

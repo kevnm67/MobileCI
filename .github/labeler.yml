@@ -1,0 +1,14 @@
+dependencies:
+  - Carthage/*
+
+enhancement:
+  - Sources/*
+  - Tests/*
+
+CI/CD:
+  - fastlane/*
+  - travis.yml
+  - Dangerfile
+  - Gemfile
+  - .circleci/*
+  - .codeclimate.json

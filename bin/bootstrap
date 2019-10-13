@@ -1,0 +1,40 @@
+#!/bin/bash
+
+export SRCROOT=`pwd`
+
+cd ..
+
+# -------| Functions
+
+function setup_bundler {
+    # Make sure to use 2.0
+    bundle update --bundler
+
+    echo "Installing bundler and gems..."
+    gem install bundler; bundle install
+}
+
+function do_brew {
+    echo "Brewing..."
+    brew bundle
+
+    echo "Setting up carthage frameworks..."
+    bundle exec fastlane update_plugins
+
+    bundle exec fastlane do_cart_update
+}
+
+# -------| Run
+
+echo "Upgrading carthage..."
+
+brew upgrade carthage 2> /dev/null
+
+# 2. Setup bundler and install gems
+setup_bundler
+
+# 3. Brew and carthage
+do_brew
+
+# 4. Open project
+open *.xcodeproject

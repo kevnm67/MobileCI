@@ -1,0 +1,147 @@
+# frozen_string_literal: true
+
+fastlane_require 'fileutils'
+
+require './Helpers/AppInfoProvider.rb'
+
+opt_out_usage
+
+default_platform :ios
+
+platform :ios do
+  #########################
+  # Environment Variables #
+  #########################
+
+  project_base_name = 'CircleCI'
+
+  ENV['CACHE_PREFIX'] = project_base_name
+  ENV['BUILD_FOLDER'] = File.join('fastlane', 'Build')
+  ENV['AWS_REGION'] = 'us-east-1'
+
+  # Files to ignore in code coverage, as an array of strings. Wildcards may be used.
+  coverage_files_to_ignore = [
+    'Sources/Resources/*',
+    'scripts/*',
+    'Pods/*',
+    'Carthage/*'
+  ]
+
+  # Cache prefix used for Rome (e.g. carthage cache on S3).
+  swift_cache_prefix = ENV['CACHE_SWIFT_VERSION']
+
+  # All schemes that will be run for testing. NOTE: make sure each is a shared scheme.
+  schemes_to_test = [
+    AppInfoProvider::Scheme::Development
+  ]
+
+  #############################
+  ## TESTING & CODE COVERAGE ##
+  #############################
+
+  desc 'Run tests for mac'
+  lane :test_mac do
+    run_tests_for_device(
+      schemes: ['CircleCI-macOS'],
+      device: '' # deliberately empty
+    )
+  end
+
+  desc 'Run tests for tvOS'
+  lane :test_tv_os do
+    run_tests_for_device(
+      schemes: ['CircleCI-tvOS'],
+      device: 'Apple TV 1080p'
+    )
+  end
+
+  desc ''
+  desc 'Run tests generating code coverage'
+  desc ''
+  lane :run_tests_for_device do |options|
+    test_schemes = options[:scheme] || schemes_to_test
+    project_name = options[:project_base_name] || project_base_name
+    device = options[:device] || 'iPhone X'
+
+    test_schemes.each do |scheme|
+      UI.message "Running tests for scheme #{scheme}"
+
+      slather_tests(
+        scheme: scheme,
+        project_base_name: project_name,
+        device: device
+      )
+    end
+  end
+
+  desc ''
+  private_lane :slather_tests do |options|
+    scheme = options[:scheme]
+    project_name = options[:project_base_name] || project_base_name
+
+    scan(
+      scheme: scheme,
+      code_coverage: true,
+      device: options[:device] || 'iPhone X'
+    )
+
+    if is_ci?
+      slather(
+        travis: true,
+        scheme: scheme,
+        cobertura_xml: true,
+        proj: "#{project_name}.xcodeproj",
+        workspace: "#{project_name}.xcworkspace",
+        ignore: coverage_files_to_ignore
+      )
+    elsif
+      slather_local(scheme: scheme)
+    end
+  end
+
+  desc 'Runs slather locally and opens the generated html page.'
+  desc ''
+  private_lane :slather_local do |options|
+    scheme = options[:scheme] || ENV['DEV_SCHEME']
+
+    slather(
+      scheme: scheme,
+      html: true,
+      show: !is_ci,
+      output_directory: ENV['BUILD_FOLDER'],
+      proj: "#{project_base_name}.xcodeproj",
+      workspace: "#{project_base_name}.xcworkspace",
+      ignore: coverage_files_to_ignore
+    )
+  end
+
+  desc 'If running in CI environment returns the build number; Else, get_build_number.to_s.'
+  def get_current_build_number
+    is_ci ? ci_build_number : get_build_number.to_s
+  end
+
+  ##############
+  ## Carthage ##
+  ##############
+
+  desc 'Runs carthage update followed by Rome upload (iOS) to update the S3 cache.'
+  desc 'Options:'
+  desc 'cache_prefix - optional.  Default is project_base_name.'
+  desc ''
+  lane :run_rome_update do |options|
+    cache_prefix = options[:cache_prefix] || project_base_name
+
+    carthage(
+      command: 'update',
+      platform: 'iOS',
+      cache_builds: true,
+      use_binaries: false
+    )
+
+    rome(
+      command: 'upload',
+      platform: 'iOS',
+      cacheprefix: cache_prefix
+    )
+  end
+end

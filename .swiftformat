@@ -1,0 +1,12 @@
+--commas inline
+
+# Rules
+--disable blankLinesAtStartOfScope,redundantRawValues,strongOutlets,unusedArguments,redundantFileprivate
+
+--enable blankLinesBetweenScopes
+--enable isEmpty
+--enable anyObjectProtocol
+--enable elseOnSameLine
+
+# file options
+--exclude Pods,Carthage

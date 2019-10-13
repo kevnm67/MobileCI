@@ -1,0 +1,26 @@
+version: 2.1
+
+orbs:
+  ios-quality-checks: storytel/ios-quality-checks@0.0.1
+  danger: ngs/danger@0.0.1
+  kjm-dev: kjm-dev/ios-pipelines@dev:first
+  fastlane: ngs/fastlane@0.0.3
+
+jobs:
+  danger:
+    description: Run danger-swift
+    executor: danger
+    steps:
+      - kjm-dev/danger:
+
+  # run_lane:
+  #   steps:
+  #     - fastlane/bundle-install:
+  #         bundle_path: 'vendor/bundler'
+
+workflows:
+  build-and-deploy:
+    jobs:
+      - danger
+      - kjm-dev/lane:
+          named: test

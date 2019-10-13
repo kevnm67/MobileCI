@@ -1,0 +1,6 @@
+cache:
+  local: ~/Library/Caches/Rome
+
+ignoreMap:
+  - xcconfigs:
+    - name: xcconfigs

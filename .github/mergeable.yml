@@ -1,0 +1,29 @@
+version: 2
+mergeable:
+  - when: pull_request.*, issues.*
+    validate:
+      - do: title
+        no_empty:
+          enabled: true
+          message: 'Please add a title.'
+        must_exclude:
+          regex: ^\[WIP\]
+      - do: label
+        must_exclude:
+          regex: 'WIP'
+      - do: checks,
+        status: 'failure'
+        payload:
+          title: 'Mergeable Run have been Completed!'
+          summary: 'Something failed validation. \n Here are some stats of the run: \n {{passCount}} ***PASSED*** {{failCount}} ***FAILED*** {{errorCount}} ***ERRORED***'
+      - do: stale
+        days: 7
+        message: 'This is PR getting stale. Please follow up!  This is a friendly reminder to please resolve it. :-)'
+        type: pull_request, issues
+
+  - when: pull_request.*
+    pass:
+      - do: comment
+        payload:
+          body: >
+            'All good!'

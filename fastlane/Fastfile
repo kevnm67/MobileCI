@@ -1,0 +1,176 @@
+# frozen_string_literal: true
+
+fastlane_require 'fileutils'
+
+require './Helpers/AppInfoProvider.rb'
+
+import './Helpers/BaseFastfile'
+
+opt_out_usage
+
+default_platform :ios
+
+platform :ios do
+  #########################
+  # Environment Variables #
+  #########################
+
+  project_base_name = 'CircleCI'
+
+  ENV['CACHE_PREFIX'] = project_base_name
+  ENV['BUILD_FOLDER'] = File.join('fastlane', 'Build')
+  ENV['AWS_REGION'] = 'us-east-1'
+
+  # Cache prefix used for Rome (e.g. carthage cache on S3).
+  swift_cache_prefix = ENV['CACHE_SWIFT_VERSION']
+
+  # All schemes that will be run for testing. NOTE: make sure each is a shared scheme.
+  schemes_to_test = [
+    AppInfoProvider::Scheme::Development
+  ]
+
+  ##############
+  # Before all #
+  ##############
+
+  before_all do
+    setup_defaults
+  end
+
+  #########
+  # Lanes #
+  #########
+
+  desc 'Setup all required environment keys'
+  desc ''
+  private_lane :setup_defaults do
+    Dotenv.load('.env', '.env.development')
+
+    ENV['IOS_APP_NAME'] = project_base_name
+
+    # Required environment variable naming for Rome plugin.
+    ENV['AWS_ACCESS_KEY_ID'] = ENV['S3_ACCESS_KEY']
+    ENV['AWS_SECRET_ACCESS_KEY'] = ENV['S3_SECRET_ACCESS_KEY']
+
+    # Export options value for key method
+    ENV['EXPORT_METHOD_OPTION'] = 'ad-hoc'
+    ENV['IPA_NAME'] = "#{ENV['IOS_APP_NAME']}-#{ci_build_number}.ipa"
+  end
+
+  #############################
+  ## TESTING & CODE COVERAGE ##
+  #############################
+
+  desc 'Run tests using iphone X sim'
+  lane :test_iphone_x do
+    run_tests_for_device(
+      project: project_base_name,
+      schemes: schemes_to_test,
+      device: 'iPhone X'
+    )
+  end
+
+  ##############
+  ## Carthage ##
+  ##############
+
+  desc 'Runs carthage update followed by Rome upload (iOS) to update the S3 cache.'
+  desc ''
+  lane :do_cart_update do
+    Dotenv.load('.env', '.env.development') unless is_ci?
+
+    run_rome_update(cache_prefix: cache_prefix(swift_cache_prefix))
+  end
+
+  desc 'Runs carthage bootstrap followed by Rome download (iOS) from our S3 cache'
+  desc ''
+  lane :carthage_bootstrap do
+    Dotenv.load('.env', '.env.development') unless is_ci?
+
+    rome(
+      command: 'download',
+      platform: 'iOS',
+      cacheprefix: cache_prefix(swift_cache_prefix)
+    )
+
+    carthage(
+      command: 'bootstrap',
+      platform: 'iOS',
+      cache_builds: true,
+      use_binaries: false
+    )
+
+    upload_command = rome_command('upload', swift_cache_prefix)
+
+    # # upload what is missing
+    sh("(cd ..; rome list --missing --platform ios | awk '{print $1}' | xargs rome #{upload_command} --platform ios)")
+  end
+
+  desc 'Download carthage dependencies cached in S3'
+  desc ''
+  lane :carthage_ci do
+    Dotenv.load('.env', '.env.development') unless is_ci?
+
+    rome(
+      command: 'download',
+      platform: 'iOS',
+      cacheprefix: cache_prefix(swift_cache_prefix)
+    )
+  end
+
+  def rome_command(command = "download", isSwift5 = false)
+      return "#{command} --cache-prefix #{cache_prefix(isSwift5)}"
+  end
+
+  def cache_prefix(prefix = false)
+    return prefix if prefix != 'false'
+
+    'Swift_5_0_1'
+  end
+
+  desc 'Post a message to slack.'
+  desc ''
+  private_lane :post_to_slack do |options|
+    if ENV['SLACK_URL'].nil?
+      payload_text = options[:output] || ''
+      message = options[:message]
+      success = options[:success]
+
+      slack(
+        message: message + (success ? ' :sunglasses:' : ' :sob:'),
+        success: success,
+        default_payloads: %i[git_branch last_git_commit_message git_author test_result],
+        payload: {
+          'Build Date' => Time.new.to_s,
+          'Travis_Build' => get_current_build_number,
+          'Output' => "#{is_ci ? ENV['TRAVIS_BUILD_WEB_URL'] : ''} #{payload_text}"
+        }
+      )
+    end
+  end
+
+  ######################
+  ## SUCCESS HANDLING ##
+  ######################
+
+  after_all do |lane|
+    UI.success "#{lane} finished successfully!"
+  end
+
+  ######################
+  ## FAILURE HANDLING ##
+  ######################
+
+  error do |lane, exception|
+    UI.error "'#{lane}' Finished with errors #{exception.message}"
+
+    if is_ci
+      # Only update slack if running on travis
+      post_to_slack(
+        message: "'#{lane}' Finished with errors #{exception.message} :imp:",
+        success: false,
+        output: exception.message.to_s
+      )
+    end
+  end
+end
