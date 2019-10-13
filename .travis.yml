@@ -1,5 +1,5 @@
 os: osx
-osx_image: xcode10.2
+osx_image: xcode11
 rvm: 2.6.3
 
 addons:
@@ -23,10 +23,6 @@ branches:
 env:
    global:
      - PROJECT_NAME="Circle-CI-Playground"
-     # Add your code climate reporter ID:
-     - CC_TEST_REPORTER_ID="FIX_ME"
-     # Add your danger API token:
-     - DANGER_GITHUB_API_TOKEN="FIX_ME"
      - LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8
 
 before_install:
@@ -40,7 +36,7 @@ jobs:
     - &cache
       stage: cache
       name: Bootstrap dependencies
-      osx_image: xcode10.2
+      osx_image: xcode11
       env:
         - LANE="carthage_bootstrap"
         - CACHE_SWIFT_VERSION="Swift_5_0_1"
@@ -58,7 +54,7 @@ jobs:
     - &test
       stage: test
       name: iPhone X tests
-      osx_image: xcode10.2
+      osx_image: xcode11
       env:
         - DESTINATION="test_iphone_x"
         - CACHE_SWIFT_VERSION="Swift_5_0_1"
@@ -89,17 +85,6 @@ jobs:
       if: "commit_message =~ /^(\\[#Carthage|\\[\\#Release)/"
       os: osx
       script: carthage build --no-skip-current --configuration Release
-
-    - stage: lint
-      name: pod lint
-      if: branch IN (master, develop) AND (type != pull_request)
-      script: bundle exec pod lib lint
-
-    - stage: carthage
-      name: Carthage build
-      if: "(commit_message =~ /(@deploy carthage)/)"
-      script:
-        - carthage build --no-skip-current --configuration Release
 
 stages:
   - cache
