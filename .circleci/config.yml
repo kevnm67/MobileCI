@@ -1,23 +1,30 @@
 version: 2.1
 orbs:
-  ios-quality-checks: storytel/ios-quality-checks@0.0.1
-  danger: ngs/danger@0.0.1
   kjm-dev: kjm-dev/ios-pipelines@dev:first
-  fastlane: ngs/fastlane@0.0.3
+
+defaults: &defaults
+  macos:
+    xcode: '11.1.0'
+  working_directory: /Users/distiller/CircleCI
+  shell: /bin/bash --login -o pipefail
+  environment:
+    CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
+    CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
+    LC_ALL: en_US.UTF-8
+    BUNDLE_PATH: vendor/bundle
+    FL_OUTPUT_DIR: /Users/distiller/CircleCI/fastlane
 
 jobs:
   danger:
-    executor: kjm-dev/v11-1
+    <<: *defaults
     description: Run danger-swift
     steps:
-      - kjm-dev/danger:
+      - kjm-dev/danger
 
   test:
+    <<: *defaults
     description: Run tests
-    executor: kjm-dev/v11-1
     steps:
-      - kjm-dev/bundle-install:
-          bundle_path: 'vendor/bundler'
       - kjm-dev/lane:
           named: test_iphone_x
 
