@@ -28,11 +28,11 @@ jobs:
     steps:
       - checkout
       - kjm-dev/danger
-      - run:
-          name: Install Rome
-          command: brew install blender/homebrew-tap/rome
+      # - run:
+      #     name: Install Rome
+      #     command: brew install blender/homebrew-tap/rome
       - kjm-dev/lane:
-          named: carthage_ci
+          named: carthage_bootstrap
       - kjm-dev/lane:
           named: test_iphone_x
 

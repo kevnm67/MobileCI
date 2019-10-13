@@ -79,7 +79,7 @@ platform :ios do
   lane :do_cart_update do
     Dotenv.load('.env', '.env.development') unless is_ci?
 
-    run_rome_update(cache_prefix: cache_prefix(swift_cache_prefix))
+    run_rome_update(cache_prefix: swift_cache_prefix)
   end
 
   desc 'Runs carthage bootstrap followed by Rome download (iOS) from our S3 cache'
@@ -114,7 +114,7 @@ platform :ios do
     rome(
       command: 'download',
       platform: 'iOS',
-      cacheprefix: cache_prefix(swift_cache_prefix)
+      cacheprefix: swift_cache_prefix
     )
   end
 
