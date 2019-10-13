@@ -50,7 +50,6 @@ class NotificationCenter_AutoUnregisterTests: QuickSpec {
 
                     NotificationCenter.default.post(name: testNotification, object: nil)
 
-                    // Destroy observation token
                     if token != nil { token = nil }
 
                     NotificationCenter.default.post(name: testNotification, object: nil)
