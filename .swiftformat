@@ -1,8 +1,3 @@
---commas inline
-
-# Rules
---disable blankLinesAtStartOfScope,redundantRawValues,strongOutlets,unusedArguments,redundantFileprivate
-
 --enable blankLinesBetweenScopes
 --enable isEmpty
 --enable anyObjectProtocol
@@ -10,3 +5,39 @@
 
 # file options
 --exclude Pods,Carthage
+
+--allman false
+--binarygrouping 4,8
+--closingparen balanced
+--commas inline
+--conflictmarkers reject
+--decimalgrouping 3,6
+--elseposition same-line
+--empty void
+--exponentcase lowercase
+--exponentgrouping disabled
+--fractiongrouping disabled
+--fragment false
+--header ignore
+--hexgrouping 4,8
+--hexliteralcase uppercase
+--ifdef indent
+--importgrouping alphabetized
+--indent 4
+--indentcase false
+--linebreaks lf
+--octalgrouping 4,8
+--operatorfunc spaced
+--patternlet hoist
+--ranges spaced
+--self init-only
+--selfrequired 
+--semicolons inline
+--stripunusedargs always
+--trailingclosures 
+--trimwhitespace always
+--wraparguments preserve
+--wrapcollections preserve
+--xcodeindentation disabled
+--disable blankLinesAtStartOfScope,strongOutlets
+--enable isEmpty

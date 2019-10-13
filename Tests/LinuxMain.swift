@@ -1,6 +1,6 @@
+@testable import Circle - CI - PlaygroundTests
 import XCTest
-@testable import Circle-CI-PlaygroundTests
 
 XCTMain([
-    testCase(Circle-CI-PlaygroundTests.allTests),
+    testCase(Circle - CI - PlaygroundTests.allTests)
 ])

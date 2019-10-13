@@ -1,5 +1,7 @@
 cache:
   local: ~/Library/Caches/Rome
+  s3Bucket: /kjm-ios-frameworks/Endpoint/Rome
+
 
 ignoreMap:
   - xcconfigs:
