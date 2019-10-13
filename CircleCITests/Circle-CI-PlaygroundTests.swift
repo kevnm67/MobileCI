@@ -6,11 +6,11 @@
 //  Copyright © 2019 Circle-CI-Playground. All rights reserved.
 //
 
+import Circle - CI - Playground
 import Foundation
 import XCTest
-import Circle-CI-Playground
 
-class Circle-CI-PlaygroundTests: XCTestCase {
+class Circle - CI - PlaygroundTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
@@ -18,6 +18,6 @@ class Circle-CI-PlaygroundTests: XCTestCase {
     }
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testExample", testExample)
     ]
 }
