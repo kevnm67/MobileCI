@@ -62,7 +62,7 @@ platform :ios do
   #############################
 
   desc 'Run tests using iphone X sim'
-  lane :test_iphone_x do |options|
+  lane :test_iphone_x do
     run_tests_for_device(
       project: project_base_name,
       schemes: schemes_to_test,
