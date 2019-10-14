@@ -22,7 +22,7 @@ branches:
 
 env:
    global:
-     - PROJECT_NAME="Circle-CI-Playground"
+     - PROJECT_NAME="CircleCI"
      - LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8
 
 before_install:
@@ -39,7 +39,7 @@ jobs:
       osx_image: xcode11
       env:
         - LANE="carthage_bootstrap"
-        - CACHE_SWIFT_VERSION="Swift_5_0_1"
+        - CACHE_SWIFT_VERSION="CircleCI"
       if: "(commit_message =~ /(@cache bootstrap)/)"
       script:
         - bundle exec fastlane "$LANE"
@@ -48,7 +48,7 @@ jobs:
       name: Carthage update
       env:
         - LANE="do_cart_update"
-        - CACHE_SWIFT_VERSION="Swift_5_0_1"
+        - CACHE_SWIFT_VERSION="CircleCI"
       if: "(commit_message =~ /(@cache update)/)"
 
     - &test
@@ -57,7 +57,7 @@ jobs:
       osx_image: xcode11
       env:
         - DESTINATION="test_iphone_x"
-        - CACHE_SWIFT_VERSION="Swift_5_0_1"
+        - CACHE_SWIFT_VERSION="CircleCI"
       before_script:
         - bundle exec fastlane carthage_ci
         - "./cc-test-reporter before-build"

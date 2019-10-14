@@ -113,8 +113,8 @@ platform :ios do
 
     rome(
       command: 'download',
-      platform: 'iOS',
-      cacheprefix: swift_cache_prefix
+      platform: 'iOS'
+      # cacheprefix: swift_cache_prefix
     )
   end
 
