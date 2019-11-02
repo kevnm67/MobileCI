@@ -44,7 +44,7 @@ platform :ios do
   desc 'Setup all required environment keys'
   desc ''
   private_lane :setup_defaults do
-    Dotenv.load('.env', '.env.development')
+    Dotenv.load('.env.local', '.env.development')
 
     ENV['IOS_APP_NAME'] = project_base_name
 
@@ -64,9 +64,20 @@ platform :ios do
   desc 'Run tests using iphone X sim'
   lane :test_iphone_x do
     run_tests_for_device(
-      project: project_base_name,
+      project_base_name: project_base_name,
       schemes: schemes_to_test,
       device: 'iPhone X'
+    )
+  end
+
+  desc 'Run tests using iPhone Pro'
+  lane :test_iphone_pro do
+    Dotenv.load('.env.local', '.env.development') unless is_ci?
+
+    run_tests_for_device(
+      project_base_name: project_base_name,
+      schemes: schemes_to_test,
+      device: 'iPhone 11 Pro'
     )
   end
 
@@ -77,7 +88,7 @@ platform :ios do
   desc 'Runs carthage update followed by Rome upload (iOS) to update the S3 cache.'
   desc ''
   lane :do_cart_update do
-    Dotenv.load('.env', '.env.development') unless is_ci?
+    Dotenv.load('.env.local', '.env.development') unless is_ci?
 
     run_rome_update(cache_prefix: swift_cache_prefix)
   end
@@ -85,12 +96,12 @@ platform :ios do
   desc 'Runs carthage bootstrap followed by Rome download (iOS) from our S3 cache'
   desc ''
   lane :carthage_bootstrap do
-    Dotenv.load('.env', '.env.development') unless is_ci?
+    Dotenv.load('.env.local', '.env.development') unless is_ci?
 
     rome(
       command: 'download',
       platform: 'iOS',
-      cacheprefix: cache_prefix(swift_cache_prefix)
+      cacheprefix: swift_cache_prefix
     )
 
     carthage(
@@ -108,24 +119,20 @@ platform :ios do
 
   desc 'Download carthage dependencies cached in S3'
   desc ''
-  lane :carthage_ci do
-    Dotenv.load('.env', '.env.development') unless is_ci?
+  lane :carthage_ci do |options|
+    Dotenv.load('.env.local', '.env.development') unless is_ci?
+
+    cache_prefix = options[:cache_prefix] || project_base_name
 
     rome(
       command: 'download',
-      platform: 'iOS'
-      # cacheprefix: swift_cache_prefix
+      platform: 'iOS',
+      cacheprefix: cache_prefix
     )
   end
 
-  def rome_command(command = "download", isSwift5 = false)
-      return "#{command} --cache-prefix #{cache_prefix(isSwift5)}"
-  end
-
-  def cache_prefix(prefix = false)
-    return prefix if prefix != 'false'
-
-    'Swift_5_0_1'
+  def rome_command(command = 'download', _isSwift5 = false)
+    "#{command} --cache-prefix #{cache_prefix}"
   end
 
   desc 'Post a message to slack.'

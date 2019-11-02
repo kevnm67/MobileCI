@@ -53,6 +53,11 @@ cache_prefix - optional.  Default is project_base_name.
 fastlane ios test_iphone_x
 ```
 Run tests using iphone X sim
+### ios test_iphone_pro
+```
+fastlane ios test_iphone_pro
+```
+Run tests using iPhone Pro
 ### ios do_cart_update
 ```
 fastlane ios do_cart_update
