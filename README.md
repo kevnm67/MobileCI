@@ -43,3 +43,9 @@
 
 # Info
 - Testing up circle CI orbs and GitHub automations.
+
+# Setup
+
+## [Komondor](https://github.com/shibapm/Komondor)
+> Git Hook automation for Swift and Xcode projects. A port of Husky to Swift.
+- Install Komondor by running ```swift run komondor install```
