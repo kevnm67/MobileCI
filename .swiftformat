@@ -1,3 +1,5 @@
+--header "//\n//  {file}\n//\n//  Created by Kevin Morton. on {created}.\n//  Copyright © {year} KJM Productions. All rights reserved.\n//"
+
 --enable blankLinesBetweenScopes
 --enable isEmpty
 --enable anyObjectProtocol
@@ -36,8 +38,9 @@
 --stripunusedargs always
 --trailingclosures 
 --trimwhitespace always
---wraparguments preserve
---wrapcollections preserve
+--wraparguments before-first
+--wrapcollections before-first
 --xcodeindentation disabled
+
+# Disable
 --disable blankLinesAtStartOfScope,strongOutlets
---enable isEmpty
