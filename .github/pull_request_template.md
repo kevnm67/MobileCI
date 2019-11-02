@@ -6,5 +6,5 @@
 <!-- Highlight any new functionality. -->
 
 ## Checklist:
-- [ ] Added test coverage?
-- [ ] Documentation?
+- [ ] I added test coverage (if applicable).
+- [ ] I documented my changes.
