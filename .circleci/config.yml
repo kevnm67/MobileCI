@@ -4,7 +4,7 @@ orbs:
 
 defaults: &defaults
   macos:
-    xcode: '11.1.0'
+    xcode: '11.2.0'
   working_directory: /Users/distiller/CircleCI
   shell: /bin/bash --login -o pipefail
   environment:
@@ -33,8 +33,18 @@ jobs:
           command: brew install blender/homebrew-tap/rome
       - kjm-dev/lane:
           named: carthage_ci
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+            ./cc-test-reporter before-build
       - kjm-dev/lane:
-          named: test_iphone_x
+          named: test_iphone_pro
+      - run:
+          name: Upload test results
+          command: |
+            ./cc-test-reporter after-build
 
 workflows:
   build-and-test:

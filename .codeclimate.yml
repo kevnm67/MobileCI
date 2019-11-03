@@ -1,0 +1,35 @@
+---
+version: '2'
+plugins:
+  swiftlint:
+    enabled: true
+  bundler-audit:
+    enabled: true
+  rubocop:
+    enabled: true
+    channel: rubocop-0-67
+  shellcheck:
+    enabled: true
+exclude_patterns:
+  - Carthage/
+  - Pods/
+  - docs/
+  - fastlane/
+  - Resources/
+  - Templates/
+  - "**/*.css"
+checks:
+  identical-code:
+    config:
+      threshold: 25
+  file-lines:
+    config:
+      threshold: 1000
+  similar-code:
+    config:
+      threshold: 50
+  duplication:
+    config:
+      languages:
+        swift:
+          mass_threshold: 25

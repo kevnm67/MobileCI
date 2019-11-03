@@ -69,3 +69,4 @@ fastlane/test_output
 # Dotfiles
 .env.*.local
 .env
+.env.local

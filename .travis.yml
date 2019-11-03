@@ -1,6 +1,7 @@
 os: osx
-osx_image: xcode11
-rvm: 2.6.3
+osx_image: xcode11.2
+language: swift
+rvm: 2.6.4
 
 addons:
   homebrew:
@@ -26,59 +27,35 @@ env:
      - LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8
 
 before_install:
-  - gem update --system
-  - gem install bundler
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
+  - make setup
 
 jobs:
   include:
-    - &cache
-      stage: cache
-      name: Bootstrap dependencies
-      osx_image: xcode11
-      env:
-        - LANE="carthage_bootstrap"
-        - CACHE_SWIFT_VERSION="CircleCI"
-      if: "(commit_message =~ /(@cache bootstrap)/)"
-      script:
-        - bundle exec fastlane "$LANE"
-
-    - <<: *cache
-      name: Carthage update
-      env:
-        - LANE="do_cart_update"
-        - CACHE_SWIFT_VERSION="CircleCI"
-      if: "(commit_message =~ /(@cache update)/)"
-
     - &test
       stage: test
-      name: iPhone X tests
-      osx_image: xcode11
+      name: iPhone Pro tests
       env:
-        - DESTINATION="test_iphone_x"
+        - DESTINATION="test_iphone_pro"
         - CACHE_SWIFT_VERSION="CircleCI"
       before_script:
-        - bundle exec fastlane carthage_ci
+        - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
+        - chmod +x ./cc-test-reporter
         - "./cc-test-reporter before-build"
       script:
         - bundle exec fastlane "$DESTINATION"
       after_success:
-        - bundle exec danger
+        - make danger
         - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
-
-    - <<: *test
-      name: iPhone 6
-      env: DESTINATION="test_iphone_6"
 
     - <<: *test
       name: iPad
       env: DESTINATION="test_ipad"
+      if: (commit_message =~ /(@test ipad)/)
 
     - stage: lint
       name: pod lint
       if: branch IN (master, develop) AND (type != pull_request)
-      script: bundle exec pod lib lint
+      script: make lint
 
     - stage: carthage
       name: Carthage build
@@ -87,7 +64,6 @@ jobs:
       script: carthage build --no-skip-current --configuration Release
 
 stages:
-  - cache
   - test
   - lint
   - carthage

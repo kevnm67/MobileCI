@@ -59,7 +59,7 @@ platform :ios do
   desc 'Run tests generating code coverage'
   desc ''
   lane :run_tests_for_device do |options|
-    test_schemes = options[:scheme] || schemes_to_test
+    test_schemes = options[:schemes] || schemes_to_test
     project_name = options[:project_base_name] || project_base_name
     device = options[:device] || 'iPhone X'
 
@@ -82,7 +82,10 @@ platform :ios do
     scan(
       scheme: scheme,
       code_coverage: true,
-      device: options[:device] || 'iPhone X'
+      device: options[:device] || 'iPhone X',
+      formatter: 'xcpretty-json-formatter',
+      buildlog_path: "#{ENV['BUILD_FOLDER']}/logs",
+      slack_only_on_failure: true
     )
 
     if is_ci?
@@ -95,7 +98,7 @@ platform :ios do
         ignore: coverage_files_to_ignore
       )
     elsif
-      slather_local(scheme: scheme)
+      slather_local(scheme: scheme, project_base_name: project_name)
     end
   end
 
@@ -103,6 +106,7 @@ platform :ios do
   desc ''
   private_lane :slather_local do |options|
     scheme = options[:scheme] || ENV['DEV_SCHEME']
+    project_base_name = options[:project_base_name]
 
     slather(
       scheme: scheme,
