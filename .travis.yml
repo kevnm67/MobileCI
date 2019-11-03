@@ -52,11 +52,6 @@ jobs:
       env: DESTINATION="test_ipad"
       if: (commit_message =~ /(@test ipad)/)
 
-    - stage: lint
-      name: pod lint
-      if: branch IN (master, develop) AND (type != pull_request)
-      script: make lint
-
     - stage: carthage
       name: Carthage build
       if: "commit_message =~ /^(\\[#Carthage|\\[\\#Release)/"
@@ -65,5 +60,4 @@ jobs:
 
 stages:
   - test
-  - lint
   - carthage
