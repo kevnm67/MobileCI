@@ -38,7 +38,7 @@
 </body>
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-![GitHub release](https://img.shields.io/github/release/kevnm67/Endpoint.svg)
+![GitHub release](https://img.shields.io/github/v/release/kevnm67/Circle-CI-Playground?include_prereleases)
 [![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 
 # Info
