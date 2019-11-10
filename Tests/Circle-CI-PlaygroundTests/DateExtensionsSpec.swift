@@ -15,15 +15,15 @@ class DateExtensionsSpec: QuickSpec {
     override func spec() {
 
         describe("A date") {
-            let date = Date(timeIntervalSince1970: 100_000)
+            let date = DateTestProvider.testDate("2019-02-15")
 
             context("weekday") {
                 it("equals 5") {
-                    expect(date.weekday).to(equal(5))
+                    expect(date?.weekday).to(equal(6))
                 }
 
                 it("does not equal 3") {
-                    expect(date.weekday).notTo(equal(3))
+                    expect(date?.weekday).notTo(equal(3))
                 }
             }
 
@@ -33,7 +33,7 @@ class DateExtensionsSpec: QuickSpec {
                 }
 
                 it("returns falsy") {
-                    expect(date.isInToday).to(beFalsy())
+                    expect(date?.isInToday).to(beFalsy())
                 }
             }
 

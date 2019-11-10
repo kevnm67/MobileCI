@@ -24,6 +24,7 @@
 		56EBF2B12353CD6F004E3E79 /* NotificationCenter+AutoUnregisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBF2B02353CD6F004E3E79 /* NotificationCenter+AutoUnregisterTests.swift */; };
 		56EBF2B42353CD9B004E3E79 /* NotificationCenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBF2B32353CD9B004E3E79 /* NotificationCenterSpy.swift */; };
 		56F38D6223789FAC00B67491 /* MockTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F38D6123789FAC00B67491 /* MockTableViewDatasource.swift */; };
+		56F38D652378D05900B67491 /* MockDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F38D632378C94000B67491 /* MockDateProvider.swift */; };
 		8933C7901EB5B82D000D00A4 /* CircleCITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* CircleCITests.swift */; platformFilter = ios; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		56EBF2B02353CD6F004E3E79 /* NotificationCenter+AutoUnregisterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+AutoUnregisterTests.swift"; sourceTree = "<group>"; };
 		56EBF2B32353CD9B004E3E79 /* NotificationCenterSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterSpy.swift; sourceTree = "<group>"; };
 		56F38D6123789FAC00B67491 /* MockTableViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTableViewDatasource.swift; sourceTree = "<group>"; };
+		56F38D632378C94000B67491 /* MockDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDateProvider.swift; sourceTree = "<group>"; };
 		8933C7891EB5B82A000D00A4 /* CircleCITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleCITests.swift; sourceTree = "<group>"; };
 		AD2FAA261CD0B6D800659CF4 /* CircleCI.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CircleCI.plist; sourceTree = "<group>"; };
 		AD2FAA281CD0B6E100659CF4 /* CircleCITests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CircleCITests.plist; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		56EBF2B22353CD9B004E3E79 /* Test Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				56F38D632378C94000B67491 /* MockDateProvider.swift */,
 				56F38D6123789FAC00B67491 /* MockTableViewDatasource.swift */,
 				56EBF2B32353CD9B004E3E79 /* NotificationCenterSpy.swift */,
 			);
@@ -315,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56F38D652378D05900B67491 /* MockDateProvider.swift in Sources */,
 				8933C7901EB5B82D000D00A4 /* CircleCITests.swift in Sources */,
 				56EBF2B12353CD6F004E3E79 /* NotificationCenter+AutoUnregisterTests.swift in Sources */,
 				56EBF2B42353CD9B004E3E79 /* NotificationCenterSpy.swift in Sources */,

@@ -13,24 +13,26 @@ class MockTableViewDatasource: NSObject, UITableViewDataSource {
 
     public typealias SectionModel = [String]
 
+    var isEmpty = false
+
     var data: [SectionModel] = []
 
     // MARK: -
 
-    convenience init(data: [SectionModel]) {
+    convenience init(data: [SectionModel], isEmpty: Bool = false) {
         self.init()
-
+        self.isEmpty = isEmpty
         self.data = data
     }
 
     // MARK: Datasource
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return data.count
+        return isEmpty ? 0 : data.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data[section].count
+        return isEmpty ? 0 : data[section].count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -31,6 +31,24 @@ class UITableViewExtensionsSpec: QuickSpec {
                 expect(tableView.indexPathForLastRow).to(equal(indexPathOfFirstItem))
             }
 
+            context("when number of sections is not greate than zero") {
+                var datasource: MockTableViewDatasource!
+
+                beforeEach {
+                    datasource = MockTableViewDatasource()
+                    datasource.isEmpty = true
+                    tableView.dataSource = datasource
+                }
+
+                it("returns nil for indexPathForLastRow") {
+                    expect(tableView.indexPathForLastRow).to(beNil())
+                }
+
+                it("returns nil for indexPathForLastRow in section -1") {
+                    expect(tableView.indexPathForLastRow(inSection: -1)).to(beNil())
+                }
+            }
+
             context("multiple sections") {
                 var datasource: MockTableViewDatasource!
                 var data: [MockTableViewDatasource.SectionModel]!
@@ -44,11 +62,11 @@ class UITableViewExtensionsSpec: QuickSpec {
                     tableView.dataSource = datasource
                 }
 
-                it("last section equals 1") {
+                it("has last section equal to 1") {
                     expect(tableView.lastSection).to(equal(data.count - 1))
                 }
 
-                it("indexPathForLastRow equals") {
+                it("equals expected indexPath for the last row") {
                     let expected = IndexPath(row: section2.count - 1, section: data.count - 1)
 
                     expect(tableView.indexPathForLastRow).to(equal(expected))
