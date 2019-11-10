@@ -1,0 +1,5 @@
+copyright: Copyright 2019 KJM
+author: kevnm67
+xcodebuild_arguments: [-target, CircleCI-iOS]
+clean: true
+output: ./docs

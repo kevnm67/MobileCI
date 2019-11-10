@@ -32,6 +32,18 @@ class SequenceExtensionsSpec: QuickSpec {
             it("returns falsy for .any") {
                 expect(given.any { $0 == 113 }).to(beFalsy())
             }
+
+            it("returns falsy for .none") {
+                expect(given.none { $0 != 3 }).to(beFalsy())
+            }
+
+            it("returns truthy for .none") {
+                expect(given.none { $0 == 113 }).to(beTruthy())
+            }
+
+            it("returns expected sum") {
+                expect([1, 2, 3].sum()).to(equal(6))
+            }
         }
 
         describe("A collection of strings") {
