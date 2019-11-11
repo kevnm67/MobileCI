@@ -22,6 +22,12 @@
 					</a></td>
 			</tr>
 			<tr>
+				<td>Bitrise io</td>
+				<td><a href="https://app.bitrise.io/app/0330010d71e169b0">
+						<img src="https://app.bitrise.io/app/0330010d71e169b0/status.svg?token=-p7HyqHPA2yhM6qJ314LHA&branch=master" />
+					</a></td>
+			</tr>
+			<tr>
 				<td>Maintainability</td>
 				<td><a href="https://codeclimate.com/github/kevnm67/Circle-CI-Playground/maintainability">
 						<img src="https://api.codeclimate.com/v1/badges/7b2a5876060532965ee2/maintainability" />
@@ -42,7 +48,7 @@
 [![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 
 # Info
-- Testing up circle CI orbs and GitHub automations.
+- CI playground mainly testing circle CI orbs and github actions.
 
 # Setup
 

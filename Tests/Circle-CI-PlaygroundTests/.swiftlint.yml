@@ -1,18 +1,11 @@
-included:
-  - Sources
-  - Tests
-
-excluded:
-  - Carthage
-  - Pods
-  - fastlane
-
 disabled_rules:
   - line_length
   - type_name
+  - function_body_length
   - identifier_name
-  - trailing_whitespace
-  - todo
+  - force_unwrapping
+  - force_cast
+  - force_try
 
 opt_in_rules:
   - anyobject_protocol
@@ -22,46 +15,30 @@ opt_in_rules:
   - contains_over_first_not_nil
   - empty_string
   - explicit_init
-  - static_operator
-  - force_unwrapping
   - first_where
   - modifier_order
   - empty_count
   - vertical_parameter_alignment_on_call
   - vertical_whitespace_closing_braces
+  - quick_discouraged_call
+  - quick_discouraged_focused_test
+  - quick_discouraged_pending_test
   - yoda_condition
 
 analyzer_rules:
   - unused_import
 
 vertical_whitespace:
-  max_empty_lines: 2
-
-function_body_length:
-  - 125 # Warning
-  - 200 # Error
+  max_empty_lines: 1
 
 cyclomatic_complexity:
-  warning: 3 # Two nested ifs are acceptable
-  error: 4   # 4 nested ifs shows warning, 5 causes compile error
+  warning: 3
+  error: 4
 
-file_name:
-  excluded:
-    - main.swift
-    - LinuxMain.swift
-
-identifier_name:
-  excluded:
-    - id
-  min_length:
-    error: 4
-
-type_body_length:
-  - 300 # Warning
-  - 400 # Error
+type_body_length: 400
 
 file_length:
-  - 1000 # Warning
+  - 1000
 
 reporter: "json"
 
