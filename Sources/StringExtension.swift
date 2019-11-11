@@ -1,5 +1,5 @@
 //
-//  StringExtensions.swift
+//  StringExtension.swift
 //  CircleCI-iOS
 //
 //  Created by Kevin Morton on 11/2/19.

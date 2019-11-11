@@ -14,7 +14,7 @@
 		5686BBFB2353BC4700F33931 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5686BBF92353BC4700F33931 /* Nimble.framework */; platformFilter = ios; };
 		5686BBFC2353BC4F00F33931 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5686BBF92353BC4700F33931 /* Nimble.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5686BBFD2353BC5400F33931 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5686BBF82353BC4700F33931 /* Quick.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		56E3726D236E6BE900E8BF31 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E3726C236E6BE900E8BF31 /* StringExtensions.swift */; };
+		56E3726D236E6BE900E8BF31 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E3726C236E6BE900E8BF31 /* StringExtension.swift */; };
 		56E3726F236E6CF800E8BF31 /* StringExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E3726E236E6CF800E8BF31 /* StringExtensionsSpec.swift */; };
 		56E37271236E6F8500E8BF31 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E37270236E6F8500E8BF31 /* DateExtensions.swift */; };
 		56E37273236E710D00E8BF31 /* DateExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E37272236E710D00E8BF31 /* DateExtensionsSpec.swift */; };
@@ -63,7 +63,7 @@
 		5686BBF42353B93200F33931 /* SequenceExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensionsSpec.swift; sourceTree = "<group>"; };
 		5686BBF82353BC4700F33931 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		5686BBF92353BC4700F33931 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
-		56E3726C236E6BE900E8BF31 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		56E3726C236E6BE900E8BF31 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		56E3726E236E6CF800E8BF31 /* StringExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionsSpec.swift; sourceTree = "<group>"; };
 		56E37270236E6F8500E8BF31 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		56E37272236E710D00E8BF31 /* DateExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionsSpec.swift; sourceTree = "<group>"; };
@@ -158,7 +158,7 @@
 				56E37270236E6F8500E8BF31 /* DateExtensions.swift */,
 				56EBF2AC2353CD3B004E3E79 /* NotificationCenter+AutoUnregister.swift */,
 				5686BBF22353B86E00F33931 /* SequenceExtensions.swift */,
-				56E3726C236E6BE900E8BF31 /* StringExtensions.swift */,
+				56E3726C236E6BE900E8BF31 /* StringExtension.swift */,
 				56E37274236E78D100E8BF31 /* UITableViewExtensions.swift */,
 			);
 			path = Sources;
@@ -307,7 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56E37275236E78D100E8BF31 /* UITableViewExtensions.swift in Sources */,
-				56E3726D236E6BE900E8BF31 /* StringExtensions.swift in Sources */,
+				56E3726D236E6BE900E8BF31 /* StringExtension.swift in Sources */,
 				56E37271236E6F8500E8BF31 /* DateExtensions.swift in Sources */,
 				56EBF2AE2353CD3C004E3E79 /* NotificationCenter+AutoUnregister.swift in Sources */,
 				5686BBF32353B86E00F33931 /* SequenceExtensions.swift in Sources */,

@@ -15,11 +15,11 @@ class UITableViewExtensionsSpec: QuickSpec {
     override func spec() {
 
         describe("A TableView") {
-            let indexPathOfFirstItem = IndexPath(row: 0, section: 0)
-
+            var indexPathOfFirstItem: IndexPath!
             var tableView: UITableView!
 
             beforeEach {
+                indexPathOfFirstItem = IndexPath(row: 0, section: 0)
                 tableView = UITableView()
             }
 

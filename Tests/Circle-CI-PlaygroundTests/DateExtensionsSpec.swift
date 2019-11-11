@@ -15,7 +15,11 @@ class DateExtensionsSpec: QuickSpec {
     override func spec() {
 
         describe("A date") {
-            let date = DateTestProvider.testDate("2019-02-15")
+            var date: Date!
+
+            beforeEach {
+                date = DateTestProvider.testDate("2019-02-15")
+            }
 
             context("weekday") {
                 it("equals 5") {
@@ -38,8 +42,12 @@ class DateExtensionsSpec: QuickSpec {
             }
 
             context("is tomorrow") {
-                let today = Date()
-
+                var today: Date!
+               
+                beforeEach {
+                    today = Date()
+                }
+                
                 it("returns falsy") {
                     expect(today.isInTomorrow).to(beFalsy())
                 }
