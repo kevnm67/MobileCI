@@ -1,0 +1,10 @@
+# https://github.com/jcabi/jcabi/blob/master/.rultor.yml
+
+architect:
+- kevnm67
+merge:
+  script: |
+    echo "testing..."
+    echo "building..."
+  squash: true
+  fast-forward: default
