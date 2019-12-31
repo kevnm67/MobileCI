@@ -1,0 +1,11 @@
+//
+// Develop.xcconfig
+//
+
+ENVIRONMENT_NAME = develop
+
+APP_DISPLAY_NAME_SUFFIX = -Dev
+
+BUNDLE_ID_SUFFIX = .dev
+
+ROOT_URL = https:/$()/api.dev.com

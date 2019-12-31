@@ -16,23 +16,42 @@ disabled_rules:
 
 opt_in_rules:
   - anyobject_protocol
+  - array_init
   - attributes
   - closure_end_indentation
   - closure_spacing
+  - collection_alignment
+  - contains_over_filter_count
+  - contains_over_filter_is_empty
   - contains_over_first_not_nil
-  - empty_string
-  - explicit_init
-  - static_operator
-  - force_unwrapping
-  - first_where
-  - modifier_order
+  - discouraged_object_literal
   - empty_count
+  - empty_string
+  - empty_xctest_method
+  - explicit_init
+  - extension_access_modifier
+  - first_where
+  - force_unwrapping
+  - flatmap_over_map_reduce
+  - modifier_order
+  - static_operator
+  - strong_iboutlet
+  - toggle_bool
+  - unavailable_function
+  - unneeded_parentheses_in_closure_argument
+  - unowned_variable_capture
   - vertical_parameter_alignment_on_call
   - vertical_whitespace_closing_braces
   - yoda_condition
 
 analyzer_rules:
+  - unused_declaration
   - unused_import
+
+modifier_order:
+  preferred_modifier_order:
+    - acl
+    - override
 
 vertical_whitespace:
   max_empty_lines: 2
@@ -44,11 +63,6 @@ function_body_length:
 cyclomatic_complexity:
   warning: 3 # Two nested ifs are acceptable
   error: 4   # 4 nested ifs shows warning, 5 causes compile error
-
-file_name:
-  excluded:
-    - main.swift
-    - LinuxMain.swift
 
 identifier_name:
   excluded:

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html"> Docs</a> (94% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html"> Reference</a>
+        <img id="carat" src="img/carat.png" />
+          Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/Date.html">Date</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/Sequence.html">Sequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/String.html">String</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Extensions/UITableView.html">UITableView</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='mobile-ci' class='heading'>Mobile CI</h1>
+
+<p><body>
+    <table>
+        <thead>
+            <tr>
+                <th>Service</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+                <td>Circle CI</td>
+                <td><a href="https://circleci.com/kevnm67/MobileCI">
+                        <img src="https://circleci.com/gh/kevnm67/MobileCI.svg?style=svg" />
+                </a></td>
+            </tr>
+            <tr>
+                <td>Travis CI</td>
+                <td><a href="https://travis-ci.com/kevnm67/MobileCI">
+                        <img src="https://travis-ci.com/kevnm67/MobileCI.svg?branch=master" />
+                    </a></td>
+            </tr>
+            <tr>
+                <td>Bitrise io</td>
+                <td><a href="https://app.bitrise.io/app/0330010d71e169b0">
+                        <img src="https://app.bitrise.io/app/0330010d71e169b0/status.svg?token=-p7HyqHPA2yhM6qJ314LHA&branch=master" />
+                    </a></td>
+            </tr>
+            <tr>
+                <td>Maintainability</td>
+                <td><a href="https://codeclimate.com/github/kevnm67/MobileCI/maintainability">
+                        <img src="https://api.codeclimate.com/v1/badges/355acfb7dbfab41bec2d/maintainability" />
+                    </a></td>
+            </tr>
+            <tr>
+            <td>Code Coverage</td>
+            <td><a href="https://codeclimate.com/github/kevnm67/MobileCI/test_coverage">
+                    <img src="https://api.codeclimate.com/v1/badges/355acfb7dbfab41bec2d/test_coverage" />
+                </a></td>
+            </tr>
+        </tbody>
+    </table>
+</body></p>
+
+<p><a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible"></a>
+<img src="https://img.shields.io/github/v/release/kevnm67/Mobile-CI?include_prereleases" alt="GitHub release">
+<a href="https://github.com/apple/swift-package-manager"><img src="https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg" alt="Swift Package Manager compatible"></a></p>
+
+<p>CI playground mainly testing circle CI orbs and GitHub actions.</p>
+
+<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+<ul>
+<li><a href="#info">Info</a></li>
+<li><a href="#setup">Setup</a>
+
+<ul>
+<li><a href="#komondorhttpsgithubcomshibapmkomondor"><a href="https://github.com/shibapm/Komondor">Komondor</a></a></li>
+</ul></li>
+<li><a href="#continuous-integration">Continuous integration</a>
+
+<ul>
+<li><a href="#img-height24-width24-srchttpsunpkgcomsimple-iconslatesticonscirclecisvg-circle-ci"><img height="24" width="24" src="https://unpkg.com/simple-icons@latest/icons/circleci.svg" /> Circle CI</a></li>
+<li><a href="#img-height24-width24-srchttpsunpkgcomsimple-iconslatesticonstraviscisvg-travis-ci"><img height="24" width="24" src="https://unpkg.com/simple-icons@latest/icons/travisci.svg" /> Travis CI</a></li>
+<li><a href="#img-height24-width24-srchttpssimpleiconsorgiconsbitrisesvg-bitrise"><img height="24" width="24" src="https://simpleicons.org/icons/bitrise.svg" /> Bitrise</a></li>
+</ul></li>
+<li><a href="#github-actions">GitHub Actions</a>
+
+<ul>
+<li><a href="#github-tag-action">github-tag-action</a></li>
+</ul></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#referencescredits">References/Credits</a></li>
+</ul>
+
+<!-- /TOC -->
+<h2 id='info' class='heading'>Info</h2>
+
+<ul>
+<li>A playground for GitHub actions and CI&rsquo;s for iOS development.</li>
+</ul>
+<h2 id='setup' class='heading'>Setup</h2>
+<h3 id='a-href-https-github-com-shibapm-komondor-komondor-a' class='heading'><a href="https://github.com/shibapm/Komondor">Komondor</a></h3>
+
+<blockquote>
+<p>Git Hook automation for Swift and Xcode projects. A port of Husky to Swift.</p>
+</blockquote>
+
+<ul>
+<li>Install Komondor by running <code>swift run komondor install</code></li>
+</ul>
+<h2 id='continuous-integration' class='heading'>Continuous integration</h2>
+<h3 id='img-height-24-width-24-src-https-unpkg-com-simple-icons-latest-icons-circleci-svg-circle-ci' class='heading'><img height="24" width="24" src="https://unpkg.com/simple-icons@latest/icons/circleci.svg" /> Circle CI</h3>
+
+<p>The <a href=".circleci/config.yml">config file</a> defines multiple jobs and the workflow for circle builds.</p>
+<h3 id='img-height-24-width-24-src-https-unpkg-com-simple-icons-latest-icons-travisci-svg-travis-ci' class='heading'><img height="24" width="24" src="https://unpkg.com/simple-icons@latest/icons/travisci.svg" /> Travis CI</h3>
+
+<p>See <a href=".circleci/config.yml">.travis.yml</a></p>
+<h3 id='img-height-24-width-24-src-https-simpleicons-org-icons-bitrise-svg-bitrise' class='heading'><img height="24" width="24" src="https://simpleicons.org/icons/bitrise.svg" /> Bitrise</h3>
+<h2 id='github-actions' class='heading'>GitHub Actions</h2>
+<h3 id='github-tag-action' class='heading'>github-tag-action</h3>
+
+<blockquote>
+<p>A <a href="https://github.com/anothrNick/github-tag-action">Github Action</a> to automatically bump and tag master, on merge, with the latest SemVer formatted version.</p>
+</blockquote>
+
+<ul>
+<li>A tag is automatically created for release branches.</li>
+<li>Manual Bumping is possible by including any of the following in a commit message: #major, #minor, or #patch
+<div class="aside aside-note">
+    <p class="aside-title">Note</p>
+    If multiple are present the highest-ranking takes precedence.
+
+</div></li>
+</ul>
+<h2 id='features' class='heading'>Features</h2>
+
+<ul>
+<li>[x] Circle CI with a custom ORB</li>
+<li>[x] Travis CI</li>
+<li>[x] Bitrise CI</li>
+<li>[x] Caching strategy - CI build performance</li>
+<li>[ ] git commit hooks</li>
+<li>[ ] Circle CI ORB example</li>
+<li>[ ] Documentation</li>
+</ul>
+
+<p>GitHub actions.</p>
+
+<ul>
+<li>[x] Tag action</li>
+<li>[ ] Auto label</li>
+<li>[ ] Auto merge</li>
+<li>[ ] GitFlow</li>
+</ul>
+<h2 id='references-credits' class='heading'>References/Credits</h2>
+
+<ul>
+<li><a href="https://github.com/simple-icons/simple-icons">Simple icons</a></li>
+</ul>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>Copyright 2020 KJM</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

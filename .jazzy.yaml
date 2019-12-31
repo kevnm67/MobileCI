@@ -1,5 +1,8 @@
-copyright: Copyright 2019 KJM
-author: kevnm67
-xcodebuild_arguments: [-target, CircleCI-iOS]
+# MobileCI document generator jazzy settings
+
+copyright: Copyright 2020 kevnm67
+author: Kevin Morton
+github_url: https://github.com/kevnm67/MobileCI
+xcodebuild_arguments: [-target, MobileCI-iOS]
 clean: true
 output: ./docs

@@ -1,0 +1,27 @@
+{% for type in types.implementing.AutoCaseName|enum %}
+// sourcery:file:./AutoCases/{{ type.name }}+AutoCases.generated.swift
+
+// MARK: {{type.name}}
+
+{{type.accessLevel}} extension {{type.name}} {
+    enum CaseName: String, CaseIterable {
+    {% for case in type.cases %}
+    {% if not case.annotations.asString %}
+        case {{case.name}}
+    {% else %}
+        case {{case.name}} = "{{ case.annotations.asString }}"
+    {% endif %}
+    {% endfor %}
+    }
+
+    var caseName: CaseName {
+        switch self {
+        {% for p in type.cases %}
+        case .{{p.name}}: return .{{p.name}}
+        {% endfor %}
+        }
+    }
+}
+
+// sourcery:end
+{% endfor %}

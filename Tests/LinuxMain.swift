@@ -1,6 +1,13 @@
-@testable import Circle - CI - PlaygroundTests
-import XCTest
+//
+//  LinuxMain.swift
+//
+//  Created by Kevin Morton. on 1/4/20.
+//  Copyright © 2020 KJM. All rights reserved.
+//
 
-XCTMain([
-    testCase(Circle - CI - PlaygroundTests.allTests)
-])
+//import XCTest
+//@testable import MobileCI
+//
+//XCTMain([
+//    testCase(MobileCITests.allTests)
+//])

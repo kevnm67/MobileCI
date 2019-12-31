@@ -1,3 +1,2 @@
 cache:
-  local: ~/Library/Caches/Rome
-  s3Bucket: /kjm-ios-frameworks/CircleCI/Rome
+  s3Bucket: /kjm-ios-frameworks/MobileCI/Rome

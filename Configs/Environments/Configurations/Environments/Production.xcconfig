@@ -1,0 +1,11 @@
+//
+// Production.xcconfig
+//
+
+ENVIRONMENT_NAME = production
+
+APP_DISPLAY_NAME_SUFFIX =
+
+BUNDLE_ID_SUFFIX =
+
+ROOT_URL = https:/$()/api.com

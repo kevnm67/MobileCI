@@ -1,0 +1,51 @@
+disabled_rules:
+  - line_length
+  - type_name
+  - function_body_length
+  - identifier_name
+  - force_unwrapping
+  - force_cast
+  - force_try
+
+opt_in_rules:
+  - anyobject_protocol
+  - attributes
+  - closure_end_indentation
+  - closure_spacing
+  - contains_over_first_not_nil
+  - empty_string
+  - explicit_init
+  - first_where
+  - nimble_operator
+  - empty_count
+  - vertical_parameter_alignment_on_call
+  - vertical_whitespace_closing_braces
+  - quick_discouraged_call
+  - quick_discouraged_focused_test
+  - quick_discouraged_pending_test
+  - yoda_condition
+
+analyzer_rules:
+  - unused_import
+
+vertical_whitespace:
+  max_empty_lines: 1
+
+cyclomatic_complexity:
+  warning: 3
+  error: 4
+
+type_body_length: 400
+
+file_length:
+  - 1000
+
+reporter: "json"
+
+custom_rules:
+  force_https:
+    name: "Force HTTPS over HTTP"
+    regex: "((?i)http(?!s))"
+    match_kinds: string
+    message: "HTTPS should be favored over HTTP"
+    severity: warning

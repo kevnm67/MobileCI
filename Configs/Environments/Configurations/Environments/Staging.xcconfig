@@ -1,0 +1,11 @@
+//
+// Staging.xcconfig
+//
+
+ENVIRONMENT_NAME = staging
+
+APP_DISPLAY_NAME_SUFFIX = -Staging
+
+BUNDLE_ID_SUFFIX = .staging
+
+ROOT_URL = https:/$()/api.staging.com

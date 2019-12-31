@@ -1,0 +1,6 @@
+//
+//  Debug_Dev.xcconfig
+//
+
+#include "../Base/Debug.xcconfig"
+#include "../Environments/Develop.xcconfig"

@@ -1,0 +1,15 @@
+// swiftlint:disable vertical_whitespace
+
+import Foundation
+
+{% for type in types.based.AutoDescription %} {% if type.variables.count %}
+extension {{ type.name }}: CustomStringConvertible, CustomDebugStringConvertible {
+    public var description: String { return debugDescription }
+
+    public var debugDescription: String {
+        return [
+          {% for variable in type.variables|!annotated:"skipDescription" %} "{{ variable.name }} : \(String(describing: self.{{ variable.name }}))"{% if not forloop.last %}, {% endif %}{% if forloop.last %}].joined(separator: "\n"){% endif %}
+        {% endfor %}
+    }
+}
+{% endif %}{% endfor %}

@@ -1,0 +1,9 @@
+//
+// Release-Prod.xcconfig
+//
+
+#include "../Environments/Production.xcconfig"
+
+ONLY_ACTIVE_ARCH='NO'
+
+ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon
