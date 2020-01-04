@@ -1,15 +1,14 @@
 //
 //  DateExtensionsSpec.swift
-//  CircleCI
 //
-//  Created by Kevin Morton on 11/2/19.
-//  Copyright © 2019 Circle-CI-Playground. All rights reserved.
+//  Created by Kevin Morton. on 1/4/20.
+//  Copyright © 2020 KJM. All rights reserved.
 //
 
 import Nimble
 import Quick
 
-@testable import CircleCI
+@testable import MobileCI
 
 class DateExtensionsSpec: QuickSpec {
     override func spec() {
@@ -23,7 +22,7 @@ class DateExtensionsSpec: QuickSpec {
 
             context("weekday") {
                 it("equals 5") {
-                    expect(date?.weekday).to(equal(6))
+                    expect(date?.weekday) == 6
                 }
 
                 it("does not equal 3") {
@@ -43,11 +42,11 @@ class DateExtensionsSpec: QuickSpec {
 
             context("is tomorrow") {
                 var today: Date!
-               
+
                 beforeEach {
                     today = Date()
                 }
-                
+
                 it("returns falsy") {
                     expect(today.isInTomorrow).to(beFalsy())
                 }
@@ -61,14 +60,14 @@ class DateExtensionsSpec: QuickSpec {
             context("is on the weekend") {
                 it("returns truthy") {
                     let date = Date()
-                    expect(date.isInWeekend).to(equal(Calendar.current.isDateInWeekend(date)))
+                    expect(date.isInWeekend) == Calendar.current.isDateInWeekend(date)
                 }
             }
 
             context("is a workday") {
                 it("returns truthy") {
                     let date = Date()
-                    expect(date.isWorkday).to(equal(!Calendar.current.isDateInWeekend(date)))
+                    expect(date.isWorkday) == !Calendar.current.isDateInWeekend(date)
                 }
             }
         }

@@ -1,9 +1,8 @@
 //
 //  UITableViewExtensions.swift
-//  CircleCI-iOS
 //
-//  Created by Kevin Morton on 11/2/19.
-//  Copyright © 2019 Circle-CI-Playground. All rights reserved.
+//  Created by Kevin Morton. on 1/4/20.
+//  Copyright © 2020 KJM. All rights reserved.
 //
 
 import UIKit
@@ -18,7 +17,7 @@ public extension UITableView {
 
     /// Index of the tableviews last section.
     var lastSection: Int? {
-        return numberOfSections > 0 ? numberOfSections - 1 : nil
+        numberOfSections > 0 ? numberOfSections - 1 : nil
     }
 
     func indexPathForLastRow(inSection section: Int) -> IndexPath? {

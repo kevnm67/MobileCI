@@ -1,4 +1,4 @@
-# Circle CI Playground
+# Mobile CI
 
 <body>
 	<table>
@@ -11,14 +11,14 @@
 		<tbody>
 		<tr>
 				<td>Circle CI</td>
-				<td><a href="https://circleci.com/kevnm67/Circle-CI-Playground">
-						<img src="https://circleci.com/gh/kevnm67/Circle-CI-Playground.svg?style=svg" />
+				<td><a href="https://circleci.com/kevnm67/MobileCI">
+						<img src="https://circleci.com/gh/kevnm67/MobileCI.svg?style=svg" />
 				</a></td>
 			</tr>
 			<tr>
 				<td>Travis CI</td>
-				<td><a href="https://travis-ci.com/kevnm67/Circle-CI-Playground">
-						<img src="https://travis-ci.com/kevnm67/Circle-CI-Playground.svg?branch=master" />
+				<td><a href="https://travis-ci.com/kevnm67/MobileCI">
+						<img src="https://travis-ci.com/kevnm67/MobileCI.svg?branch=master" />
 					</a></td>
 			</tr>
 			<tr>
@@ -29,14 +29,14 @@
 			</tr>
 			<tr>
 				<td>Maintainability</td>
-				<td><a href="https://codeclimate.com/github/kevnm67/Circle-CI-Playground/maintainability">
-						<img src="https://api.codeclimate.com/v1/badges/7b2a5876060532965ee2/maintainability" />
+				<td><a href="https://codeclimate.com/github/kevnm67/MobileCI/maintainability">
+						<img src="https://api.codeclimate.com/v1/badges/355acfb7dbfab41bec2d/maintainability" />
 					</a></td>
 			</tr>
 			<tr>
 			<td>Code Coverage</td>
-			<td><a href="https://codeclimate.com/github/kevnm67/Circle-CI-Playground/test_coverage">
-					<img src="https://api.codeclimate.com/v1/badges/7b2a5876060532965ee2/test_coverage" />
+			<td><a href="https://codeclimate.com/github/kevnm67/MobileCI/test_coverage">
+					<img src="https://api.codeclimate.com/v1/badges/355acfb7dbfab41bec2d/test_coverage" />
 				</a></td>
 			</tr>
 		</tbody>
@@ -44,7 +44,7 @@
 </body>
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-![GitHub release](https://img.shields.io/github/v/release/kevnm67/Circle-CI-Playground?include_prereleases)
+![GitHub release](https://img.shields.io/github/v/release/kevnm67/Mobile-CI?include_prereleases)
 [![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 
 # Info

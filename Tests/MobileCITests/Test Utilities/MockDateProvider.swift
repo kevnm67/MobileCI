@@ -1,9 +1,8 @@
 //
 //  MockDateProvider.swift
-//  CircleCI-iOS
 //
-//  Created by Kevin Morton on 11/10/19.
-//  Copyright © 2019 Circle-CI-Playground. All rights reserved.
+//  Created by Kevin Morton. on 1/4/20.
+//  Copyright © 2020 KJM. All rights reserved.
 //
 
 import Foundation
@@ -31,7 +30,7 @@ struct DateTestProvider {
     // MARK: -
 
     static func testDate(_ dateString: String = "2019-02-17") -> Date? {
-        return testDate(DateWithTime(dateString: dateString))
+        testDate(DateWithTime(dateString: dateString))
     }
 
     static func testDate(_ dateTime: DateWithTime) -> Date? {

@@ -16,7 +16,7 @@ opt_in_rules:
   - empty_string
   - explicit_init
   - first_where
-  - modifier_order
+  - nimble_operator
   - empty_count
   - vertical_parameter_alignment_on_call
   - vertical_whitespace_closing_braces

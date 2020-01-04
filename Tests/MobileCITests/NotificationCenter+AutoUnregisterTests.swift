@@ -1,16 +1,15 @@
 //
 //  NotificationCenter+AutoUnregisterTests.swift
-//  CircleCI-iOS
 //
-//  Created by Kevin Morton on 10/13/19.
-//  Copyright © 2019 CircleCI. All rights reserved.
+//  Created by Kevin Morton. on 1/4/20.
+//  Copyright © 2020 KJM. All rights reserved.
 //
 
 import Foundation
 import Nimble
 import Quick
 
-@testable import CircleCI
+@testable import MobileCI
 
 let testNotification = Notification.Name(rawValue: "NotificationUnregisteringTestsNotification")
 let operationQueueNotification = Notification.Name(rawValue: "OperationQueueNotification")
@@ -40,7 +39,7 @@ class NotificationCenter_AutoUnregisterTests: QuickSpec {
                     // Posting a notification should increment the counter
                     NotificationCenter.default.post(name: testNotification, object: nil)
 
-                    expect(counter).to(equal(1))
+                    expect(counter) == 1
                 }
             }
 
@@ -55,7 +54,7 @@ class NotificationCenter_AutoUnregisterTests: QuickSpec {
                     NotificationCenter.default.post(name: testNotification, object: nil)
 
                     // Observer block isn't executed again
-                    expect(counter).to(equal(1))
+                    expect(counter) == 1
                 }
             }
 
@@ -63,7 +62,7 @@ class NotificationCenter_AutoUnregisterTests: QuickSpec {
                 it("should have a count of 1 notification") {
                     NotificationCenter.default.post(name: testNotification, object: nil)
 
-                    expect(counter).to(equal(1))
+                    expect(counter) == 1
                 }
 
                 it("fails to unregister causing block to stay alive after token released") {
@@ -77,7 +76,7 @@ class NotificationCenter_AutoUnregisterTests: QuickSpec {
                     // Posting notification increments counter (as expected)
                     NotificationCenter.default.post(name: testNotification, object: nil)
 
-                    expect(counter).to(equal(1))
+                    expect(counter) == 1
 
                     // Destroy observation token
                     if token != nil { token = nil }
@@ -86,7 +85,7 @@ class NotificationCenter_AutoUnregisterTests: QuickSpec {
                     NotificationCenter.default.post(name: testNotification, object: nil)
 
                     // Increments counter again!
-                    expect(counter).to(equal(2))
+                    expect(counter) == 2
                 }
             }
         }
@@ -98,7 +97,7 @@ class NotificationCenter_AutoUnregisterTests: QuickSpec {
                     notificationCenter.postOnMainThread(name: operationQueueNotification)
 
                     DispatchQueue.main.async {
-                        expect(notificationCenter.postNotificationInvoked).to(beTrue())
+                        expect(notificationCenter.postNotificationInvoked) == true
                     }
                 }
             }

@@ -1,15 +1,14 @@
 //
 //  UITableViewExtensionsSpec.swift
-//  CircleCI
 //
-//  Created by Kevin Morton on 11/2/19.
-//  Copyright © 2019 Circle-CI-Playground. All rights reserved.
+//  Created by Kevin Morton. on 1/4/20.
+//  Copyright © 2020 KJM. All rights reserved.
 //
 
 import Nimble
 import Quick
 
-@testable import CircleCI
+@testable import MobileCI
 
 class UITableViewExtensionsSpec: QuickSpec {
     override func spec() {
@@ -24,11 +23,11 @@ class UITableViewExtensionsSpec: QuickSpec {
             }
 
             it("returns 0 for last section") {
-                expect(tableView.lastSection).to(equal(0))
+                expect(tableView.lastSection) == 0
             }
 
             it("returns row 0 section 0 for indexPathForLastRow") {
-                expect(tableView.indexPathForLastRow).to(equal(indexPathOfFirstItem))
+                expect(tableView.indexPathForLastRow) == indexPathOfFirstItem
             }
 
             context("when number of sections is not greate than zero") {
@@ -63,13 +62,13 @@ class UITableViewExtensionsSpec: QuickSpec {
                 }
 
                 it("has last section equal to 1") {
-                    expect(tableView.lastSection).to(equal(data.count - 1))
+                    expect(tableView.lastSection) == data.count - 1
                 }
 
                 it("equals expected indexPath for the last row") {
                     let expected = IndexPath(row: section2.count - 1, section: data.count - 1)
 
-                    expect(tableView.indexPathForLastRow).to(equal(expected))
+                    expect(tableView.indexPathForLastRow) == expected
                 }
             }
         }
