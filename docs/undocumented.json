@@ -1,0 +1,12 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/kevin_morton_work/Github/KJM/MobileCI/Sources/UITableViewExtensions.swift",
+      "line": 23,
+      "symbol": "UITableView.indexPathForLastRow(inSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/kevin_morton_work/Github/KJM/MobileCI"
+}

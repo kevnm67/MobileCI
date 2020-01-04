@@ -11,7 +11,8 @@ import Foundation
 
 public extension Date {
 
-    /// Current calendar.  NOTE: calendar is based on the users system (e.g. Calendar.current.identifier)..
+    /// Current calendar.
+    /// - NOTE: calendar is based on the users system (e.g. Calendar.current.identifier).
     var calendar: Calendar {
         Calendar(identifier: Calendar.current.identifier)
     }

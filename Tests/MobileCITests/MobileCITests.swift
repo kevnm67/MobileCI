@@ -9,8 +9,6 @@ import Foundation
 import MobileCI
 import XCTest
 
-@testable import MobileCITests
-
 class MobileCITests: XCTestCase {
 
     func testExample() {

@@ -1,4 +1,4 @@
-copyright: Copyright 2019 KJM
+copyright: Copyright 2020 KJM
 author: kevnm67
 xcodebuild_arguments: [-target, MobileCI-iOS]
 clean: true

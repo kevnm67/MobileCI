@@ -19,7 +19,7 @@
 		56E37271236E6F8500E8BF31 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E37270236E6F8500E8BF31 /* DateExtensions.swift */; };
 		56E37273236E710D00E8BF31 /* DateExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E37272236E710D00E8BF31 /* DateExtensionsSpec.swift */; };
 		56E37275236E78D100E8BF31 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E37274236E78D100E8BF31 /* UITableViewExtensions.swift */; };
-		56E37278236E7A3D00E8BF31 /* UITableViewExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E37277236E7A3D00E8BF31 /* UITableViewExtensionsSpec.swift */; };
+		56E37278236E7A3D00E8BF31 /* MobileCITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56E37277236E7A3D00E8BF31 /* MobileCITests.swift */; };
 		56EBF2AE2353CD3C004E3E79 /* NotificationCenter+AutoUnregister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBF2AC2353CD3B004E3E79 /* NotificationCenter+AutoUnregister.swift */; };
 		56EBF2B12353CD6F004E3E79 /* NotificationCenter+AutoUnregisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBF2B02353CD6F004E3E79 /* NotificationCenter+AutoUnregisterTests.swift */; };
 		56EBF2B42353CD9B004E3E79 /* NotificationCenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBF2B32353CD9B004E3E79 /* NotificationCenterSpy.swift */; };
@@ -59,20 +59,20 @@
 		52D6DA0F1BF000BD002C0205 /* Circle-CI-Playground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Circle-CI-Playground.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56038E462353C74600FA1845 /* Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		5686BBF22353B86E00F33931 /* SequenceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensions.swift; sourceTree = "<group>"; };
-		5686BBF42353B93200F33931 /* SequenceExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SequenceExtensionsSpec.swift; path = ../MobileCITests/SequenceExtensionsSpec.swift; sourceTree = "<group>"; };
+		5686BBF42353B93200F33931 /* SequenceExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SequenceExtensionsSpec.swift; path = MobileCITests/SequenceExtensionsSpec.swift; sourceTree = "<group>"; };
 		5686BBF82353BC4700F33931 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		5686BBF92353BC4700F33931 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		56E3726C236E6BE900E8BF31 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		56E3726E236E6CF800E8BF31 /* StringExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtensionsSpec.swift; path = ../MobileCITests/StringExtensionsSpec.swift; sourceTree = "<group>"; };
+		56E3726E236E6CF800E8BF31 /* StringExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtensionsSpec.swift; path = MobileCITests/StringExtensionsSpec.swift; sourceTree = "<group>"; };
 		56E37270236E6F8500E8BF31 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
-		56E37272236E710D00E8BF31 /* DateExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateExtensionsSpec.swift; path = ../MobileCITests/DateExtensionsSpec.swift; sourceTree = "<group>"; };
+		56E37272236E710D00E8BF31 /* DateExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateExtensionsSpec.swift; path = MobileCITests/DateExtensionsSpec.swift; sourceTree = "<group>"; };
 		56E37274236E78D100E8BF31 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
-		56E37277236E7A3D00E8BF31 /* UITableViewExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UITableViewExtensionsSpec.swift; path = ../MobileCITests/UITableViewExtensionsSpec.swift; sourceTree = "<group>"; };
+		56E37277236E7A3D00E8BF31 /* MobileCITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MobileCITests.swift; path = MobileCITests/MobileCITests.swift; sourceTree = "<group>"; };
 		56EBF2AC2353CD3B004E3E79 /* NotificationCenter+AutoUnregister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+AutoUnregister.swift"; sourceTree = "<group>"; };
-		56EBF2B02353CD6F004E3E79 /* NotificationCenter+AutoUnregisterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NotificationCenter+AutoUnregisterTests.swift"; path = "../MobileCITests/NotificationCenter+AutoUnregisterTests.swift"; sourceTree = "<group>"; };
-		56EBF2B32353CD9B004E3E79 /* NotificationCenterSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationCenterSpy.swift; path = "../../MobileCITests/Test Utilities/NotificationCenterSpy.swift"; sourceTree = "<group>"; };
-		56F38D6123789FAC00B67491 /* MockTableViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockTableViewDatasource.swift; path = "../../MobileCITests/Test Utilities/MockTableViewDatasource.swift"; sourceTree = "<group>"; };
-		56F38D632378C94000B67491 /* MockDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockDateProvider.swift; path = "../../MobileCITests/Test Utilities/MockDateProvider.swift"; sourceTree = "<group>"; };
+		56EBF2B02353CD6F004E3E79 /* NotificationCenter+AutoUnregisterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NotificationCenter+AutoUnregisterTests.swift"; path = "MobileCITests/NotificationCenter+AutoUnregisterTests.swift"; sourceTree = "<group>"; };
+		56EBF2B32353CD9B004E3E79 /* NotificationCenterSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterSpy.swift; sourceTree = "<group>"; };
+		56F38D6123789FAC00B67491 /* MockTableViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTableViewDatasource.swift; sourceTree = "<group>"; };
+		56F38D632378C94000B67491 /* MockDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDateProvider.swift; sourceTree = "<group>"; };
 		AD2FAA261CD0B6D800659CF4 /* MobileCI.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MobileCI.plist; sourceTree = "<group>"; };
 		AD2FAA281CD0B6E100659CF4 /* MobileCITests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MobileCITests.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,11 +101,11 @@
 		52D6D9721BEFF229002C0205 = {
 			isa = PBXGroup;
 			children = (
+				52D6D99C1BEFF38C002C0205 /* Configs */,
+				5686BBF72353BC4600F33931 /* Frameworks */,
+				52D6D97D1BEFF229002C0205 /* Products */,
 				8933C7811EB5B7E0000D00A4 /* Sources */,
 				8933C7831EB5B7EB000D00A4 /* Tests */,
-				52D6D99C1BEFF38C002C0205 /* Configs */,
-				52D6D97D1BEFF229002C0205 /* Products */,
-				5686BBF72353BC4600F33931 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,7 +147,8 @@
 				56F38D6123789FAC00B67491 /* MockTableViewDatasource.swift */,
 				56EBF2B32353CD9B004E3E79 /* NotificationCenterSpy.swift */,
 			);
-			path = "Test Utilities";
+			name = "Test Utilities";
+			path = "MobileCITests/Test Utilities";
 			sourceTree = "<group>";
 		};
 		8933C7811EB5B7E0000D00A4 /* Sources */ = {
@@ -166,14 +167,13 @@
 			isa = PBXGroup;
 			children = (
 				56E37272236E710D00E8BF31 /* DateExtensionsSpec.swift */,
+				56E37277236E7A3D00E8BF31 /* MobileCITests.swift */,
 				56EBF2B02353CD6F004E3E79 /* NotificationCenter+AutoUnregisterTests.swift */,
 				5686BBF42353B93200F33931 /* SequenceExtensionsSpec.swift */,
 				56E3726E236E6CF800E8BF31 /* StringExtensionsSpec.swift */,
 				56EBF2B22353CD9B004E3E79 /* Test Utilities */,
-				56E37277236E7A3D00E8BF31 /* UITableViewExtensionsSpec.swift */,
 			);
-			name = Tests;
-			path = "Tests/Circle-CI-PlaygroundTests";
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		DD7502721C68FC1B006590AF /* Frameworks */ = {
@@ -318,7 +318,7 @@
 				56F38D652378D05900B67491 /* MockDateProvider.swift in Sources */,
 				56EBF2B12353CD6F004E3E79 /* NotificationCenter+AutoUnregisterTests.swift in Sources */,
 				56EBF2B42353CD9B004E3E79 /* NotificationCenterSpy.swift in Sources */,
-				56E37278236E7A3D00E8BF31 /* UITableViewExtensionsSpec.swift in Sources */,
+				56E37278236E7A3D00E8BF31 /* MobileCITests.swift in Sources */,
 				56E3726F236E6CF800E8BF31 /* StringExtensionsSpec.swift in Sources */,
 				56F38D6223789FAC00B67491 /* MockTableViewDatasource.swift in Sources */,
 				56E37273236E710D00E8BF31 /* DateExtensionsSpec.swift in Sources */,

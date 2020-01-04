@@ -5,9 +5,9 @@
 //  Copyright © 2020 KJM. All rights reserved.
 //
 
-import XCTest
-@testable import MobileCI
-
-XCTMain([
-    testCase(MobileCITests.allTests)
-])
+//import XCTest
+//@testable import MobileCI
+//
+//XCTMain([
+//    testCase(MobileCITests.allTests)
+//])
