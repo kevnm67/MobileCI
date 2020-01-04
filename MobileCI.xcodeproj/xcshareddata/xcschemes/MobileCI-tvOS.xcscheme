@@ -17,7 +17,7 @@
                BlueprintIdentifier = "52D6D9EF1BEFFFBE002C0205"
                BuildableName = "Circle-CI-Playground.framework"
                BlueprintName = "Circle-CI-Playground-tvOS"
-               ReferencedContainer = "container:CircleCI.xcodeproj">
+               ReferencedContainer = "container:MobileCI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,7 +34,7 @@
             BlueprintIdentifier = "52D6D9EF1BEFFFBE002C0205"
             BuildableName = "Circle-CI-Playground.framework"
             BlueprintName = "Circle-CI-Playground-tvOS"
-            ReferencedContainer = "container:CircleCI.xcodeproj">
+            ReferencedContainer = "container:MobileCI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <Testables>
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "DD75028C1C690C7A006590AF"
                BuildableName = "Circle-CI-Playground-tvOS Tests.xctest"
                BlueprintName = "Circle-CI-Playground-tvOS Tests"
-               ReferencedContainer = "container:CircleCI.xcodeproj">
+               ReferencedContainer = "container:MobileCI.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -66,7 +66,7 @@
             BlueprintIdentifier = "52D6D9EF1BEFFFBE002C0205"
             BuildableName = "Circle-CI-Playground.framework"
             BlueprintName = "Circle-CI-Playground-tvOS"
-            ReferencedContainer = "container:CircleCI.xcodeproj">
+            ReferencedContainer = "container:MobileCI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </LaunchAction>
@@ -82,7 +82,7 @@
             BlueprintIdentifier = "52D6D9EF1BEFFFBE002C0205"
             BuildableName = "Circle-CI-Playground.framework"
             BlueprintName = "Circle-CI-Playground-tvOS"
-            ReferencedContainer = "container:CircleCI.xcodeproj">
+            ReferencedContainer = "container:MobileCI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

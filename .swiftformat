@@ -1,4 +1,4 @@
---header "//\n//  {file}\n//\n//  Created by Kevin Morton. on {created}.\n//  Copyright © {year} KJM Productions. All rights reserved.\n//"
+--header "//\n//  {file}\n//\n//  Created by Kevin Morton. on {created}.\n//  Copyright © {year} KJM. All rights reserved.\n//"
 
 --enable blankLinesBetweenScopes
 --enable isEmpty
@@ -20,7 +20,6 @@
 --exponentgrouping disabled
 --fractiongrouping disabled
 --fragment false
---header ignore
 --hexgrouping 4,8
 --hexliteralcase uppercase
 --ifdef indent
@@ -33,10 +32,10 @@
 --patternlet hoist
 --ranges spaced
 --self init-only
---selfrequired 
+--selfrequired
 --semicolons inline
 --stripunusedargs always
---trailingclosures 
+--trailingclosures
 --trimwhitespace always
 --wraparguments before-first
 --wrapcollections before-first
@@ -44,3 +43,5 @@
 
 # Disable
 --disable blankLinesAtStartOfScope,strongOutlets
+
+--swiftversion 5.1.3

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-has_app_changes = !git.modified_files.grep(/Circle-CI-Playground/).empty?
+has_app_changes = !git.modified_files.grep(/Sources/).empty?
 
 ###
 ### Files to warn if changed:

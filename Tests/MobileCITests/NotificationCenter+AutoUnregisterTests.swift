@@ -1,16 +1,15 @@
 //
 //  NotificationCenter+AutoUnregisterTests.swift
-//  CircleCI-iOS
 //
-//  Created by Kevin Morton on 10/13/19.
-//  Copyright © 2019 CircleCI. All rights reserved.
+//  Created by Kevin Morton. on 1/4/20.
+//  Copyright © 2020 KJM. All rights reserved.
 //
 
 import Foundation
 import Nimble
 import Quick
 
-@testable import CircleCI
+@testable import MobileCI
 
 let testNotification = Notification.Name(rawValue: "NotificationUnregisteringTestsNotification")
 let operationQueueNotification = Notification.Name(rawValue: "OperationQueueNotification")

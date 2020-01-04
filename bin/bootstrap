@@ -6,7 +6,7 @@ cd ..
 
 # -------| Functions
 
-function setup_bundler {
+setup_bundler () {
     # Make sure to use 2.0
     bundle update --bundler
 
@@ -14,7 +14,7 @@ function setup_bundler {
     gem install bundler; bundle install
 }
 
-function do_brew {
+do_brew () {
     echo "Brewing..."
     brew bundle
 

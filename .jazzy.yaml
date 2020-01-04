@@ -1,5 +1,5 @@
 copyright: Copyright 2019 KJM
 author: kevnm67
-xcodebuild_arguments: [-target, CircleCI-iOS]
+xcodebuild_arguments: [-target, MobileCI-iOS]
 clean: true
 output: ./docs
