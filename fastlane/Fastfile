@@ -15,7 +15,7 @@ platform :ios do
   # Environment Variables #
   #########################
 
-  project_base_name = 'CircleCI'
+  project_base_name = 'MobileCI'
 
   ENV['CACHE_PREFIX'] = project_base_name
   ENV['BUILD_FOLDER'] = File.join('fastlane', 'Build')

@@ -3,7 +3,13 @@ HOMEBREW := $(shell command -v brew 2>/dev/null)
 BUNDLER := $(shell command -v bundle 2>/dev/null)
 JAZZY := $(shell command -v jazzy)
 
+VERSION = v0.0.8
+
 default: setup
+
+version:
+	Scripts/update_makefile.sh
+	Scripts/update_changelog.sh
 
 setup: \
 	pre_setup \
@@ -48,25 +54,20 @@ else
 endif
 
 install_gems:
-	$(info )
 	$(info Install Ruby Gems ...)
 
 	bundle install --without=documentation
 
 install_ios_dependencies:
-	$(info )
 	$(info Install iOS dependencies ...)
-
+	
+	brew install blender/homebrew-tap/rome
 	bundle exec fastlane carthage_ci
 
-update_ios_dependencies:
-		$(info )
-		$(info Install iOS dependencies ...)
+update:
+	$(info Install iOS dependencies ...)
 
-		bundle exec fastlane do_cart_update
-
-danger:
-	bundle exec danger
+	bundle exec fastlane do_cart_update
 
 test:
 	bundle exec fastlane test_iphone_pro
@@ -74,8 +75,7 @@ test:
 lint:
 	bundle exec pod lib lint
 
-generate_docs:
-	$(info )
+docs:
 	$(info Generating docs...)
 
 ifdef JAZZY
@@ -83,7 +83,7 @@ ifdef JAZZY
 	  --clean \
 	  --author 'Kevin Morton' \
 	  --author_url https://github.com/kevnm67 \
-	  --github_url https://github.com/kevnm67/CircleCI \
+	  --github_url https://github.com/kevnm67/MobileCI \
 	  --output docs/ \
 else
 	@echo Jazzy is missing... failed to install docs

@@ -3,18 +3,18 @@
 class AppInfoProvider
 
   class AppIdentifier
-    AppStore = 'com.kjm.circle-ci-iOS'
-    Development = 'com.kjm.circle-ci-iOS.development'
+    AppStore = 'com.kjm.mobile-ci-iOS'
+    Development = 'com.kjm.mobile-ci-iOS.development'
   end
 
   class DisplayName
-    AppStore = 'CircleCI'
-    Development = 'CircleCI - Dev'
+    AppStore = 'MobileCI'
+    Development = 'MobileCI - Dev'
   end
 
   class Scheme
-    AppStore = 'CircleCI-iOS'
-    Development = 'CircleCI-iOS'
+    AppStore = 'MobileCI-iOS'
+    Development = 'MobileCI-iOS'
   end
 
   class Configuration

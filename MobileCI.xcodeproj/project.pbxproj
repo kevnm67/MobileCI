@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52D6D9871BEFF229002C0205 /* CircleCI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* CircleCI.framework */; platformFilter = ios; };
+		52D6D9871BEFF229002C0205 /* MobileCI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52D6D97C1BEFF229002C0205 /* MobileCI.framework */; platformFilter = ios; };
 		56038E452353C09000FA1845 /* SequenceExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5686BBF42353B93200F33931 /* SequenceExtensionsSpec.swift */; platformFilter = ios; };
 		5686BBF32353B86E00F33931 /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5686BBF22353B86E00F33931 /* SequenceExtensions.swift */; };
 		5686BBFA2353BC4700F33931 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5686BBF82353BC4700F33931 /* Quick.framework */; platformFilter = ios; };
@@ -25,7 +25,6 @@
 		56EBF2B42353CD9B004E3E79 /* NotificationCenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EBF2B32353CD9B004E3E79 /* NotificationCenterSpy.swift */; };
 		56F38D6223789FAC00B67491 /* MockTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F38D6123789FAC00B67491 /* MockTableViewDatasource.swift */; };
 		56F38D652378D05900B67491 /* MockDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56F38D632378C94000B67491 /* MockDateProvider.swift */; };
-		8933C7901EB5B82D000D00A4 /* CircleCITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* CircleCITests.swift */; platformFilter = ios; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,30 +52,29 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		52D6D97C1BEFF229002C0205 /* CircleCI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CircleCI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		52D6D9861BEFF229002C0205 /* CircleCI-iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CircleCI-iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52D6D97C1BEFF229002C0205 /* MobileCI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MobileCI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52D6D9861BEFF229002C0205 /* MobileCI-iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MobileCI-iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9E21BEFFF6E002C0205 /* Circle-CI-Playground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Circle-CI-Playground.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6D9F01BEFFFBE002C0205 /* Circle-CI-Playground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Circle-CI-Playground.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52D6DA0F1BF000BD002C0205 /* Circle-CI-Playground.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Circle-CI-Playground.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		56038E462353C74600FA1845 /* Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		5686BBF22353B86E00F33931 /* SequenceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensions.swift; sourceTree = "<group>"; };
-		5686BBF42353B93200F33931 /* SequenceExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensionsSpec.swift; sourceTree = "<group>"; };
+		5686BBF42353B93200F33931 /* SequenceExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SequenceExtensionsSpec.swift; path = ../MobileCITests/SequenceExtensionsSpec.swift; sourceTree = "<group>"; };
 		5686BBF82353BC4700F33931 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		5686BBF92353BC4700F33931 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		56E3726C236E6BE900E8BF31 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		56E3726E236E6CF800E8BF31 /* StringExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionsSpec.swift; sourceTree = "<group>"; };
+		56E3726E236E6CF800E8BF31 /* StringExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtensionsSpec.swift; path = ../MobileCITests/StringExtensionsSpec.swift; sourceTree = "<group>"; };
 		56E37270236E6F8500E8BF31 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
-		56E37272236E710D00E8BF31 /* DateExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionsSpec.swift; sourceTree = "<group>"; };
+		56E37272236E710D00E8BF31 /* DateExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateExtensionsSpec.swift; path = ../MobileCITests/DateExtensionsSpec.swift; sourceTree = "<group>"; };
 		56E37274236E78D100E8BF31 /* UITableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
-		56E37277236E7A3D00E8BF31 /* UITableViewExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensionsSpec.swift; sourceTree = "<group>"; };
+		56E37277236E7A3D00E8BF31 /* UITableViewExtensionsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UITableViewExtensionsSpec.swift; path = ../MobileCITests/UITableViewExtensionsSpec.swift; sourceTree = "<group>"; };
 		56EBF2AC2353CD3B004E3E79 /* NotificationCenter+AutoUnregister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+AutoUnregister.swift"; sourceTree = "<group>"; };
-		56EBF2B02353CD6F004E3E79 /* NotificationCenter+AutoUnregisterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+AutoUnregisterTests.swift"; sourceTree = "<group>"; };
-		56EBF2B32353CD9B004E3E79 /* NotificationCenterSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterSpy.swift; sourceTree = "<group>"; };
-		56F38D6123789FAC00B67491 /* MockTableViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTableViewDatasource.swift; sourceTree = "<group>"; };
-		56F38D632378C94000B67491 /* MockDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDateProvider.swift; sourceTree = "<group>"; };
-		8933C7891EB5B82A000D00A4 /* CircleCITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleCITests.swift; sourceTree = "<group>"; };
-		AD2FAA261CD0B6D800659CF4 /* CircleCI.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CircleCI.plist; sourceTree = "<group>"; };
-		AD2FAA281CD0B6E100659CF4 /* CircleCITests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CircleCITests.plist; sourceTree = "<group>"; };
+		56EBF2B02353CD6F004E3E79 /* NotificationCenter+AutoUnregisterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NotificationCenter+AutoUnregisterTests.swift"; path = "../MobileCITests/NotificationCenter+AutoUnregisterTests.swift"; sourceTree = "<group>"; };
+		56EBF2B32353CD9B004E3E79 /* NotificationCenterSpy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationCenterSpy.swift; path = "../../MobileCITests/Test Utilities/NotificationCenterSpy.swift"; sourceTree = "<group>"; };
+		56F38D6123789FAC00B67491 /* MockTableViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockTableViewDatasource.swift; path = "../../MobileCITests/Test Utilities/MockTableViewDatasource.swift"; sourceTree = "<group>"; };
+		56F38D632378C94000B67491 /* MockDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockDateProvider.swift; path = "../../MobileCITests/Test Utilities/MockDateProvider.swift"; sourceTree = "<group>"; };
+		AD2FAA261CD0B6D800659CF4 /* MobileCI.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MobileCI.plist; sourceTree = "<group>"; };
+		AD2FAA281CD0B6E100659CF4 /* MobileCITests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MobileCITests.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +91,7 @@
 			files = (
 				5686BBFA2353BC4700F33931 /* Quick.framework in Frameworks */,
 				5686BBFB2353BC4700F33931 /* Nimble.framework in Frameworks */,
-				52D6D9871BEFF229002C0205 /* CircleCI.framework in Frameworks */,
+				52D6D9871BEFF229002C0205 /* MobileCI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,8 +112,8 @@
 		52D6D97D1BEFF229002C0205 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				52D6D97C1BEFF229002C0205 /* CircleCI.framework */,
-				52D6D9861BEFF229002C0205 /* CircleCI-iOS Tests.xctest */,
+				52D6D97C1BEFF229002C0205 /* MobileCI.framework */,
+				52D6D9861BEFF229002C0205 /* MobileCI-iOS Tests.xctest */,
 				52D6D9E21BEFFF6E002C0205 /* Circle-CI-Playground.framework */,
 				52D6D9F01BEFFFBE002C0205 /* Circle-CI-Playground.framework */,
 				52D6DA0F1BF000BD002C0205 /* Circle-CI-Playground.framework */,
@@ -167,7 +165,6 @@
 		8933C7831EB5B7EB000D00A4 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				8933C7891EB5B82A000D00A4 /* CircleCITests.swift */,
 				56E37272236E710D00E8BF31 /* DateExtensionsSpec.swift */,
 				56EBF2B02353CD6F004E3E79 /* NotificationCenter+AutoUnregisterTests.swift */,
 				5686BBF42353B93200F33931 /* SequenceExtensionsSpec.swift */,
@@ -182,7 +179,7 @@
 		DD7502721C68FC1B006590AF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AD2FAA261CD0B6D800659CF4 /* CircleCI.plist */,
+				AD2FAA261CD0B6D800659CF4 /* MobileCI.plist */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -190,7 +187,7 @@
 		DD7502731C68FC20006590AF /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				AD2FAA281CD0B6E100659CF4 /* CircleCITests.plist */,
+				AD2FAA281CD0B6E100659CF4 /* MobileCITests.plist */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -208,9 +205,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		52D6D97B1BEFF229002C0205 /* CircleCI-iOS */ = {
+		52D6D97B1BEFF229002C0205 /* MobileCI-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52D6D9901BEFF229002C0205 /* Build configuration list for PBXNativeTarget "CircleCI-iOS" */;
+			buildConfigurationList = 52D6D9901BEFF229002C0205 /* Build configuration list for PBXNativeTarget "MobileCI-iOS" */;
 			buildPhases = (
 				52D6D9771BEFF229002C0205 /* Sources */,
 				52D6D9781BEFF229002C0205 /* Frameworks */,
@@ -221,14 +218,14 @@
 			);
 			dependencies = (
 			);
-			name = "CircleCI-iOS";
+			name = "MobileCI-iOS";
 			productName = "Circle-CI-Playground";
-			productReference = 52D6D97C1BEFF229002C0205 /* CircleCI.framework */;
+			productReference = 52D6D97C1BEFF229002C0205 /* MobileCI.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		52D6D9851BEFF229002C0205 /* CircleCI-iOS Tests */ = {
+		52D6D9851BEFF229002C0205 /* MobileCI-iOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52D6D9931BEFF229002C0205 /* Build configuration list for PBXNativeTarget "CircleCI-iOS Tests" */;
+			buildConfigurationList = 52D6D9931BEFF229002C0205 /* Build configuration list for PBXNativeTarget "MobileCI-iOS Tests" */;
 			buildPhases = (
 				52D6D9821BEFF229002C0205 /* Sources */,
 				52D6D9831BEFF229002C0205 /* Frameworks */,
@@ -240,9 +237,9 @@
 			dependencies = (
 				52D6D9891BEFF229002C0205 /* PBXTargetDependency */,
 			);
-			name = "CircleCI-iOS Tests";
+			name = "MobileCI-iOS Tests";
 			productName = "Circle-CI-PlaygroundTests";
-			productReference = 52D6D9861BEFF229002C0205 /* CircleCI-iOS Tests.xctest */;
+			productReference = 52D6D9861BEFF229002C0205 /* MobileCI-iOS Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -253,7 +250,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 1020;
-				ORGANIZATIONNAME = "Circle-CI-Playground";
+				ORGANIZATIONNAME = "Kevin Morton";
 				TargetAttributes = {
 					52D6D97B1BEFF229002C0205 = {
 						CreatedOnToolsVersion = 7.1;
@@ -265,7 +262,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 52D6D9761BEFF229002C0205 /* Build configuration list for PBXProject "CircleCI" */;
+			buildConfigurationList = 52D6D9761BEFF229002C0205 /* Build configuration list for PBXProject "MobileCI" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -278,8 +275,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				52D6D97B1BEFF229002C0205 /* CircleCI-iOS */,
-				52D6D9851BEFF229002C0205 /* CircleCI-iOS Tests */,
+				52D6D97B1BEFF229002C0205 /* MobileCI-iOS */,
+				52D6D9851BEFF229002C0205 /* MobileCI-iOS Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -319,7 +316,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				56F38D652378D05900B67491 /* MockDateProvider.swift in Sources */,
-				8933C7901EB5B82D000D00A4 /* CircleCITests.swift in Sources */,
 				56EBF2B12353CD6F004E3E79 /* NotificationCenter+AutoUnregisterTests.swift in Sources */,
 				56EBF2B42353CD9B004E3E79 /* NotificationCenterSpy.swift in Sources */,
 				56E37278236E7A3D00E8BF31 /* UITableViewExtensionsSpec.swift in Sources */,
@@ -336,7 +332,7 @@
 		52D6D9891BEFF229002C0205 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			platformFilter = ios;
-			target = 52D6D97B1BEFF229002C0205 /* CircleCI-iOS */;
+			target = 52D6D97B1BEFF229002C0205 /* MobileCI-iOS */;
 			targetProxy = 52D6D9881BEFF229002C0205 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -465,7 +461,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Configs/CircleCI.plist;
+				INFOPLIST_FILE = Configs/MobileCI.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -474,9 +470,9 @@
 					"@loader_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kjm.circle-ci$(BUNDLE_ID_SUFFIX)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kjm.mobile-ci$(BUNDLE_ID_SUFFIX)";
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
-				PRODUCT_NAME = CircleCI;
+				PRODUCT_NAME = MobileCI;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -494,7 +490,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Configs/CircleCI.plist;
+				INFOPLIST_FILE = Configs/MobileCI.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -502,9 +498,9 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kjm.circle-ci$(BUNDLE_ID_SUFFIX)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kjm.mobile-ci$(BUNDLE_ID_SUFFIX)";
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
-				PRODUCT_NAME = CircleCI;
+				PRODUCT_NAME = MobileCI;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -522,13 +518,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Configs/CircleCITests.plist;
+				INFOPLIST_FILE = Configs/MobileCITests.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kjm.circle-ci-iOS-Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kjm.mobile-ci-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -544,13 +540,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Configs/CircleCITests.plist;
+				INFOPLIST_FILE = Configs/MobileCITests.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kjm.circle-ci-iOS-Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kjm.mobile-ci-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -629,7 +625,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Configs/CircleCI.plist;
+				INFOPLIST_FILE = Configs/MobileCI.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -638,9 +634,9 @@
 					"@loader_path/Frameworks",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kjm.circle-ci$(BUNDLE_ID_SUFFIX)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kjm.mobile-ci$(BUNDLE_ID_SUFFIX)";
 				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)";
-				PRODUCT_NAME = CircleCI;
+				PRODUCT_NAME = MobileCI;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -657,13 +653,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Configs/CircleCITests.plist;
+				INFOPLIST_FILE = Configs/MobileCITests.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kjm.circle-ci-iOS-Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kjm.mobile-ci-iOS-Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -673,7 +669,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		52D6D9761BEFF229002C0205 /* Build configuration list for PBXProject "CircleCI" */ = {
+		52D6D9761BEFF229002C0205 /* Build configuration list for PBXProject "MobileCI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52D6D98E1BEFF229002C0205 /* Debug */,
@@ -683,7 +679,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52D6D9901BEFF229002C0205 /* Build configuration list for PBXNativeTarget "CircleCI-iOS" */ = {
+		52D6D9901BEFF229002C0205 /* Build configuration list for PBXNativeTarget "MobileCI-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52D6D9911BEFF229002C0205 /* Debug */,
@@ -693,7 +689,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		52D6D9931BEFF229002C0205 /* Build configuration list for PBXNativeTarget "CircleCI-iOS Tests" */ = {
+		52D6D9931BEFF229002C0205 /* Build configuration list for PBXNativeTarget "MobileCI-iOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52D6D9941BEFF229002C0205 /* Debug */,

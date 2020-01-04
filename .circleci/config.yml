@@ -5,14 +5,14 @@ orbs:
 defaults: &defaults
   macos:
     xcode: '11.2.0'
-  working_directory: /Users/distiller/CircleCI
+  working_directory: /Users/distiller/MobileCI
   shell: /bin/bash --login -o pipefail
   environment:
-    CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
-    CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
+    CIRCLE_ARTIFACTS: /tmp/MobileCI-artifacts
+    CIRCLE_TEST_REPORTS: /tmp/MobileCI-test-results
     LC_ALL: en_US.UTF-8
     BUNDLE_PATH: vendor/bundle
-    FL_OUTPUT_DIR: /Users/distiller/CircleCI/fastlane
+    FL_OUTPUT_DIR: /Users/distiller/MobileCI/fastlane
 
 jobs:
   danger:

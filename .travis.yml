@@ -1,12 +1,11 @@
 os: osx
 osx_image: xcode11.2
 language: swift
-rvm: 2.6.4
+rvm: 2.6.1
 
 addons:
   homebrew:
-    packages:
-      - blender/homebrew-tap/rome
+    brewfile: true
     update: true
 
 cache:
@@ -23,7 +22,7 @@ branches:
 
 env:
    global:
-     - PROJECT_NAME="CircleCI"
+     - PROJECT_NAME="MobileCI"
      - LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8
 
 before_install:
@@ -35,27 +34,26 @@ jobs:
       stage: test
       name: iPhone Pro tests
       env:
-        - DESTINATION="test_iphone_pro"
-        - CACHE_SWIFT_VERSION="CircleCI"
+        - LANE="test_iphone_pro"
+        - CACHE_SWIFT_VERSION="MobileCI"
       before_script:
+        - bundle exec danger
         - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
         - chmod +x ./cc-test-reporter
         - "./cc-test-reporter before-build"
       script:
-        - bundle exec fastlane "$DESTINATION"
+        - bundle exec fastlane "$LANE"
       after_success:
-        - make danger
         - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
 
     - <<: *test
       name: iPad
-      env: DESTINATION="test_ipad"
+      env: LANE="test_ipad"
       if: (commit_message =~ /(@test ipad)/)
 
     - stage: carthage
       name: Carthage build
       if: "commit_message =~ /^(\\[#Carthage|\\[\\#Release)/"
-      os: osx
       script: carthage build --no-skip-current --configuration Release
 
 stages:

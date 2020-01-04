@@ -1,9 +1,8 @@
 //
 //  ViewController.swift
-//  Circle-CI-Playground
 //
-//  Created by kevnm67 on 10/13/19.
-//  Copyright © 2019 Circle-CI-Playground. All rights reserved.
+//  Created by Kevin Morton. on 1/4/20.
+//  Copyright © 2020 KJM. All rights reserved.
 //
 
 import UIKit

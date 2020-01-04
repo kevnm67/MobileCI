@@ -1,9 +1,8 @@
 //
 //  DateExtensions.swift
-//  CircleCI-iOS
 //
-//  Created by Kevin Morton on 11/2/19.
-//  Copyright © 2019 Circle-CI-Playground. All rights reserved.
+//  Created by Kevin Morton. on 1/4/20.
+//  Copyright © 2020 KJM. All rights reserved.
 //
 
 import Foundation
@@ -14,31 +13,31 @@ public extension Date {
 
     /// Current calendar.  NOTE: calendar is based on the users system (e.g. Calendar.current.identifier)..
     var calendar: Calendar {
-        return Calendar(identifier: Calendar.current.identifier)
+        Calendar(identifier: Calendar.current.identifier)
     }
 
     /// Numerical day of the week.
     var weekday: Int {
-        return calendar.component(.weekday, from: self)
+        calendar.component(.weekday, from: self)
     }
 
     /// Whether the date is today.
     var isInToday: Bool {
-        return calendar.isDateInToday(self)
+        calendar.isDateInToday(self)
     }
 
     /// Whether the date is tomorrow.
     var isInTomorrow: Bool {
-        return calendar.isDateInTomorrow(self)
+        calendar.isDateInTomorrow(self)
     }
 
     /// Whether the date is in the weekend.
     var isInWeekend: Bool {
-        return calendar.isDateInWeekend(self)
+        calendar.isDateInWeekend(self)
     }
 
     /// Whether the date is during the week.
     var isWorkday: Bool {
-        return !calendar.isDateInWeekend(self)
+        !calendar.isDateInWeekend(self)
     }
 }

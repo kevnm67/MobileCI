@@ -13,7 +13,7 @@ platform :ios do
   # Environment Variables #
   #########################
 
-  project_base_name = 'CircleCI'
+  project_base_name = 'MobileCI'
 
   ENV['CACHE_PREFIX'] = project_base_name
   ENV['BUILD_FOLDER'] = File.join('fastlane', 'Build')
@@ -42,7 +42,7 @@ platform :ios do
   desc 'Run tests for mac'
   lane :test_mac do
     run_tests_for_device(
-      schemes: ['CircleCI-macOS'],
+      schemes: ['MobileCI-macOS'],
       device: '' # deliberately empty
     )
   end
@@ -50,7 +50,7 @@ platform :ios do
   desc 'Run tests for tvOS'
   lane :test_tv_os do
     run_tests_for_device(
-      schemes: ['CircleCI-tvOS'],
+      schemes: ['MobileCI-tvOS'],
       device: 'Apple TV 1080p'
     )
   end

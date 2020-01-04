@@ -1,15 +1,14 @@
 //
 //  DateExtensionsSpec.swift
-//  CircleCI
 //
-//  Created by Kevin Morton on 11/2/19.
-//  Copyright © 2019 Circle-CI-Playground. All rights reserved.
+//  Created by Kevin Morton. on 1/4/20.
+//  Copyright © 2020 KJM. All rights reserved.
 //
 
 import Nimble
 import Quick
 
-@testable import CircleCI
+@testable import MobileCI
 
 class DateExtensionsSpec: QuickSpec {
     override func spec() {
@@ -43,11 +42,11 @@ class DateExtensionsSpec: QuickSpec {
 
             context("is tomorrow") {
                 var today: Date!
-               
+
                 beforeEach {
                     today = Date()
                 }
-                
+
                 it("returns falsy") {
                     expect(today.isInTomorrow).to(beFalsy())
                 }
