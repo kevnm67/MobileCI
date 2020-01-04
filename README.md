@@ -11,8 +11,8 @@
 		<tbody>
 		<tr>
 				<td>Circle CI</td>
-				<td><a href="https://circleci.com/kevnm67/Mobile-CI">
-						<img src="https://circleci.com/gh/kevnm67/Mobile-CI.svg?style=svg" />
+				<td><a href="https://circleci.com/kevnm67/MobileCI">
+						<img src="https://circleci.com/gh/kevnm67/MobileCI.svg?style=svg" />
 				</a></td>
 			</tr>
 			<tr>
