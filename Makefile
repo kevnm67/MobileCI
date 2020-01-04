@@ -15,7 +15,6 @@ setup: \
 	pre_setup \
 	check_for_ruby \
 	check_for_homebrew \
-	install_bundler \
 	install_gems \
 	install_ios_dependencies
 
@@ -24,12 +23,7 @@ pre_setup:
 	$(info iOS project setup ...)
 	$(info ------------------------------)
 
-ifeq ($(TRAVIS),true)
-	$(info Running in CI environment)
-endif
-
 check_for_ruby:
-	$(info )
 	$(info Checking for Ruby ...)
 
 ifeq ($(RUBY),)
@@ -37,7 +31,6 @@ ifeq ($(RUBY),)
 endif
 
 check_for_homebrew:
-	$(info )
 	$(info Checking for Homebrew ...)
 
 ifeq ($(HOMEBREW),)
@@ -56,11 +49,16 @@ endif
 install_gems:
 	$(info Install Ruby Gems ...)
 
+ifeq ($(CIRCLECI),)
+	$(info Not running on circle CI...)
+	$(MAKE) install_bundler
+endif
+
 	bundle install --without=documentation
 
 install_ios_dependencies:
 	$(info Install iOS dependencies ...)
-	
+
 	brew install blender/homebrew-tap/rome
 	bundle exec fastlane carthage_ci
 

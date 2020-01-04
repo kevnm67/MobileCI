@@ -22,7 +22,7 @@ platform :ios do
   ENV['AWS_REGION'] = 'us-east-1'
 
   # Cache prefix used for Rome (e.g. carthage cache on S3).
-  swift_cache_prefix = ENV['CACHE_SWIFT_VERSION']
+  rome_cache_prefix = ENV['CACHE_PREFIX']
 
   # All schemes that will be run for testing. NOTE: make sure each is a shared scheme.
   schemes_to_test = [
@@ -90,7 +90,7 @@ platform :ios do
   lane :do_cart_update do
     Dotenv.load('.env.local', '.env.development') unless is_ci?
 
-    run_rome_update(cache_prefix: swift_cache_prefix)
+    run_rome_update(cache_prefix: rome_cache_prefix)
   end
 
   desc 'Runs carthage bootstrap followed by Rome download (iOS) from our S3 cache'
@@ -101,7 +101,7 @@ platform :ios do
     rome(
       command: 'download',
       platform: 'iOS',
-      cacheprefix: swift_cache_prefix
+      cacheprefix: rome_cache_prefix
     )
 
     carthage(
@@ -111,7 +111,7 @@ platform :ios do
       use_binaries: false
     )
 
-    upload_command = rome_command('upload', swift_cache_prefix)
+    upload_command = rome_command('upload', rome_cache_prefix)
 
     # # upload what is missing
     sh("(cd ..; rome list --missing --platform ios | awk '{print $1}' | xargs rome #{upload_command} --platform ios)")

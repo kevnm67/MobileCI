@@ -28,7 +28,7 @@ platform :ios do
   ]
 
   # Cache prefix used for Rome (e.g. carthage cache on S3).
-  swift_cache_prefix = ENV['CACHE_SWIFT_VERSION']
+  rome_cache_prefix = ENV['CACHE_PREFIX']
 
   # All schemes that will be run for testing. NOTE: make sure each is a shared scheme.
   schemes_to_test = [

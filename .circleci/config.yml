@@ -4,24 +4,18 @@ orbs:
 
 defaults: &defaults
   macos:
-    xcode: '11.2.0'
+    xcode: '11.2.1'
   working_directory: /Users/distiller/MobileCI
   shell: /bin/bash --login -o pipefail
   environment:
-    CIRCLE_ARTIFACTS: /tmp/MobileCI-artifacts
-    CIRCLE_TEST_REPORTS: /tmp/MobileCI-test-results
+    PROJECT_NAME: "MobileCI"
+    CIRCLE_ARTIFACTS: /tmp/$PROJECT_NAME-artifacts
+    CIRCLE_TEST_REPORTS: /tmp/$PROJECT_NAME-test-results
     LC_ALL: en_US.UTF-8
     BUNDLE_PATH: vendor/bundle
-    FL_OUTPUT_DIR: /Users/distiller/MobileCI/fastlane
+    FL_OUTPUT_DIR: /Users/distiller/$PROJECT_NAME/fastlane
 
 jobs:
-  danger:
-    <<: *defaults
-    description: Run danger-swift
-    steps:
-      - checkout
-      - kjm-dev/danger
-
   test:
     <<: *defaults
     description: Run tests
@@ -29,10 +23,9 @@ jobs:
       - checkout
       - kjm-dev/danger
       - run:
-          name: Install Rome
-          command: brew install blender/homebrew-tap/rome
-      - kjm-dev/lane:
-          named: carthage_ci
+          name: Setup build environment
+          command: |
+            make setup
       - run:
           name: Setup Code Climate test-reporter
           command: |
@@ -45,6 +38,8 @@ jobs:
           name: Upload test results
           command: |
             ./cc-test-reporter after-build
+      - store_test_results:
+          path: /Users/distiller/$PROJECT_NAME/test_output
 
 workflows:
   build-and-test:
