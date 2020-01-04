@@ -14,25 +14,45 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52D6D9E11BEFFF6E002C0205"
-               BuildableName = "Circle-CI-Playground.framework"
-               BlueprintName = "Circle-CI-Playground-watchOS"
-               ReferencedContainer = "container:CircleCI.xcodeproj">
+               BlueprintIdentifier = "52D6D97B1BEFF229002C0205"
+               BuildableName = "MobileCI.framework"
+               BlueprintName = "MobileCI-iOS"
+               ReferencedContainer = "container:MobileCI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Debug_Dev"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       codeCoverageEnabled = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "52D6D97B1BEFF229002C0205"
+            BuildableName = "MobileCI.framework"
+            BlueprintName = "MobileCI-iOS"
+            ReferencedContainer = "container:MobileCI.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "52D6D9851BEFF229002C0205"
+               BuildableName = "MobileCI-iOS Tests.xctest"
+               BlueprintName = "MobileCI-iOS Tests"
+               ReferencedContainer = "container:MobileCI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Debug_Dev"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -44,10 +64,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52D6D9E11BEFFF6E002C0205"
-            BuildableName = "Circle-CI-Playground.framework"
-            BlueprintName = "Circle-CI-Playground-watchOS"
-            ReferencedContainer = "container:CircleCI.xcodeproj">
+            BlueprintIdentifier = "52D6D97B1BEFF229002C0205"
+            BuildableName = "MobileCI.framework"
+            BlueprintName = "MobileCI-iOS"
+            ReferencedContainer = "container:MobileCI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </LaunchAction>
@@ -60,15 +80,15 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52D6D9E11BEFFF6E002C0205"
-            BuildableName = "Circle-CI-Playground.framework"
-            BlueprintName = "Circle-CI-Playground-watchOS"
-            ReferencedContainer = "container:CircleCI.xcodeproj">
+            BlueprintIdentifier = "52D6D97B1BEFF229002C0205"
+            BuildableName = "MobileCI.framework"
+            BlueprintName = "MobileCI-iOS"
+            ReferencedContainer = "container:MobileCI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Debug">
+      buildConfiguration = "Debug_Dev">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"

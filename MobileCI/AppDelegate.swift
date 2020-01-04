@@ -1,9 +1,8 @@
 //
 //  AppDelegate.swift
-//  CircleCI
 //
-//  Created by kevnm67 on 10/13/19.
-//  Copyright © 2019 CircleCI. All rights reserved.
+//  Created by Kevin Morton. on 1/4/20.
+//  Copyright © 2020 KJM. All rights reserved.
 //
 
 import UIKit
@@ -15,6 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        return true
+        true
     }
 }
