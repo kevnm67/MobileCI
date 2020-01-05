@@ -1,0 +1,16 @@
+//
+//  Test.xcconfig
+//
+
+/// This file defines the base configuration for a Test build of any project.
+/// This should be set at the project level for the Test configuration.
+/// https://github.com/jspahrsummers/xcconfigs/blob/master/Base/Configurations/Test.xcconfig
+
+#include "Debug.xcconfig"
+
+// Sandboxed apps can't be unit tested since they can't load some random
+// external bundle. So we disable sandboxing for testing.
+CODE_SIGN_ENTITLEMENTS =
+
+// Allow @testable imports
+ENABLE_TESTABILITY = YES

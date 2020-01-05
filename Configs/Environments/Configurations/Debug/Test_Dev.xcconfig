@@ -1,0 +1,6 @@
+//
+//  Test_Dev.xcconfig
+//
+
+#include "../Environments/Develop.xcconfig"
+#include "../Base/Test.xcconfig"

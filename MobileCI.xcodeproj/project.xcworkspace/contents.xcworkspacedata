@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/kevin_morton_work/Github/KJM/CircleCI/MobileCI.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

@@ -1,5 +1,10 @@
 # Mobile CI
 
+<p align="center">
+	CI playground mainly testing circle CI orbs and GitHub actions.
+</p>
+<br>
+
 <body>
 	<table>
 		<thead>
@@ -42,12 +47,25 @@
 		</tbody>
 	</table>
 </body>
+<br>
 
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-![GitHub release](https://img.shields.io/github/v/release/kevnm67/Mobile-CI?include_prereleases)
-[![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
-
-CI playground mainly testing circle CI orbs and GitHub actions.
+<p align="center">
+   <a href="https://developer.apple.com/swift/">
+      <img src="https://img.shields.io/badge/Swift-5.1-orange.svg?style=flat" alt="Swift 5.1">
+   </a>
+   <a href="http://cocoapods.org/pods/MobileCI">
+      <img src="https://img.shields.io/cocoapods/v/MobileCI.svg?style=flat" alt="Version">
+   </a>
+   <a href="https://github.com/kevnm67/MobileCI/releases">
+      <img src="https://img.shields.io/github/v/release/kevnm67/MobileCI?include_prereleases" alt="GitHub release">
+   </a>
+   <a href="https://github.com/Carthage/Carthage">
+      <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage Compatible">
+   </a>
+   <a href="https://github.com/apple/swift-package-manager">
+      <img src="https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg" alt="SPM">
+   </a>
+</p>
 
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
@@ -66,7 +84,7 @@ CI playground mainly testing circle CI orbs and GitHub actions.
 <!-- /TOC -->
 ## Info
 
-- A playground for GitHub actions and CI's for iOS development.
+A playground for GitHub actions and CI's for iOS development.
 
 ## Setup
 

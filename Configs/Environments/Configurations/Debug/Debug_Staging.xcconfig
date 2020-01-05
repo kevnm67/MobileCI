@@ -1,0 +1,6 @@
+//
+//  Debug_Staging.xcconfig
+//
+
+#include "../Base/Debug.xcconfig"
+#include "../Environments/Staging.xcconfig"

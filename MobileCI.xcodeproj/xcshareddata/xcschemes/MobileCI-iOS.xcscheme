@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52D6D97B1BEFF229002C0205"
+               BlueprintIdentifier = "3D9C428F22745894000A6585"
                BuildableName = "MobileCI.framework"
                BlueprintName = "MobileCI-iOS"
                ReferencedContainer = "container:MobileCI.xcodeproj">
@@ -23,7 +23,7 @@
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug_Dev"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
@@ -31,7 +31,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52D6D97B1BEFF229002C0205"
+            BlueprintIdentifier = "3D9C428F22745894000A6585"
             BuildableName = "MobileCI.framework"
             BlueprintName = "MobileCI-iOS"
             ReferencedContainer = "container:MobileCI.xcodeproj">
@@ -40,19 +40,20 @@
       <Testables>
          <TestableReference
             skipped = "NO"
+            parallelizable = "YES"
             testExecutionOrdering = "random">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "52D6D9851BEFF229002C0205"
-               BuildableName = "MobileCI-iOS Tests.xctest"
-               BlueprintName = "MobileCI-iOS Tests"
+               BlueprintIdentifier = "3D9C42F02274604A000A6585"
+               BuildableName = "MobileCI-iOSTests.xctest"
+               BlueprintName = "MobileCI-iOSTests"
                ReferencedContainer = "container:MobileCI.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug_Dev"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -64,7 +65,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52D6D97B1BEFF229002C0205"
+            BlueprintIdentifier = "3D9C428F22745894000A6585"
             BuildableName = "MobileCI.framework"
             BlueprintName = "MobileCI-iOS"
             ReferencedContainer = "container:MobileCI.xcodeproj">
@@ -80,7 +81,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "52D6D97B1BEFF229002C0205"
+            BlueprintIdentifier = "3D9C428F22745894000A6585"
             BuildableName = "MobileCI.framework"
             BlueprintName = "MobileCI-iOS"
             ReferencedContainer = "container:MobileCI.xcodeproj">
@@ -88,7 +89,7 @@
       </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Debug_Dev">
+      buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"

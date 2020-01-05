@@ -1,0 +1,12 @@
+sources:
+  - ./Sources
+  - ./Example
+templates:
+  - ./Templates/Sourcery
+output:
+  ./Example/Resources/Generated/Sourcery
+args:
+  excludedSwiftLintRules:
+    - function_body_length
+    - line_length
+    - vertical_whitespace
