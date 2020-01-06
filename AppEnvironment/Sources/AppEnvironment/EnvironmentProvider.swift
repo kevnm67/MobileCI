@@ -1,9 +1,5 @@
 //
 //  EnvironmentProvider.swift
-//  Example
-//
-//  Created by KITAUTHOR on KITDATE.
-//  Copyright © KITYEAR KITORGANIZATION. All rights reserved.
 //
 
 import Foundation
@@ -50,8 +46,6 @@ public extension EnvironmentProvider {
         guard !isRelease else { return false }
 
         if case .release = Environment.shared.environment { return false }
-
-        // return AppDelegate.shared.isTesting
 
         return UIApplication.shared.isDebugEnvironment
     }
