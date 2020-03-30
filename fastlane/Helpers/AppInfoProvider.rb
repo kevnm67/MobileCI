@@ -3,13 +3,15 @@
 class AppInfoProvider
 
   class AppIdentifier
-    AppStore = 'com.kjm.mobile-ci-iOS'
-    Development = 'com.kjm.mobile-ci-iOS.development'
+    AppStore = 'com.kevnm67.MobileCI-iOS'
+    Development = 'com.kevnm67.MobileCI-iOS.development'
+    Staging = 'com.kevnm67.MobileCI-iOS.staging'
   end
 
   class DisplayName
     AppStore = 'MobileCI'
     Development = 'MobileCI - Dev'
+    Staging = 'MobileCI - Staging'
   end
 
   class Scheme

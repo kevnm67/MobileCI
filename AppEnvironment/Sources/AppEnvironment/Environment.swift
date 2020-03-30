@@ -1,9 +1,5 @@
 //
 //  Environment.swift
-//  Example
-//
-//  Created by KITAUTHOR on KITDATE.
-//  Copyright © KITYEAR KITORGANIZATION. All rights reserved.
 //
 
 import Foundation

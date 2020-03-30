@@ -1,11 +1,10 @@
 //
 //  UIApplication+Environment.swift
-//  Example
-//
-//  Created by KITAUTHOR on KITDATE.
-//  Copyright © KITYEAR KITORGANIZATION. All rights reserved.
 //
 
+// swiftformat:disable all
+#if canImport(UIKit)
+// swiftformat:enable all
 import UIKit
 
 // MARK: -
@@ -34,3 +33,7 @@ extension UIDevice {
         #endif
     }
 }
+
+// swiftformat:disable all
+#endif
+// swiftformat:enable all
