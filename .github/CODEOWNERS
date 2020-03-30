@@ -4,3 +4,10 @@
 # the repo. Unless a later match takes precedence, they will
 # be requested for review when someone opens a PR.
 *       @kevnm67
+
+# Order is important. The last matching pattern has the most precedence.
+# So if a pull request only touches ruby files, only these owners
+# will be requested to review.
+*.lock    @dependabot
+Gemfile    @dependabot
+.bundle/    @dependabot
