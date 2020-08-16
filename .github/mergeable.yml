@@ -1,3 +1,4 @@
+---
 version: 2
 mergeable:
   - when: pull_request.*, issues.*
@@ -11,19 +12,12 @@ mergeable:
       - do: label
         must_exclude:
           regex: 'WIP'
-      - do: checks,
-        status: 'failure'
-        payload:
-          title: 'Mergeable Run have been Completed!'
-          summary: 'Something failed validation. \n Here are some stats of the run: \n {{passCount}} ***PASSED*** {{failCount}} ***FAILED*** {{errorCount}} ***ERRORED***'
+  - when: schedule.repository
+    validate:
       - do: stale
-        days: 7
-        message: 'This is PR getting stale. Please follow up!  This is a friendly reminder to please resolve it. :-)'
+        days: 5
         type: pull_request, issues
-
-  - when: pull_request.*
     pass:
       - do: comment
         payload:
-          body: >
-            'All good!'
+          body: This is old. Is it still relevant?
