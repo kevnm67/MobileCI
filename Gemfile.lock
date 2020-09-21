@@ -153,7 +153,7 @@ GEM
       aws-sdk (~> 2.3)
       mime-types (~> 3.1)
     fastlane-plugin-rome (0.3.8)
-    fastlane-plugin-versioning (0.4.2)
+    fastlane-plugin-versioning (0.4.4)
     ffi (1.11.3)
     fourflusher (2.3.1)
     fuzzy_match (2.0.4)
