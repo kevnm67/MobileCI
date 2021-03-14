@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 gem 'cocoapods'
 gem 'danger'
-gem 'danger-auto_label'
+gem 'danger-prose'
 gem 'fastlane'
 gem 'jazzy'
 gem 'slather'

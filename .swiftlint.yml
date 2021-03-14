@@ -1,88 +1,135 @@
+---
 included:
-  - Sources
-  - Tests
+    - Sources
 
+# paths to ignore during linting. Takes precedence over `included`.
 excluded:
-  - Carthage
-  - Pods
-  - fastlane
-
-disabled_rules:
-  - line_length
-  - type_name
-  - identifier_name
-  - trailing_whitespace
-  - todo
+    - Tests
+    - Example
+    - Carthage
+    - ./*Tests
+    - ./*UITests
+    - ./Tests
+    - ./*/*/*/*/main.swift # App Store Connect SDK structure
+    - ./*/*/Tests # App Store Connect SDK structure
 
 opt_in_rules:
-  - anyobject_protocol
-  - array_init
-  - attributes
-  - closure_end_indentation
-  - closure_spacing
-  - collection_alignment
-  - contains_over_filter_count
-  - contains_over_filter_is_empty
-  - contains_over_first_not_nil
-  - discouraged_object_literal
-  - empty_count
-  - empty_string
-  - empty_xctest_method
-  - explicit_init
-  - extension_access_modifier
-  - first_where
-  - force_unwrapping
-  - flatmap_over_map_reduce
-  - modifier_order
-  - static_operator
-  - strong_iboutlet
-  - toggle_bool
-  - unavailable_function
-  - unneeded_parentheses_in_closure_argument
-  - unowned_variable_capture
-  - vertical_parameter_alignment_on_call
-  - vertical_whitespace_closing_braces
-  - yoda_condition
+    - anyobject_protocol
+    - array_init
+    - attributes
+    - closure_end_indentation
+    - closure_spacing
+    - collection_alignment
+    - conditional_returns_on_newline
+    - contains_over_filter_count
+    - contains_over_filter_is_empty
+    - contains_over_first_not_nil
+    - contains_over_range_nil_comparison
+    - discouraged_object_literal
+    - empty_collection_literal
+    - empty_count
+    - empty_string
+    - empty_xctest_method
+    - enum_case_associated_values_count
+    - explicit_init
+    - fallthrough
+    - fatal_error_message
+    - file_name
+    - first_where
+    - flatmap_over_map_reduce
+    - force_unwrapping
+    - implicit_return
+    - implicitly_unwrapped_optional
+    - identical_operands
+    - joined_default_parameter
+    - legacy_random
+    - let_var_whitespace
+    - last_where
+    - legacy_multiple
+    - literal_expression_end_indentation
+    - modifier_order
+    - nimble_operator
+    - nslocalizedstring_key
+    - nslocalizedstring_require_bundle
+    - object_literal
+    - operator_usage_whitespace
+    - overridden_super_call
+    - override_in_extension
+    - pattern_matching_keywords
+    - prefer_self_type_over_type_of_self
+    - prohibited_interface_builder
+    - prohibited_super_call
+    - quick_discouraged_call
+    - quick_discouraged_focused_test
+    - quick_discouraged_pending_test
+    - reduce_into
+    - redundant_nil_coalescing
+    - redundant_type_annotation
+    - sorted_first_last
+    - sorted_imports
+    - static_operator
+    - strong_iboutlet
+    - switch_case_on_newline
+    - toggle_bool
+    - type_contents_order
+    - unavailable_function
+    - unneeded_parentheses_in_closure_argument
+    - unowned_variable_capture
+    - untyped_error_in_catch
+    - vertical_parameter_alignment_on_call
+    - vertical_whitespace_closing_braces
+    - yoda_condition
 
 analyzer_rules:
-  - unused_declaration
-  - unused_import
-
-modifier_order:
-  preferred_modifier_order:
-    - acl
-    - override
+    - unused_declaration
+    - unused_import
 
 vertical_whitespace:
-  max_empty_lines: 2
+    max_empty_lines: 2
 
-function_body_length:
-  - 125 # Warning
-  - 200 # Error
+function_body_length: 200
 
 cyclomatic_complexity:
-  warning: 3 # Two nested ifs are acceptable
-  error: 4   # 4 nested ifs shows warning, 5 causes compile error
-
-identifier_name:
-  excluded:
-    - id
-  min_length:
-    error: 4
+    warning: 3 # Two nested ifs are acceptable
+    error: 4 # 4 nested ifs shows warning, 5 causes compile error
 
 type_body_length:
-  - 300 # Warning
-  - 400 # Error
+    error: 400
 
-file_length:
-  - 1000 # Warning
+type_name:
+    allowed_symbols: [_] # these are allowed in type names
 
-reporter: "json"
+identifier_name:
+    excluded:
+        - id
+        - URL
+
+file_length: 1000
+
+reporter: json
 
 custom_rules:
-  force_https:
-    name: "Force HTTPS over HTTP"
-    regex: "((?i)http(?!s))"
-    match_kinds: string
-    message: "HTTPS should be favored over HTTP"
-    severity: warning
+    force_https:
+        name: Force HTTPS over HTTP
+        regex: ((?i)http(?!s))
+        match_kinds: string
+        message: HTTPS should be favored over HTTP
+        severity: warning
+
+type_contents_order:
+    order:
+        - case
+        - type_alias
+        - associated_type
+        - ib_outlet
+        - ib_inspectable
+        - subtype
+        - [type_property, instance_property]
+        - [initializer, type_method, view_life_cycle_method, subscript, other_method, ib_action]
+
+modifier_order:
+    preferred_modifier_order:
+        - [acl, override, setterACL, dynamic, mutators, lazy, final, required, convenience, typeMethods, owned]
+
+conditional_returns_on_newline:
+    if_only: true

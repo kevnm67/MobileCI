@@ -1,75 +1,65 @@
 # frozen_string_literal: true
 
-has_app_changes = !git.modified_files.grep(/Sources/).empty?
-
-###
-### Files to warn if changed:
-###
-
-@GL_DANGER_CI_CD_FILES = ['.travis.yml', 'Dangerfile', 'Fastfile', 'Matchfile', 'Deliverfile', 'Appfile', 'Precheckfile']
-@GL_DANGER_DEPENDENCY_FILES = ['Gemfile', 'Cartfile', 'Cartfile.private', 'podfile']
+@ci_files = %w[travis.yml Dangerfile Fastfile Matchfile Deliverfile Appfile
+              Precheckfile]
+@watched_files = %w[Gemfile Cartfile Cartfile.private podfile Brewfile Makefile]
 
 # determine if any of the files were modified
-def didModify(files_array)
+def did_modify(files_array)
   did_modify_files = false
   files_array.each do |file_name|
-    unless git.modified_files.include?(file_name) || git.deleted_files.include?(file_name)
-      next
-    end
-
+    next unless git.modified_files.include?(file_name) || git.deleted_files.include?(file_name)
+    
     did_modify_files = true
-
     config_files = git.modified_files.select { |path| path.include? file_name }
-
     message "This PR changes #{github.html_link(config_files)}"
   end
-
+  
   did_modify_files
-end
-
-###
-### Warnings
-###
-
-warn('Changes to CI/CD files') if didModify(@GL_DANGER_CI_CD_FILES)
-
-if didModify(@GL_DANGER_DEPENDENCY_FILES)
-  warn('Changes to dependency related files')
-end
-
-# Sometimes it's a README fix, or something like that - which isn't relevant for
-# including in a project's CHANGELOG for example
-not_declared_trivial = !(github.pr_title.downcase.include? '#trivial')
-
-# Make it more obvious that a PR is a work in progress and shouldn't be merged yet
-warn('PR is classed as Work in Progress') if github.pr_title.include? '[WIP]'
-
-if github.pr_title.include? '[WIP]'
-  auto_label.wip = github.pr_json['number']
-else
-  auto_label.remove('WIP')
-end
-
-if git.lines_of_code > 500
-  warn('Big PR, try to keep changes smaller if you can')
 end
 
 # Don't let testing shortcuts get into master by accident (e.g. fit -> focuses on a single test).
 raise('fit left in tests') if `grep -r "fit Tests/ `.length > 1
 
-# Changelog entries are required for changes to library files.
-no_changelog_entry = !git.modified_files.include?('CHANGELOG.md')
+###
+### Warnings
+###
 
-# Don't warn about changelog.
-temp_skip_changelog = true
+warn('Changes to CI/CD files') if did_modify(@ci_files)
+warn('Changes to dependency related files') if did_modify(@watched_files)
 
-if has_app_changes && no_changelog_entry && not_declared_trivial && !temp_skip_changelog
-  warn('Any changes to library code should be reflected in the Changelog. Please consider updating the changelog. [Changelog Guidelines](./CHANGELOG.md).')
+not_declared_trivial = !(github.pr_title.downcase.include? '#trivial')
+
+warn('PR is classed as Work in Progress') if github.pr_title.include? '[WIP]'
+
+warn('Big PR, try to keep changes smaller if you can') if git.lines_of_code > 500
+
+# Milestones are required for all PRs to track what's included in each release
+has_milestone = !github.pr_json['milestone'].nil?
+
+warn('This PR is missing a milestone... please add one 😉', sticky: false) unless has_milestone
+
+has_source_changes = !git.modified_files.grep(/Sources/).empty?
+has_test_changes = !git.modified_files.grep(/Tests/).empty?
+
+if has_source_changes && !has_test_changes && !not_declared_trivial
+  warn('Library files were updated without test coverage.  
+      Consider updating or adding tests to cover changes.')
+  warn('Any major changes should be reflected in the Changelog.
+      Please consider adding a note there and adhere to the
+      [Changelog Guidelines](https://keepachangelog.com/en/1.0.0/).')
 end
 
-# Warn when library files changed without test coverage.
-tests_updated = !git.modified_files.grep(/Tests/).empty?
+# Look through all changed Markdown files
+markdown_files = (git.added_files.grep(%r{.*\.md/}) + git.modified_files.grep(%r{.*\.md/}))
 
-if has_app_changes && !tests_updated
-  warn('Library files were updated without test coverage.  Consider updating or adding tests to cover changes.')
+unless markdown_files.empty?
+  # Run proselint to lint and check spelling
+  prose.language = 'en-us'
+  prose.ignored_words = %w[dependabot kevnm67 podfile cartfile]
+  prose.ignore_acronyms = true
+  prose.ignore_numbers = true
+  prose.lint_files markdown_files
+  prose.check_spelling markdown_files
 end
+

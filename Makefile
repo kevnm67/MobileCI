@@ -12,16 +12,10 @@ version:
 	Scripts/update_changelog.sh
 
 setup: \
-	pre_setup \
 	check_for_ruby \
 	check_for_homebrew \
 	install_gems \
 	install_ios_dependencies
-
-pre_setup:
-	$(info ------------------------------)
-	$(info iOS project setup ...)
-	$(info ------------------------------)
 
 check_for_ruby:
 	$(info Checking for Ruby ...)
