@@ -37,7 +37,7 @@ deploy_filters: &deploy_filters
 # workflows #
 #############
 workflows:
-     build-and-test:
+    build-and-test:
         jobs:
             - ios/run_with_setup:
                   name: prepare
@@ -49,3 +49,20 @@ workflows:
                           ignore: *branch_filters
 
             - <<: *run_tests
+
+    build-test-deploy:
+        jobs:
+            - ios/run_with_setup:
+                  name: prepare
+                  context: *ios_contexts
+                  filters:
+                      branches:
+                          only: *branch_filters
+
+            - <<: *run_tests
+
+            - slack/on-hold:
+                  channel: ios-builds
+                  context: *ios_contexts
+                  requires: [test]
+                  filters: *deploy_filters
