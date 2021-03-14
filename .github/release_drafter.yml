@@ -1,0 +1,63 @@
+---
+name-template: v$RESOLVED_VERSION
+tag-template: v$RESOLVED_VERSION
+categories:
+    - title: 🚀 Features
+      labels:
+          - 'type: feature'
+          - 'type: enhancement'
+    - title: 🐛 Bug Fixes
+      labels:
+          - 'type: bug'
+    - title: 🩺 Maintenance
+      labels:
+          - 'type: chore'
+          - 'type: security'
+          - CI/CD
+          - 'type: maintenance'
+    - title: 📝 Documentation
+      label: 'type: documentation'
+    - title: Dependency Updates
+      label: 'type: dependencies'
+exclude-labels:
+    - skip-changelog
+autolabeler:
+    - label: chore
+      files:
+          - '*.md'
+      branch:
+          - /docs{0,1}\/.+/
+    - label: bug
+      branch:
+          - /fix\/.+/
+      title:
+          - /fix/i
+    - label: enhancement
+      branch:
+          - /feature\/.+/
+      body:
+          - /JIRA-[0-9]{1,4}/
+change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
+version-resolver:
+    major:
+        labels:
+            - major
+    minor:
+        labels:
+            - minor
+            - 'type: feature'
+            - 'type: enhancement'
+    patch:
+        labels:
+            - patch
+            - 'type: dependencies'
+            - 'type: documentation'
+            - 'type: maintenance'
+            - 'type: security'
+            - 'type: bug'
+            - 'type: chore'
+    default: patch
+template: |
+    ## What’s Changed
+
+    $CHANGES

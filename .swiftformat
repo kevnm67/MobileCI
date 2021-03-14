@@ -1,47 +1,68 @@
---header "//\n//  {file}\n//\n//  Created by Kevin Morton. on {created}.\n//  Copyright © {year} KJM. All rights reserved.\n//"
-
---enable blankLinesBetweenScopes
---enable isEmpty
---enable anyObjectProtocol
---enable elseOnSameLine
-
-# file options
---exclude Pods,Carthage
-
 --allman false
+--assetliterals visual-width
+--beforemarks enum,let,typealias,var
 --binarygrouping 4,8
+--categorymark "MARK: %c"
+--classthreshold 0
 --closingparen balanced
 --commas inline
 --conflictmarkers reject
 --decimalgrouping 3,6
 --elseposition same-line
---empty void
+--enumthreshold 0
 --exponentcase lowercase
 --exponentgrouping disabled
+--extensionacl on-extension
+--extensionlength 0
+--extensionmark "MARK: - %t + %c"
 --fractiongrouping disabled
 --fragment false
+--funcattributes prev-line
+--groupedextension "MARK: %c"
+--guardelse auto
+--header ignore
 --hexgrouping 4,8
 --hexliteralcase uppercase
 --ifdef indent
---importgrouping alphabetized
+--importgrouping testable-last
 --indent 4
 --indentcase false
+--lifecycle viewDidLoad,viewWillAppear
 --linebreaks lf
+--markextensions always
+--marktypes always
+--maxwidth 120
+--modifierorder acl,override,setterACL,dynamic,mutators,lazy,final,required,convenience,typeMethods,owned
+--nevertrailing
+--nospaceoperators
+--nowrapoperators
 --octalgrouping 4,8
 --operatorfunc spaced
+--organizetypes class,enum,struct
 --patternlet hoist
 --ranges spaced
+--redundanttype inferred
 --self init-only
 --selfrequired
 --semicolons inline
---stripunusedargs always
+--shortoptionals always
+--smarttabs enabled
+--stripunusedargs closure-only
+--structthreshold 0
+--swiftversion 5.3
+--tabwidth unspecified
 --trailingclosures
 --trimwhitespace always
---wraparguments before-first
+--typeattributes prev-line
+--typemark "MARK: - %t"
+--varattributes same-line
+--voidtype void
+--wraparguments preserve
 --wrapcollections before-first
+--wrapconditions preserve
+--wrapparameters after-first
+--wrapreturntype preserve
 --xcodeindentation disabled
-
-# Disable
---disable blankLinesAtStartOfScope,strongOutlets
-
---swiftversion 5.1.3
+--yodaswap always
+--disable blankLinesAtStartOfScope,strongOutlets,wrapMultilineStatementBraces
+--enable isEmpty,markTypes,organizeDeclarations,wrapEnumCases,wrapSwitchCases

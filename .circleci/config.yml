@@ -1,47 +1,51 @@
 version: 2.1
 orbs:
-  kjm-dev: kjm-dev/ios-pipelines@dev:first
+  ios: kevnm67/ios-pipelines@dev:alpha
+  slack: circleci/slack@4.2.0
 
-defaults: &defaults
-  macos:
-    xcode: '11.2.1'
-  working_directory: /Users/distiller/MobileCI
-  shell: /bin/bash --login -o pipefail
-  environment:
-    PROJECT_NAME: "MobileCI"
-    CIRCLE_ARTIFACTS: /tmp/$PROJECT_NAME-artifacts
-    CIRCLE_TEST_REPORTS: /tmp/$PROJECT_NAME-test-results
-    LC_ALL: en_US.UTF-8
-    BUNDLE_PATH: vendor/bundle
-    FL_OUTPUT_DIR: /Users/distiller/$PROJECT_NAME/fastlane
+ios_contexts: &ios_contexts [iOS, slack]
 
-jobs:
-  test:
-    <<: *defaults
-    description: Run tests
-    steps:
-      - checkout
-      - kjm-dev/danger
-      - run:
-          name: Setup build environment
-          command: |
+install_dependencies: &install_dependencies
+    pretest_steps:
+        - run: |
             make setup
-      - run:
-          name: Setup Code Climate test-reporter
-          command: |
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-darwin-amd64 > ./cc-test-reporter
-            chmod +x ./cc-test-reporter
-            ./cc-test-reporter before-build
-      - kjm-dev/lane:
-          named: test_iphone_pro
-      - run:
-          name: Upload test results
-          command: |
-            ./cc-test-reporter after-build
-      - store_test_results:
-          path: /Users/distiller/$PROJECT_NAME/test_output
 
+run_tests: &run_tests
+    ios/test:
+        name: test
+        context: *ios_contexts
+        with_spm: true
+        lane: test_iphone_pro
+        cc_prefix: >
+            format-coverage ./fastlane/test_output/cobertura.xml -t cobertura -d;./cc-test-reporter upload-coverage
+        <<: *install_dependencies
+        post-steps:
+          - slack/notify:
+                event: fail
+                template: basic_fail_1
+        requires: [prepare]
+
+branch_filters: &branch_filters [master, main, development, /^hotfix.*/, /^release\/.*/]
+
+deploy_filters: &deploy_filters
+    branches:
+        only: *branch_filters
+    tags:
+        only: /.*/
+
+#############
+# workflows #
+#############
 workflows:
-  build-and-test:
-    jobs:
-      - test
+     build-and-test:
+        jobs:
+            - ios/run_with_setup:
+                  name: prepare
+                  context: *ios_contexts
+                  scripts:
+                      - run: bundle exec danger
+                  filters:
+                      branches:
+                          ignore: *branch_filters
+
+            - <<: *run_tests

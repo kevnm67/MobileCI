@@ -1,0 +1,6 @@
+---
+'type: feature': [feature/*, feat/*]
+'type: fix': [fix/*, hotfix/*, bug/*, bugfix/*]
+'type: chore': chore/*
+'type: dependencies': [dependabot/*]
+'type: documentation': [doc/*, documentation/*]

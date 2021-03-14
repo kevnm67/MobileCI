@@ -1,28 +1,34 @@
+---
 name: Automerge
-
 on:
-  pull_request:
-    types:
-      - labeled
-      - unlabeled
-      - synchronize
-      - opened
-      - edited
-      - ready_for_review
-      - reopened
-      - unlocked
-  pull_request_review:
-    types:
-      - submitted
-  status: {}
+    pull_request:
+        types:
+            - labeled
+            - unlabeled
+            - synchronize
+            - ready_for_review
+    pull_request_review:
+        types:
+            - submitted
+    check_suite:
+        types:
+            - completed
+    status: {}
 
 jobs:
-  automerge:
-    runs-on: ubuntu-latest
-    steps:
-      - name: automerge
-        uses: "pascalgn/automerge-action@f84dd310ea4a19890c70a4ff11ab282a872fb94b"
-        env:
-          MERGE_METHOD: "squash"
-          LABELS: "!wip,!work in progress"
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+    automerge:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Merge pull requests
+              uses: pascalgn/automerge-action@v0.13.1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  MERGE_COMMIT_MESSAGE: pull-request-title-and-description
+                  MERGE_COMMIT_MESSAGE_REGEX: (.*)^----
+                  MERGE_DELETE_BRANCH: 'true'
+                  MERGE_LABELS: 'automerge, !WIP, !wip,!PR: unreviewed, !invalid, !PR:draft, !wontfix'
+                  MERGE_REMOVE_LABELS: automerge
+                  MERGE_METHOD: squash
+                  MERGE_RETRY_SLEEP: '10000'
+                  MERGE_RETRIES: '2'
+                  UPDATE_LABELS: automerge
