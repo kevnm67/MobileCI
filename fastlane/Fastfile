@@ -20,6 +20,7 @@ platform :ios do
   ENV['CACHE_PREFIX'] = project_base_name
   ENV['BUILD_FOLDER'] = File.join('fastlane', 'Build')
   ENV['AWS_REGION'] = 'us-east-1'
+  ENV['ARTIFACTS_DIR'] = './fastlane/test_output'
 
   # Cache prefix used for Rome (e.g. carthage cache on S3).
   rome_cache_prefix = ENV['CACHE_PREFIX']
@@ -77,7 +78,7 @@ platform :ios do
     run_tests_for_device(
       project_base_name: project_base_name,
       schemes: schemes_to_test,
-      device: 'iPhone 11 Pro'
+      device: 'iPhone 12 Pro'
     )
   end
 

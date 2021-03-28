@@ -31,10 +31,8 @@
 		56EAA8D023C2756300DAC8FC /* NotificationCenter+AutoUnregisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EAA8C523C2756300DAC8FC /* NotificationCenter+AutoUnregisterTests.swift */; };
 		56EAA8D123C2756300DAC8FC /* SequenceExtensionsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EAA8C623C2756300DAC8FC /* SequenceExtensionsSpec.swift */; };
 		56EAA8D223C2756300DAC8FC /* LinuxMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EAA8C723C2756300DAC8FC /* LinuxMain.swift */; };
-		56EAA8E823C27A0E00DAC8FC /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56EAA8E623C27A0E00DAC8FC /* Nimble.framework */; };
-		56EAA8E923C27A0E00DAC8FC /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56EAA8E723C27A0E00DAC8FC /* Quick.framework */; };
-		56EAA8EB23C27A1C00DAC8FC /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56EAA8E623C27A0E00DAC8FC /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		56EAA8EC23C27A2100DAC8FC /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 56EAA8E723C27A0E00DAC8FC /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FF1A388E25FECB730035FF48 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = FF1A388D25FECB730035FF48 /* Nimble */; };
+		FF1A389225FECB890035FF48 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = FF1A389125FECB890035FF48 /* Quick */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,17 +62,6 @@
 				3D9C433522746323000A6585 /* MobileCI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		56EAA8EA23C27A1300DAC8FC /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				56EAA8EC23C27A2100DAC8FC /* Quick.framework in CopyFiles */,
-				56EAA8EB23C27A1C00DAC8FC /* Nimble.framework in CopyFiles */,
-			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -150,8 +137,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D9C42F62274604A000A6585 /* MobileCI.framework in Frameworks */,
-				56EAA8E823C27A0E00DAC8FC /* Nimble.framework in Frameworks */,
-				56EAA8E923C27A0E00DAC8FC /* Quick.framework in Frameworks */,
+				FF1A389225FECB890035FF48 /* Quick in Frameworks */,
+				FF1A388E25FECB730035FF48 /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,11 +250,11 @@
 		56EAA8B023C2754C00DAC8FC /* MobileCI */ = {
 			isa = PBXGroup;
 			children = (
-				56EAA8B123C2754C00DAC8FC /* UITableViewExtensions.swift */,
+				56EAA8B523C2754C00DAC8FC /* DateExtensions.swift */,
 				56EAA8B223C2754C00DAC8FC /* NotificationCenter+AutoUnregister.swift */,
 				56EAA8B323C2754C00DAC8FC /* SequenceExtensions.swift */,
 				56EAA8B423C2754C00DAC8FC /* StringExtension.swift */,
-				56EAA8B523C2754C00DAC8FC /* DateExtensions.swift */,
+				56EAA8B123C2754C00DAC8FC /* UITableViewExtensions.swift */,
 			);
 			path = MobileCI;
 			sourceTree = "<group>";
@@ -403,7 +390,6 @@
 				3D9C42ED2274604A000A6585 /* Sources */,
 				3D9C42EE2274604A000A6585 /* Frameworks */,
 				3D9C42EF2274604A000A6585 /* Resources */,
-				56EAA8EA23C27A1300DAC8FC /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -411,6 +397,10 @@
 				3D9C42F82274604A000A6585 /* PBXTargetDependency */,
 			);
 			name = "MobileCI-iOSTests";
+			packageProductDependencies = (
+				FF1A388D25FECB730035FF48 /* Nimble */,
+				FF1A389125FECB890035FF48 /* Quick */,
+			);
 			productName = "MobileCI-iOSTests";
 			productReference = 3D9C42F12274604A000A6585 /* MobileCI-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -423,6 +413,7 @@
 				3D9C431E2274629B000A6585 /* Frameworks */,
 				3D9C431F2274629B000A6585 /* Resources */,
 				3D9C433822746323000A6585 /* Embed Frameworks */,
+				EEEA2D4D9BD854357CE1892E /* Carthage */,
 			);
 			buildRules = (
 			);
@@ -469,6 +460,10 @@
 				Base,
 			);
 			mainGroup = 3D9C428622745894000A6585;
+			packageReferences = (
+				FF1A388C25FECB730035FF48 /* XCRemoteSwiftPackageReference "Nimble" */,
+				FF1A389025FECB890035FF48 /* XCRemoteSwiftPackageReference "Quick" */,
+			);
 			productRefGroup = 3D9C429122745894000A6585 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -525,6 +520,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		EEEA2D4D9BD854357CE1892E /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"$(SRCROOT)/Carthage/xcfilelists/Example-inputPaths.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = Carthage;
+			outputFileListPaths = (
+				"$(SRCROOT)/Carthage/xcfilelists/Example-outputPaths.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1235,10 +1250,39 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		FF1A388C25FECB730035FF48 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		FF1A389025FECB890035FF48 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		5690ED6523C2B2DB00B917C8 /* AppEnvironment */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppEnvironment;
+		};
+		FF1A388D25FECB730035FF48 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF1A388C25FECB730035FF48 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		FF1A389125FECB890035FF48 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FF1A389025FECB890035FF48 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
