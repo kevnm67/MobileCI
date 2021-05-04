@@ -23,7 +23,7 @@
 			<tr>
 				<td>Travis CI</td>
 				<td><a href="https://travis-ci.com/kevnm67/MobileCI">
-						<img src="https://travis-ci.com/kevnm67/MobileCI.svg?branch=master" />
+						<img src="https://travis-ci.com/kevnm67/MobileCI.svg?branch=main" />
 					</a></td>
 			</tr>
 			<tr>
