@@ -81,24 +81,25 @@ platform :ios do
 
     scan(
       scheme: scheme,
+      skip_slack: is_ci,
       code_coverage: true,
-      device: options[:device] || 'iPhone X',
-      formatter: 'xcpretty-json-formatter',
-      buildlog_path: "#{ENV['BUILD_FOLDER']}/logs",
+      device: options[:device] || 'iPhone 12 Pro',
+      buildlog_path: artifacts_path('xctest/logs'),
       slack_only_on_failure: true
     )
 
     if is_ci?
       slather(
-        travis: true,
+        circleci: true,
         scheme: scheme,
         cobertura_xml: true,
+        output_directory: artifacts_path,
         proj: "#{project_name}.xcodeproj",
-        workspace: "#{project_name}.xcworkspace",
+        # workspace: "#{project_name}.xcworkspace",
         ignore: coverage_files_to_ignore
       )
     elsif
-      slather_local(scheme: scheme, project_base_name: project_name)
+      slather_local(scheme: scheme, project_name: project_name)
     end
   end
 
@@ -106,15 +107,15 @@ platform :ios do
   desc ''
   private_lane :slather_local do |options|
     scheme = options[:scheme] || ENV['DEV_SCHEME']
-    project_base_name = options[:project_base_name]
-
+    project_name = options[:project_name] || project_base_name
+    
     slather(
       scheme: scheme,
       html: true,
       show: !is_ci,
-      output_directory: ENV['BUILD_FOLDER'],
-      proj: "#{project_base_name}.xcodeproj",
-      workspace: "#{project_base_name}.xcworkspace",
+      output_directory: artifacts_path,
+      proj: "#{project_name}.xcodeproj",
+      # workspace: "#{project_name}.xcworkspace",
       ignore: coverage_files_to_ignore
     )
   end
@@ -147,5 +148,17 @@ platform :ios do
       platform: 'iOS',
       cacheprefix: cache_prefix
     )
+  end
+
+
+  # @param [String] subdir
+  # @return [String] path to artifacts.
+  # => NOTE: base dir is using env variable ARTIFACTS_DIR
+  def artifacts_path(subdir = '')
+    base_path = ENV['ARTIFACTS_DIR']
+
+    return "#{base_path}/#{subdir}" if subdir != ''
+
+    base_path
   end
 end

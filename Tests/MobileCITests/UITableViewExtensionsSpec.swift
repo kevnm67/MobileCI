@@ -7,7 +7,7 @@
 
 import Nimble
 import Quick
-
+import UIKit
 @testable import MobileCI
 
 class UITableViewExtensionsSpec: QuickSpec {

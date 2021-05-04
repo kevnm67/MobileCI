@@ -7,7 +7,7 @@
 
 import Nimble
 import Quick
-
+import Foundation
 @testable import MobileCI
 
 class DateExtensionsSpec: QuickSpec {
