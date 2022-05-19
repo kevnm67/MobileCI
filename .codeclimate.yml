@@ -7,6 +7,7 @@ plugins:
     enabled: true
   rubocop:
     enabled: true
+    channel: beta
   shellcheck:
     enabled: true
 exclude_patterns:
