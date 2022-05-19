@@ -34,9 +34,7 @@
 			</tr>
 			<tr>
 				<td>Maintainability</td>
-				<td><a href="https://codeclimate.com/github/kevnm67/MobileCI/maintainability">
-						<img src="https://api.codeclimate.com/v1/badges/355acfb7dbfab41bec2d/maintainability" />
-					</a></td>
+				<td> <a href="https://codeclimate.com/github/kevnm67/MobileCI/maintainability"><img src="https://api.codeclimate.com/v1/badges/355acfb7dbfab41bec2d/maintainability" /></a> </td>
 			</tr>
 			<tr>
 			<td>Code Coverage</td>
