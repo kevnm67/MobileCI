@@ -16,6 +16,8 @@ class MockTableViewDatasource: NSObject, UITableViewDataSource {
 
     var data: [SectionModel] = []
 
+    // MARK: Lifecycle
+
     // MARK: -
 
     convenience init(data: [SectionModel], isEmpty: Bool = false) {
@@ -23,6 +25,8 @@ class MockTableViewDatasource: NSObject, UITableViewDataSource {
         self.isEmpty = isEmpty
         self.data = data
     }
+
+    // MARK: Internal
 
     // MARK: Datasource
 

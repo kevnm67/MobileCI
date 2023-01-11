@@ -11,12 +11,14 @@ import XCTest
 
 class MobileCITests: XCTestCase {
 
-    func testExample() {
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        /// XCTAssertEqual(MobileCI().text, "Hello, World!")
-    }
-
     static var allTests = [
         ("testExample", testExample)
     ]
+
+    // MARK: Internal
+
+    func testExample() {
+        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        // XCTAssertEqual(MobileCI().text, "Hello, World!")
+    }
 }

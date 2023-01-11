@@ -14,6 +14,8 @@ import Quick
 let testNotification = Notification.Name(rawValue: "NotificationUnregisteringTestsNotification")
 let operationQueueNotification = Notification.Name(rawValue: "OperationQueueNotification")
 
+// MARK: - NotificationCenter_AutoUnregisterTests
+
 class NotificationCenter_AutoUnregisterTests: QuickSpec {
     override func spec() {
 
@@ -25,9 +27,10 @@ class NotificationCenter_AutoUnregisterTests: QuickSpec {
 
             beforeEach {
                 counter = 0
-                token = NotificationCenter.default.observe(name: testNotification, object: nil, queue: nil) { _ in
-                    counter += 1
-                }
+                token = NotificationCenter.default
+                    .observe(name: testNotification, object: nil, queue: nil) { _ in
+                        counter += 1
+                    }
             }
 
             afterEach {
@@ -69,7 +72,8 @@ class NotificationCenter_AutoUnregisterTests: QuickSpec {
                     var counter = 0
                     var token: Any?
 
-                    token = NotificationCenter.default.addObserver(forName: testNotification, object: nil, queue: nil) { _ in
+                    token = NotificationCenter.default.addObserver(forName: testNotification, object: nil,
+                                                                   queue: nil) { _ in
                         counter += 1
                     }
 

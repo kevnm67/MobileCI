@@ -11,7 +11,7 @@ public extension UITableView {
 
     /// IndexPath of the tableviews last row.
     var indexPathForLastRow: IndexPath? {
-        guard let lastSection = lastSection else { return nil }
+        guard let lastSection else { return nil }
         return indexPathForLastRow(inSection: lastSection)
     }
 
@@ -19,6 +19,8 @@ public extension UITableView {
     var lastSection: Int? {
         numberOfSections > 0 ? numberOfSections - 1 : nil
     }
+
+    // MARK: Internal
 
     /// IndexPath of the last row in a given section or nil.
     /// - Parameter section: Section to evaluate.
