@@ -61,7 +61,7 @@ platform :ios do
   lane :run_tests_for_device do |options|
     test_schemes = options[:schemes] || schemes_to_test
     project_name = options[:project_base_name] || project_base_name
-    device = options[:device] || 'iPhone X'
+    device = options[:device] || 'iPhone 14 Pro'
 
     test_schemes.each do |scheme|
       UI.message "Running tests for scheme #{scheme}"
@@ -83,7 +83,7 @@ platform :ios do
       scheme: scheme,
       skip_slack: is_ci,
       code_coverage: true,
-      device: options[:device] || 'iPhone 12 Pro',
+      device: options[:device] || 'iPhone 14 Pro',
       buildlog_path: artifacts_path('xctest/logs'),
       slack_only_on_failure: true
     )

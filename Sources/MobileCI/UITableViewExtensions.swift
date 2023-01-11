@@ -20,6 +20,8 @@ public extension UITableView {
         numberOfSections > 0 ? numberOfSections - 1 : nil
     }
 
+    // MARK: Internal
+
     /// IndexPath of the last row in a given section or nil.
     /// - Parameter section: Section to evaluate.
     func indexPathForLastRow(inSection section: Int) -> IndexPath? {

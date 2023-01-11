@@ -5,9 +5,9 @@
 //  Copyright © 2020 KJM. All rights reserved.
 //
 
+import Foundation
 import Nimble
 import Quick
-import Foundation
 @testable import MobileCI
 
 class DateExtensionsSpec: QuickSpec {

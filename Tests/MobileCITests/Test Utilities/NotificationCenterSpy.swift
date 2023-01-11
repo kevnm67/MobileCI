@@ -15,13 +15,16 @@ class NotificationCenterSpy: NotificationCenter {
 
     var postedNotification: Notification.Name?
 
+    // MARK: Open
+
     // MARK: Override
 
     open override func removeObserver(_: Any, name _: NSNotification.Name?, object _: Any?) {
         removeObserverInvoked = true
     }
 
-    open override func post(name aName: NSNotification.Name, object _: Any?, userInfo _: [AnyHashable: Any]? = nil) {
+    open override func post(name aName: NSNotification.Name, object _: Any?,
+                            userInfo _: [AnyHashable: Any]? = nil) {
         postNotificationInvoked = true
         postedNotification = aName
     }

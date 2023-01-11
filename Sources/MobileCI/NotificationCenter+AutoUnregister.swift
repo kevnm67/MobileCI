@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - NotificationToken
+
 /// 🚲 [Wraps the observer token](https://oleb.net/blog/2018/01/notificationcenter-removeobserver/)
 /// received from NotificationCenter.addObserver(forName:object:queue:using:) and unregisters it in deinit.
 ///
@@ -14,6 +16,8 @@ final class NotificationToken: NSObject {
 
     let notificationCenter: NotificationCenter
     let token: Any
+
+    // MARK: Lifecycle
 
     // MARK: Init
 
@@ -31,8 +35,10 @@ final class NotificationToken: NSObject {
 
 extension NotificationCenter {
 
-    /// Convenience wrapper for addObserver(forName:object:queue:using:) returning our custom NotificationToken.
-    func observe(name: NSNotification.Name?, object obj: Any?, queue: OperationQueue? = .main, using block: @escaping (Notification) -> Void) -> NotificationToken {
+    /// Convenience wrapper for addObserver(forName:object:queue:using:) returning our custom
+    /// NotificationToken.
+    func observe(name: NSNotification.Name?, object obj: Any?, queue: OperationQueue? = .main,
+                 using block: @escaping (Notification) -> Void) -> NotificationToken {
         let token = addObserver(forName: name, object: obj, queue: queue, using: block)
 
         return NotificationToken(notificationCenter: self, token: token)

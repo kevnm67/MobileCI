@@ -7,16 +7,18 @@
 
 import Foundation
 
+// MARK: - DateWithTime
+
 struct DateWithTime {
     var dateString: String
-    var hour: Int = 11
-    var minute: Int = 11
-    var sec: Int = 11
+    var hour = 11
+    var minute = 11
+    var sec = 11
 }
 
-// MARK: -
+// MARK: - DateTestProvider
 
-struct DateTestProvider {
+enum DateTestProvider {
 
     enum DateFormat: String {
 
@@ -26,6 +28,8 @@ struct DateTestProvider {
         /// Only the date (e.g. yyyy-MM-dd).
         case dateNoTime = "yyyy-MM-dd"
     }
+
+    // MARK: Internal
 
     // MARK: -
 

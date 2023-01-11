@@ -1,6 +1,6 @@
 # MobileCI document generator jazzy settings
 
-copyright: Copyright 2020 kevnm67
+copyright: Copyright 2022 kevnm67
 author: Kevin Morton
 github_url: https://github.com/kevnm67/MobileCI
 xcodebuild_arguments: [-target, MobileCI-iOS]
