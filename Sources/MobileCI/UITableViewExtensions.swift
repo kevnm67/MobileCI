@@ -11,7 +11,7 @@ public extension UITableView {
 
     /// IndexPath of the tableviews last row.
     var indexPathForLastRow: IndexPath? {
-        guard let lastSection else { return nil }
+        guard let lastSection = lastSection else { return nil }
         return indexPathForLastRow(inSection: lastSection)
     }
 

@@ -69,6 +69,7 @@ swiftlint:
 # file_header
 	@swiftlint swiftlint --fix Sources/$(PROJECT_NAME)/**/**
 
+.PHONY: docs
 docs:
 	$(info Generating docs...)
 
