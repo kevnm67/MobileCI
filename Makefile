@@ -1,9 +1,29 @@
+# Verify env variable is defined.
+define is_null
+$(if $(strip $($1)),,$(warning "$1" ENV variable is null! "$2"))
+endef
+
+# Exits if var isn't defined.
+define assert_env_variable
+$(if $(strip $($1)),,$(error "$1" ENV variable is required! "$2"))
+endef
+
 RUBY := $(shell command -v ruby 2>/dev/null)
 HOMEBREW := $(shell command -v brew 2>/dev/null)
 BUNDLER := $(shell command -v bundle 2>/dev/null)
 JAZZY := $(shell command -v jazzy)
 
 VERSION = v0.0.8
+PROJECT_NAME = MobileCI
+
+.PHONY: help
+help:
+	@echo "Please use \`make <command>' where <command> is one of"
+	@echo "  setup              to setup the project and install missing dependencies, if needed."
+	@echo "  update             to update dependencies."
+	@echo "  test               to run tests."
+	@echo "  lint_format        to run swift lint and format."
+
 
 default: setup
 
@@ -11,54 +31,25 @@ version:
 	Scripts/update_makefile.sh
 	Scripts/update_changelog.sh
 
-setup: \
-	check_for_ruby \
-	check_for_homebrew \
-	install_gems \
-	install_ios_dependencies
+.PHONY: setup
+setup:
+	$(MAKE) verify_system
+	$(MAKE) install_gems
+	$(MAKE) install_ios_dependencies
 
-check_for_ruby:
-	$(info Checking for Ruby ...)
-
-ifeq ($(RUBY),)
-	$(error Ruby is not installed)
-endif
-
-check_for_homebrew:
-	$(info Checking for Homebrew ...)
-
-ifeq ($(HOMEBREW),)
-	$(error Homebrew is not installed)
-endif
-
-install_bundler:
-	$(info )$(info Checking and install bundler ...)
-
-ifeq ($(BUNDLER),)
-	gem install bundler -v '~> 2.0'
-else
-	gem update bundler '~> 2.0'
-endif
+verify_system:
+	$(eval $(call assert_env_variable,RUBY))
+	$(eval $(call assert_env_variable,BUNDLER))
+	$(eval $(call assert_env_variable,HOMEBREW))
 
 install_gems:
-	$(info Install Ruby Gems ...)
-
-ifeq ($(CIRCLECI),)
-	$(info Not running on circle CI...)
-	$(MAKE) install_bundler
-endif
-
-	bundle install --without=documentation
+	bundle check || bundle install --without=documentation
 
 install_ios_dependencies:
-	$(info Install iOS dependencies ...)
-
 	brew install blender/homebrew-tap/rome
 	bundle exec fastlane carthage_ci
 
 update:
-	$(info Install iOS dependencies ...)
-
 	bundle exec fastlane do_cart_update
 
 test:
@@ -66,6 +57,17 @@ test:
 
 lint:
 	bundle exec pod lib lint
+	
+lint_format: format swiftlint
+
+.PHONY: format
+format:
+	@swiftformat ./Sources/$(PROJECT_NAME) ./Tests --config .swiftformat
+
+.PHONY: swiftlint
+swiftlint:
+# file_header
+	@swiftlint swiftlint --fix Sources/$(PROJECT_NAME)/**/**
 
 docs:
 	$(info Generating docs...)

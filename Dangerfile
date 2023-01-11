@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-@ci_files = %w[travis.yml Dangerfile Fastfile Matchfile Deliverfile Appfile
-              Precheckfile]
+@ci_files = ['Dangerfile', 'Fastfile', 'config.yml', 'Matchfile', 'Deliverfile', 'Precheckfile', 'Appfile']
 @watched_files = %w[Gemfile Cartfile Cartfile.private podfile Brewfile Makefile]
 
 # determine if any of the files were modified

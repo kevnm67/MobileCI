@@ -1,3 +1,4 @@
+--acronyms ID,URL,UUID
 --allman false
 --assetliterals visual-width
 --beforemarks enum,let,typealias,var
@@ -5,10 +6,13 @@
 --categorymark "MARK: %c"
 --classthreshold 0
 --closingparen balanced
+--closurevoid remove
 --commas inline
 --conflictmarkers reject
 --decimalgrouping 3,6
 --elseposition same-line
+--emptybraces linebreak
+--enumnamespaces always
 --enumthreshold 0
 --exponentcase lowercase
 --exponentgrouping disabled
@@ -17,7 +21,8 @@
 --extensionmark "MARK: - %t + %c"
 --fractiongrouping disabled
 --fragment false
---funcattributes prev-line
+--funcattributes preserve
+--generictypes 
 --groupedextension "MARK: %c"
 --guardelse auto
 --header ignore
@@ -27,42 +32,48 @@
 --importgrouping testable-last
 --indent 4
 --indentcase false
+--indentstrings false
 --lifecycle viewDidLoad,viewWillAppear
+--lineaftermarks true
 --linebreaks lf
+--markcategories true
 --markextensions always
 --marktypes always
---maxwidth 120
+--maxwidth 110
 --modifierorder acl,override,setterACL,dynamic,mutators,lazy,final,required,convenience,typeMethods,owned
---nevertrailing
---nospaceoperators
---nowrapoperators
+--nevertrailing 
+--nospaceoperators 
+--nowrapoperators 
 --octalgrouping 4,8
 --operatorfunc spaced
---organizetypes class,enum,struct
+--organizetypes actor,class,enum,extension,struct
 --patternlet hoist
 --ranges spaced
 --redundanttype inferred
 --self init-only
---selfrequired
+--selfrequired 
 --semicolons inline
 --shortoptionals always
 --smarttabs enabled
+--someAny true
 --stripunusedargs closure-only
 --structthreshold 0
---swiftversion 5.3
 --tabwidth unspecified
---trailingclosures
+--trailingclosures 
 --trimwhitespace always
---typeattributes prev-line
+--typeattributes preserve
+--typeblanklines remove
 --typemark "MARK: - %t"
---varattributes same-line
+--varattributes preserve
 --voidtype void
---wraparguments preserve
+--wraparguments after-first
 --wrapcollections before-first
 --wrapconditions preserve
 --wrapparameters after-first
 --wrapreturntype preserve
+--wrapternary default
+--wraptypealiases preserve
 --xcodeindentation disabled
 --yodaswap always
---disable blankLinesAtStartOfScope,strongOutlets,wrapMultilineStatementBraces
---enable isEmpty,markTypes,organizeDeclarations,wrapEnumCases,wrapSwitchCases
+--disable blankLinesAtStartOfScope,strongOutlets,unusedArguments,wrapMultilineStatementBraces
+--enable blankLineAfterImports,docComments,isEmpty,markTypes,organizeDeclarations,wrapEnumCases,wrapSwitchCases
