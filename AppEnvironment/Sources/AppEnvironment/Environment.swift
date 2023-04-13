@@ -25,7 +25,7 @@ public enum EnvironmentSettings: EnvironmentSettingType, AutoCaseName {
     /// sourcery: asString = "Install Owner"
     case developerName
 
-    public var key: String { return caseName.rawValue }
+    public var key: String { caseName.rawValue }
 }
 
 // MARK: -
@@ -57,26 +57,26 @@ public extension Environment {
     /// - Parameter key: Dictionary key for an env specific setting.
     /// - Returns: Value for env setting.
     func environmentSetting(for key: EnvironmentSettingType) -> String {
-        return provider.environmentSetting(for: key)
+        provider.environmentSetting(for: key)
     }
 
     var environment: Environment.Name? {
-        return provider.environment
+        provider.environment
     }
 
     var name: String {
-        return provider.name
+        provider.name
     }
 
     var rootURL: String {
-        return provider.rootURL
+        provider.rootURL
     }
 
     var isTesting: Bool {
-        return provider.isTesting
+        provider.isTesting
     }
 
     var isRelease: Bool {
-        return provider.isRelease
+        provider.isRelease
     }
 }

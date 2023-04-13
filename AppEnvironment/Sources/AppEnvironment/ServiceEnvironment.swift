@@ -32,10 +32,10 @@ public struct ServiceEnvironment {
 // MARK: -
 
 extension ServiceEnvironment: CustomStringConvertible, CustomDebugStringConvertible {
-    public var description: String { return debugDescription }
+    public var description: String { debugDescription }
 
     public var debugDescription: String {
-        return [
+        [
             "rootURLString: \(self.environmentProvider.rootURLString)",
             "env : \(String(describing: self.environmentProvider.environment.self))"
         ].joined(separator: "\n")
@@ -49,10 +49,10 @@ public struct DefaultServiceEnvironment: ServiceEnvironmentInterface {
     public init() {}
 
     public var environment: Environment.Name {
-        return Environment.shared.environment ?? Environment.Name.release
+        Environment.shared.environment ?? Environment.Name.release
     }
 
     public var rootURLString: String {
-        return Environment.shared.rootURL
+        Environment.shared.rootURL
     }
 }

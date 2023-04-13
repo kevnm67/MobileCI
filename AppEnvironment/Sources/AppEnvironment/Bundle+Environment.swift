@@ -30,17 +30,17 @@ public extension Bundle {
     }
 
     /// String value for CFBundleShortVersionString.
-    var version: String { return infoDictionaryValue(for: BundleKey.shortVersionString.rawValue) }
+    var version: String { infoDictionaryValue(for: BundleKey.shortVersionString.rawValue) }
 
     /// String value for CFBundleVersion.
-    var build: String { return infoDictionaryValue(for: BundleKey.bundleVersion.rawValue) }
+    var build: String { infoDictionaryValue(for: BundleKey.bundleVersion.rawValue) }
 
     /// String value for CFBundleIdentifier.
-    var buildIdentifier: String { return infoDictionaryValue(for: BundleKey.bundleIdentifier.rawValue) }
+    var buildIdentifier: String { infoDictionaryValue(for: BundleKey.bundleIdentifier.rawValue) }
 
     func infoDictionaryValue(for key: String) -> String {
-        return (Bundle.main.infoDictionary?[key] as? String) ?? ""
+        (Bundle.main.infoDictionary?[key] as? String) ?? ""
     }
 
-    var environmentSetting: NSDictionary { return (Bundle.main.infoDictionary?[PlistKey.appSettings.rawValue] as? NSDictionary) ?? NSDictionary() }
+    var environmentSetting: NSDictionary { (Bundle.main.infoDictionary?[PlistKey.appSettings.rawValue] as? NSDictionary) ?? NSDictionary() }
 }

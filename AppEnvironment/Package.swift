@@ -8,7 +8,7 @@ let package = Package(
     products: [
         .library(
             name: "AppEnvironment",
-            targets: ["AppEnvironment"]),
+            targets: ["AppEnvironment"])
     ],
     dependencies: [
     ],
@@ -18,6 +18,6 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "AppEnvironmentTests",
-            dependencies: ["AppEnvironment"]),
+            dependencies: ["AppEnvironment"])
     ]
 )
