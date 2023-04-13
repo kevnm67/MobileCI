@@ -31,15 +31,15 @@ public protocol EnvironmentProvider {
 public extension EnvironmentProvider {
 
     var environment: Environment.Name? {
-        return Environment.Name(rawValue: environmentSetting(for: EnvironmentSettings.environment))
+        Environment.Name(rawValue: environmentSetting(for: EnvironmentSettings.environment))
     }
 
     var name: String {
-        return environment.map { $0.rawValue } ?? Environment.Name.release.rawValue
+        environment.map { $0.rawValue } ?? Environment.Name.release.rawValue
     }
 
     var rootURL: String {
-        return environmentSetting(for: EnvironmentSettings.rootURL)
+        environmentSetting(for: EnvironmentSettings.rootURL)
     }
 
     var isTesting: Bool {
@@ -50,14 +50,14 @@ public extension EnvironmentProvider {
         return UIApplication.shared.isDebugEnvironment
     }
 
-    var isRelease: Bool { return environment == .release }
+    var isRelease: Bool { environment == .release }
 
     /// Access to the info.plist dictionary values for the app specific settings.
     ///
     /// - Parameter type: Dictionary key for the app setting.
     /// - Returns: Value for the app specific setting.
     func environmentSetting(for type: EnvironmentSettingType) -> String {
-        return Bundle.main.environmentSetting[type.key] as? String ?? ""
+        Bundle.main.environmentSetting[type.key] as? String ?? ""
     }
 }
 
