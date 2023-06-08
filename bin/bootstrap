@@ -1,6 +1,7 @@
 #!/bin/bash
 
-export SRCROOT=`pwd`
+SRCROOT=$(pwd)
+export SRCROOT
 
 cd ..
 
@@ -11,14 +12,17 @@ setup_bundler () {
     bundle update --bundler
 
     echo "Installing bundler and gems..."
+
     gem install bundler; bundle install
 }
 
 do_brew () {
     echo "Brewing..."
+
     brew bundle
 
     echo "Setting up carthage frameworks..."
+
     bundle exec fastlane update_plugins
 
     bundle exec fastlane do_cart_update
@@ -37,4 +41,4 @@ setup_bundler
 do_brew
 
 # 4. Open project
-open *.xcodeproject
+open ./*.xcodeproject

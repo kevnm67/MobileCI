@@ -4,6 +4,7 @@
  CI playground mainly testing circle CI orbs and GitHub actions.
 </p>
 <br>
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/kevnm67/MobileCI/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/kevnm67/MobileCI/tree/main)
 
 <body>
  <table>
@@ -16,8 +17,8 @@
   <tbody>
   <tr>
     <td>Circle CI</td>
-    <td><a href="https://circleci.com/kevnm67/MobileCI">
-      <img src="https://circleci.com/gh/kevnm67/MobileCI.svg?style=svg" />
+    <td><a href="https://dl.circleci.com/status-badge/redirect/gh/kevnm67/MobileCI/tree/main">
+      <img src="https://dl.circleci.com/status-badge/img/gh/kevnm67/MobileCI/tree/main.svg?style=svg" />
     </a></td>
    </tr>
    <tr>

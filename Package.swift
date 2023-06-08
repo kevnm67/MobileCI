@@ -1,4 +1,4 @@
-// swift-tools-version:5.6
+// swift-tools-version:5.7
 
 import PackageDescription
 
@@ -12,9 +12,9 @@ let package = Package(
     ],
     dependencies: [
         // Dev dependencies
-        .package(url: "https://github.com/shibapm/Komondor", from: "1.0.0"), // dev
-        .package(url: "https://github.com/nicklockwood/SwiftFormat", from: "0.40.14"), // dev
-        .package(url: "https://github.com/Realm/SwiftLint", from: "0.36.0") // dev
+        .package(url: "https://github.com/shibapm/Komondor", from: "1.1.4"), // dev
+        .package(url: "https://github.com/nicklockwood/SwiftFormat", from: "0.50.9"), // dev
+        .package(url: "https://github.com/Realm/SwiftLint", from: "0.50.3") // dev
     ],
     targets: [
         .target(
