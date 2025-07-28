@@ -3,30 +3,30 @@
 class AppInfoProvider
 
   class AppIdentifier
-    AppStore = 'com.kevnm67.MobileCI-iOS'
-    Development = 'com.kevnm67.MobileCI-iOS.development'
-    Staging = 'com.kevnm67.MobileCI-iOS.staging'
+    APP_STORE = 'com.kevnm67.MobileCI-iOS'
+    DEVELOPMENT = 'com.kevnm67.MobileCI-iOS.development'
+    STAGING = 'com.kevnm67.MobileCI-iOS.staging'
   end
 
   class DisplayName
-    AppStore = 'MobileCI'
-    Development = 'MobileCI - Dev'
-    Staging = 'MobileCI - Staging'
+    APP_STORE = 'MobileCI'
+    DEVELOPMENT = 'MobileCI - Dev'
+    STAGING = 'MobileCI - Staging'
   end
 
   class Scheme
-    AppStore = 'MobileCI-iOS'
-    Development = 'MobileCI-iOS'
+    APP_STORE = 'MobileCI-iOS'
+    DEVELOPMENT = 'MobileCI-iOS'
   end
 
   class Configuration
-    AppStore = 'Release'
-    Debug = 'Debug'
-    Development = 'Debug_Development'
+    APP_STORE = 'Release'
+    DEBUG = 'Debug'
+    DEVELOPMENT = 'Debug_Development'
   end
 
   class AWSPath
-    AppStore = 'app-store'
-    Development = 'development'
+    APP_STORE = 'app-store'
+    DEVELOPMENT = 'development'
   end
 end

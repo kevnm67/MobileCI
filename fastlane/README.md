@@ -59,6 +59,34 @@ cache_prefix - optional.  Default is project_base_name.
 
 
 
+### ios p_badge_environment
+
+```sh
+[bundle exec] fastlane ios p_badge_environment
+```
+
+Badge app icon per environment
+
+
+
+### ios match_all_certs
+
+```sh
+[bundle exec] fastlane ios match_all_certs
+```
+
+Install all iOS certs
+
+
+
+### ios run_match
+
+```sh
+[bundle exec] fastlane ios run_match
+```
+
+
+
 ### ios test_iphone_x
 
 ```sh

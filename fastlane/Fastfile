@@ -5,6 +5,7 @@ fastlane_require 'fileutils'
 require './Helpers/AppInfoProvider.rb'
 
 import './Helpers/BaseFastfile'
+import './Helpers/fastlane_shared.rb'
 
 opt_out_usage
 
@@ -27,7 +28,7 @@ platform :ios do
 
   # All schemes that will be run for testing. NOTE: make sure each is a shared scheme.
   schemes_to_test = [
-    AppInfoProvider::Scheme::Development
+    AppInfoProvider::Scheme::DEVELOPMENT
   ]
 
   ##############
@@ -99,11 +100,11 @@ platform :ios do
   lane :carthage_bootstrap do
     Dotenv.load('.env.local', '.env.development') unless is_ci?
 
-    rome(
-      command: 'download',
-      platform: 'iOS',
-      cacheprefix: rome_cache_prefix
-    )
+    # rome(
+    #   command: 'download',
+    #   platform: 'iOS',
+    #   cacheprefix: rome_cache_prefix
+    # )
 
     carthage(
       command: 'bootstrap',

@@ -32,7 +32,7 @@ platform :ios do
 
   # All schemes that will be run for testing. NOTE: make sure each is a shared scheme.
   schemes_to_test = [
-    AppInfoProvider::Scheme::Development
+    AppInfoProvider::Scheme::DEVELOPMENT
   ]
 
   #############################
