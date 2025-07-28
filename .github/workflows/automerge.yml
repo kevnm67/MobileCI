@@ -1,34 +1,56 @@
 ---
 name: Automerge
 on:
-    pull_request:
-        types:
-            - labeled
-            - unlabeled
-            - synchronize
-            - ready_for_review
-    pull_request_review:
-        types:
-            - submitted
-    check_suite:
-        types:
-            - completed
-    status: {}
+  pull_request:
+    types:
+      - labeled
+  pull_request_review:
+    types: [submitted]
+  check_suite:
+    types: [completed]
+  issue_comment:
+    types: [created]
+  status: {} # necessary to trigger the action after the other checks have been completed
 
 jobs:
-    automerge:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Merge pull requests
-              uses: pascalgn/automerge-action@v0.15.6
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  MERGE_COMMIT_MESSAGE: pull-request-title-and-description
-                  MERGE_COMMIT_MESSAGE_REGEX: (.*)^----
-                  MERGE_DELETE_BRANCH: 'true'
-                  MERGE_LABELS: 'automerge, !WIP, !wip,!PR: unreviewed, !invalid, !PR:draft, !wontfix'
-                  MERGE_REMOVE_LABELS: automerge
-                  MERGE_METHOD: squash
-                  MERGE_RETRY_SLEEP: '10000'
-                  MERGE_RETRIES: '2'
-                  UPDATE_LABELS: automerge
+  if_error_or_failure:
+    runs-on: ubuntu-latest
+    if: >-
+      github.event.state == 'error' ||
+      github.event.state == 'failure'
+    steps:
+      - env:
+          DESCRIPTION: ${{ toJSON(github.event.description) }}
+        run: |
+          echo The status is error or failed: $DESCRIPTION
+    
+  automerge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Event info
+        env:
+          EVENT_CONTEXT: ${{ toJSON(github.event) }}
+          DESCRIPTION: ${{ toJSON(github.event.description) }}
+        run: |
+          echo The Event info is: $DESCRIPTION
+          echo $EVENT_CONTEXT
+          
+      - name: Automerge PR
+        uses: pascalgn/automerge-action@v0.16.2
+        if: >-
+          github.event.issue.pull_request &&
+          contains(github.event.pull_request.labels.*.name, 'automerge') &&
+          github.event.pull_request.merged == false &&
+          github.event.check_suite.status == 'completed' &&
+          (github.event.comment.body == '/merge' || github.event.state == 'success')
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          MERGE_COMMIT_MESSAGE: "pull-request-title-and-description"
+          MERGE_COMMIT_MESSAGE_REGEX: "(.*)^----"
+          MERGE_DELETE_BRANCH: "true"
+          MERGE_LABELS: "automerge, !WIP, !wip,!PR: unreviewed, !invalid, !PR:draft, !wontfix"
+          MERGE_REMOVE_LABELS: "automerge"
+          MERGE_METHOD: "squash"
+          MERGE_RETRY_SLEEP: "10000"
+          MERGE_RETRIES: "1"
+          UPDATE_LABELS: "automerge"

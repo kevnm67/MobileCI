@@ -1,0 +1,32 @@
+---
+
+# https://github.com/DavidAnson/markdownlint/blob/2d19c0685bfa98dce87f493a8fcffbb5939af2c3/schema/.markdownlint.yaml
+
+# MD012/no-multiple-blanks - Multiple consecutive blank lines
+MD012:
+    # Consecutive blank lines
+    maximum: 1
+
+# MD013/line-length - Line length
+MD013:
+    # Number of characters
+    line_length: 80
+    # Number of characters for code blocks
+    code_block_line_length: 80
+    # Include code blocks
+    code_blocks: true
+    # Include tables
+    tables: false
+    # Strict length checking
+    strict: false
+    # Stern length checking
+    stern: false
+
+# MD007/ul-indent - Unordered list indentation
+MD007:
+    # Spaces for indent
+    indent: 4
+    # Whether to indent the first level of the list
+    start_indented: false
+    # Spaces for first level indent (when start_indented is set)
+    start_indent: 4

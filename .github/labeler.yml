@@ -1,34 +1,43 @@
 ---
-CI/CD:
-    - .circleci/*
-    - .codeclimate.yml
-    - .github/*
-    - .ruby-version
-    - .swift-version
-    - Dangerfile
-    - fastlane/*
-    - Makefile
-    - travis.yml
-Tests:
-    - Tests/*
-dependencies:
-    - .gitmodules
-    - Brewfile
-    - Cartfile
-    - Cartfile.private
-    - Carthage/*
-    - Gemfile
-    - Gemfile.lock
-    - Podfile
-    - Podfile.lock
-    - Pods/*
-    - Romefile
 documentation:
-    - CHANGELOG.md
-    - doc/*
-    - Documentation/*
-    - jazzy.yml
-    - README.md
-enhancement:
-    - .sourcery.yml
-    - swiftgen.yml
+    - changed-files:
+          - any-glob-to-any-file:
+                - doc/**
+                - docs/**
+                - Documentation/**
+                - README.md
+                - CHANGELOG.md
+
+ci-cd:
+    - changed-files:
+          - any-glob-to-any-file:
+                - .circleci/**
+                - .github/**
+                - .codeclimate.yml
+                - .ruby-version
+                - .swift-version
+                - Dangerfile
+                - fastlane/**
+                - Makefile
+
+tests:
+    - changed-files:
+          - any-glob-to-any-file:
+                - Tests iOS
+                - Tests macOS
+                - tests/**
+
+dependencies:
+    - changed-files:
+          - any-glob-to-any-file:
+                - Gemfile
+                - .gitmodules
+                - Brewfile
+                - Cartfile
+                - Cartfile.private
+                - Carthage/*
+                - Gemfile
+                - Gemfile.lock
+                - Podfile
+                - Podfile.lock
+                - Pods/*
