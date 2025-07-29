@@ -4,6 +4,9 @@ orbs:
     ios: kevnm67/ios-pipelines@dev:alpha
     slack: circleci/slack@5.2.0
 
+##
+## Aliases
+##
 ios_contexts: &ios_contexts [iOS, slack]
 
 install_dependencies: &install_dependencies
