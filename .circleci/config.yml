@@ -1,14 +1,15 @@
+---
 version: 2.1
 orbs:
-  ios: kevnm67/ios-pipelines@dev:alpha
-  slack: circleci/slack@4.12.0
+    ios: kevnm67/ios-pipelines@dev:alpha
+    slack: circleci/slack@5.2.0
 
 ios_contexts: &ios_contexts [iOS, slack]
 
 install_dependencies: &install_dependencies
     pretest_steps:
         - run: |
-            make setup
+              make setup
 
 run_tests: &run_tests
     ios/test:
@@ -20,9 +21,9 @@ run_tests: &run_tests
             format-coverage ./fastlane/test_output/cobertura.xml -t cobertura -d;./cc-test-reporter upload-coverage
         <<: *install_dependencies
         post-steps:
-          - slack/notify:
-                event: fail
-                template: basic_fail_1
+            - slack/notify:
+                  event: fail
+                  template: basic_fail_1
         requires: [prepare]
 
 branch_filters: &branch_filters [main, /^hotfix.*/, /^release\/.*/]
