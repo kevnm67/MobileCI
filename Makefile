@@ -35,7 +35,7 @@ version:
 setup:
 	$(MAKE) verify_system
 	$(MAKE) install_gems
-	$(MAKE) install_ios_dependencies
+# 	$(MAKE) install_ios_dependencies
 
 verify_system:
 	$(eval $(call assert_env_variable,RUBY))
@@ -57,7 +57,7 @@ test:
 
 lint:
 	bundle exec pod lib lint
-	
+
 lint_format: format swiftlint
 
 .PHONY: format

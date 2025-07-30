@@ -17,7 +17,7 @@ let operationQueueNotification = Notification.Name(rawValue: "OperationQueueNoti
 // MARK: - NotificationCenter_AutoUnregisterTests
 
 class NotificationCenter_AutoUnregisterTests: QuickSpec {
-    override func spec() {
+    override class func spec() {
 
         describe("AutoUnregister as notification observer") {
             var counter = 0

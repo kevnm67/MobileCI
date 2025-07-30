@@ -11,7 +11,7 @@ import UIKit
 @testable import MobileCI
 
 class UITableViewExtensionsSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
 
         describe("A TableView") {
             var indexPathOfFirstItem: IndexPath!

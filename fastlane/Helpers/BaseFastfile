@@ -15,6 +15,8 @@ platform :ios do
 
   project_base_name = 'MobileCI'
 
+  # IOS Simulator default device.
+  ENV['DEFAULT_IOS_SIM'] = 'iPhone 16 Pro'
   ENV['CACHE_PREFIX'] = project_base_name
   ENV['BUILD_FOLDER'] = File.join('fastlane', 'Build')
   ENV['AWS_REGION'] = 'us-east-1'
@@ -61,7 +63,7 @@ platform :ios do
   lane :run_tests_for_device do |options|
     test_schemes = options[:schemes] || schemes_to_test
     project_name = options[:project_base_name] || project_base_name
-    device = options[:device] || 'iPhone 14 Pro'
+    device = options[:device] || ENV['DEFAULT_IOS_SIM']
 
     test_schemes.each do |scheme|
       UI.message "Running tests for scheme #{scheme}"
@@ -83,7 +85,7 @@ platform :ios do
       scheme: scheme,
       skip_slack: is_ci,
       code_coverage: true,
-      device: options[:device] || 'iPhone 14 Pro',
+      device: options[:device] || ENV['DEFAULT_IOS_SIM'],
       buildlog_path: artifacts_path('xctest/logs'),
       slack_only_on_failure: true
     )
@@ -108,7 +110,7 @@ platform :ios do
   private_lane :slather_local do |options|
     scheme = options[:scheme] || ENV['DEV_SCHEME']
     project_name = options[:project_name] || project_base_name
-    
+
     slather(
       scheme: scheme,
       html: true,

@@ -1,7 +1,7 @@
 ---
 version: 2.1
 orbs:
-    ios: kevnm67/ios-pipelines@dev:alpha
+    ios: kevnm67/ios-orb@dev:alpha
     slack: circleci/slack@5.2.0
 
 ##
@@ -20,8 +20,6 @@ run_tests: &run_tests
         context: *ios_contexts
         with_spm: true
         lane: test_iphone_pro
-        cc_prefix: >
-            format-coverage ./fastlane/test_output/cobertura.xml -t cobertura -d;./cc-test-reporter upload-coverage
         <<: *install_dependencies
         post-steps:
             - slack/notify:

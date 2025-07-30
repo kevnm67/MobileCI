@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NotificationCenterSpy: NotificationCenter {
+class NotificationCenterSpy: NotificationCenter, @unchecked Sendable {
 
     var removeObserverInvoked = false
 

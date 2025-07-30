@@ -11,7 +11,7 @@ import Quick
 @testable import MobileCI
 
 class DateExtensionsSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
 
         describe("A date") {
             var date: Date!

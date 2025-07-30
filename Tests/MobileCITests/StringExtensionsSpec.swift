@@ -11,7 +11,7 @@ import Quick
 @testable import MobileCI
 
 class StringExtensionsSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
 
         describe("A string") {
             context("isWhitespace") {

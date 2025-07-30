@@ -11,7 +11,7 @@ import Quick
 @testable import MobileCI
 
 class SequenceExtensionsSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
 
         describe("A numeric sequence") {
             let given = [1, 2, 3, 4, 8, 12]
