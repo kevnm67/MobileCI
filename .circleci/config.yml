@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  ios: kevnm67/ios-pipelines@dev:alpha
+  ios: kevnm67/ios-orb@0.0.1
   slack: circleci/slack@4.12.0
 
 ios_contexts: &ios_contexts [iOS, slack]
