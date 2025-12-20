@@ -59,13 +59,13 @@ cache_prefix - optional.  Default is project_base_name.
 
 
 
-### ios test_iphone_x
+### ios test_iphone_15
 
 ```sh
-[bundle exec] fastlane ios test_iphone_x
+[bundle exec] fastlane ios test_iphone_15
 ```
 
-Run tests using iphone X sim
+Run tests using iPhone 15 sim
 
 ### ios test_iphone_pro
 
@@ -73,7 +73,7 @@ Run tests using iphone X sim
 [bundle exec] fastlane ios test_iphone_pro
 ```
 
-Run tests using iPhone Pro
+Run tests using iPhone 15 Pro
 
 ### ios do_cart_update
 
