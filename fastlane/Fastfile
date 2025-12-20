@@ -62,12 +62,12 @@ platform :ios do
   ## TESTING & CODE COVERAGE ##
   #############################
 
-  desc 'Run tests using iPhone 15 sim'
+  desc 'Run tests using iPhone 16 Pro sim'
   lane :test_iphone_15 do
     run_tests_for_device(
       project_base_name: project_base_name,
       schemes: schemes_to_test,
-      device: 'iPhone 15'
+      device: 'iPhone 16 Pro'
     )
   end
 
