@@ -6,16 +6,16 @@ on:
             - main
             - $default-branch
             - v.+
-        # pull_request event is required only for autolabeler
-        pull_request:
-            # Only following types are handled by the action or use all.
-            types: [opened, reopened, synchronize]
+    # pull_request event is required only for autolabeler
+    pull_request:
+        # Only following types are handled by the action or use all.
+        types: [opened, reopened, synchronize]
 
 jobs:
     update_release_draft:
         runs-on: ubuntu-latest
         steps:
-            - uses: release-drafter/release-drafter@v5.23.0
+            - uses: release-drafter/release-drafter@v7.7.0
               with:
                   config-name: release_drafter.yml
               env:
