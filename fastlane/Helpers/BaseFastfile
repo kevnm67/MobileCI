@@ -92,7 +92,7 @@ platform :ios do
     # ios-orb's coverage export reads ./TestResults.xcresult (its result_bundle_path default).
     if is_ci?
       bundle = lane_context[SharedValues::SCAN_GENERATED_XCRESULT_PATH]
-      target = File.expand_path('../TestResults.xcresult', __dir__)
+      target = File.expand_path('../../TestResults.xcresult', __dir__)
       sh("rm -rf '#{target}' && cp -R '#{bundle}' '#{target}'")
     end
 
