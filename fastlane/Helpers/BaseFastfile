@@ -85,7 +85,9 @@ platform :ios do
       code_coverage: true,
       device: options[:device] || 'iPhone 14 Pro',
       buildlog_path: artifacts_path('xctest/logs'),
-      slack_only_on_failure: true
+      slack_only_on_failure: true,
+      # ios-orb's coverage export reads ./TestResults.xcresult (its result_bundle_path default).
+      xcargs: is_ci ? '-resultBundlePath TestResults.xcresult' : nil
     )
 
     if is_ci?
