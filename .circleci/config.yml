@@ -11,6 +11,9 @@ run_tests: &run_tests
         context: *ios_contexts
         with_spm: true
         lane: test_iphone_pro
+        # Main's coverage includes the SPM checkouts under DerivedData (Nimble, Quick), so qlty's
+        # 90% file-presence validation fails (build 642: 16.47% of files present).
+        qlty_skip_errors: true
         post-steps:
           - slack/notify:
                 event: fail
