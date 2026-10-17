@@ -6,8 +6,8 @@ jobs:
     auto-approve:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3.3.0
-            - uses: hmarr/auto-approve-action@v3
+            - uses: actions/checkout@v7.0.1
+            - uses: hmarr/auto-approve-action@v4
               if: >
                   github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
               with:
