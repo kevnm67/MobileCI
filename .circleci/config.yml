@@ -1,9 +1,9 @@
 version: 2.1
 orbs:
-  ios: kevnm67/ios-pipelines@dev:alpha
+  ios: kevnm67/ios-orb@3.4.0
   slack: circleci/slack@4.12.0
 
-ios_contexts: &ios_contexts [iOS, slack]
+ios_contexts: &ios_contexts [iOS, slack, qlty-credentials]
 
 install_dependencies: &install_dependencies
     pretest_steps:
@@ -16,8 +16,6 @@ run_tests: &run_tests
         context: *ios_contexts
         with_spm: true
         lane: test_iphone_pro
-        cc_prefix: >
-            format-coverage ./fastlane/test_output/cobertura.xml -t cobertura -d;./cc-test-reporter upload-coverage
         <<: *install_dependencies
         post-steps:
           - slack/notify:
