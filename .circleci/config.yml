@@ -5,18 +5,12 @@ orbs:
 
 ios_contexts: &ios_contexts [iOS, slack, qlty-credentials]
 
-install_dependencies: &install_dependencies
-    pretest_steps:
-        - run: |
-            make setup
-
 run_tests: &run_tests
     ios/test:
         name: test
         context: *ios_contexts
         with_spm: true
         lane: test_iphone_pro
-        <<: *install_dependencies
         post-steps:
           - slack/notify:
                 event: fail
