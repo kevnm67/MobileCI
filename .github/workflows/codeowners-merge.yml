@@ -12,6 +12,6 @@ jobs:
         steps:
             - uses: actions/checkout@v7.0.1
             - name: Run Codeowners merge check
-              uses: orta/code-owner-self-merge@1.6.5
+              uses: orta/code-owner-self-merge@1.6.8
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
