@@ -21,26 +21,10 @@
 				</a></td>
 			</tr>
 			<tr>
-				<td>Travis CI</td>
-				<td><a href="https://travis-ci.com/kevnm67/MobileCI">
-						<img src="https://travis-ci.com/kevnm67/MobileCI.svg?branch=main" />
-					</a></td>
-			</tr>
-			<tr>
 				<td>Bitrise io</td>
 				<td><a href="https://app.bitrise.io/app/0330010d71e169b0">
 						<img src="https://app.bitrise.io/app/0330010d71e169b0/status.svg?token=-p7HyqHPA2yhM6qJ314LHA&branch=master" />
 					</a></td>
-			</tr>
-			<tr>
-				<td>Maintainability</td>
-				<td> <a href="https://codeclimate.com/github/kevnm67/MobileCI/maintainability"><img src="https://api.codeclimate.com/v1/badges/355acfb7dbfab41bec2d/maintainability" /></a> </td>
-			</tr>
-			<tr>
-			<td>Code Coverage</td>
-			<td><a href="https://codeclimate.com/github/kevnm67/MobileCI/test_coverage">
-					<img src="https://api.codeclimate.com/v1/badges/355acfb7dbfab41bec2d/test_coverage" />
-				</a></td>
 			</tr>
 		</tbody>
 	</table>
