@@ -57,6 +57,11 @@ test:
 
 lint:
 	bundle exec pod lib lint
+
+.PHONY: gates
+gates:
+	@ruby -ryaml -e 'Dir[".github/workflows/*.yml"].each { |f| YAML.load_file(f) }; YAML.load_file(".github/dependabot.yml"); puts "workflow yaml ok"'
+	@git diff --check origin/main
 	
 lint_format: format swiftlint
 
