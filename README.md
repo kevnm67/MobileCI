@@ -35,9 +35,6 @@
    <a href="https://developer.apple.com/swift/">
       <img src="https://img.shields.io/badge/Swift-5.1-orange.svg?style=flat" alt="Swift 5.1">
    </a>
-   <a href="http://cocoapods.org/pods/MobileCI">
-      <img src="https://img.shields.io/cocoapods/v/MobileCI.svg?style=flat" alt="Version">
-   </a>
    <a href="https://github.com/kevnm67/MobileCI/releases">
       <img src="https://img.shields.io/github/v/release/kevnm67/MobileCI?include_prereleases" alt="GitHub release">
    </a>
@@ -46,6 +43,12 @@
    </a>
    <a href="https://github.com/apple/swift-package-manager">
       <img src="https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg" alt="SPM">
+   </a>
+   <a href="https://qlty.sh/gh/kevnm67/projects/MobileCI">
+      <img src="https://qlty.sh/gh/kevnm67/projects/MobileCI/coverage.svg" alt="Code Coverage">
+   </a>
+   <a href="https://qlty.sh/gh/kevnm67/projects/MobileCI">
+      <img src="https://qlty.sh/gh/kevnm67/projects/MobileCI/maintainability.svg" alt="Maintainability">
    </a>
 </p>
 
