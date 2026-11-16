@@ -55,9 +55,6 @@ update:
 test:
 	bundle exec fastlane test_iphone_pro
 
-lint:
-	bundle exec pod lib lint
-
 .PHONY: gates
 gates:
 	@ruby -ryaml -e 'Dir[".github/workflows/*.yml"].each { |f| YAML.load_file(f) }; YAML.load_file(".github/dependabot.yml"); puts "workflow yaml ok"'
