@@ -4,14 +4,21 @@ updates:
     - package-ecosystem: github-actions
       directory: /
       schedule:
-          interval: daily
+          interval: weekly
           timezone: America/New_York
-      open-pull-requests-limit: 5
+      open-pull-requests-limit: 2
+      groups:
+          actions:
+              patterns: ["*"]
     - package-ecosystem: bundler
       directory: /
       schedule:
           interval: weekly
           timezone: America/New_York
-      open-pull-requests-limit: 5
+      open-pull-requests-limit: 2
       allow:
           - dependency-type: all
+      # One PR per week instead of one per gem: each PR pays a full macOS run (~750 credits).
+      groups:
+          bundler:
+              patterns: ["*"]
