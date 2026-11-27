@@ -84,6 +84,9 @@ A playground for GitHub actions and CI's for iOS development.
 ### <img height="24" width="24" src="https://unpkg.com/simple-icons@latest/icons/circleci.svg" /> Circle CI
 
 The [config file](.circleci/config.yml) defines multiple jobs and the workflow for circle builds.
+To save macOS credits, `test` on main halts green when it already passed on the same git tree in the
+merged PR ([tree_gate.sh](.circleci/scripts/tree_gate.sh)), and Dependabot branches run no macOS jobs:
+rebase a bump onto a branch of your own to test it.
 
 ### <img height="24" width="24" src="https://unpkg.com/simple-icons@latest/icons/travisci.svg" /> Travis CI
 
