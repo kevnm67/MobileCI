@@ -5,6 +5,34 @@ orbs:
 
 ios_contexts: &ios_contexts [iOS, slack, qlty-credentials]
 
+# A PR must be up to date before it squash-merges, so main's tree is the tree the PR's `test`
+# already passed on. `test` records that tree off main and halts green on main on a match.
+# A halted job still boots its macOS machine (~200 credits), not the ~700 of a full one.
+commands:
+    halt_if_verified:
+        steps:
+            # Scratch checkout: the job's own checkout needs an empty working dir.
+            - checkout:
+                  path: /tmp/tree-gate-src
+            - run:
+                  name: Compute the tree gate key
+                  command: /tmp/tree-gate-src/.circleci/scripts/tree_gate.sh key /tmp/tree-gate-src
+            - restore_cache:
+                  key: &tree_key v1-tree-{{ .Environment.CIRCLE_JOB }}-{{ .Environment.CIRCLE_NODE_INDEX }}-{{ checksum ".tree-gate/key" }}
+            - run:
+                  name: Halt if this tree already passed
+                  command: |
+                      /tmp/tree-gate-src/.circleci/scripts/tree_gate.sh halt-if-verified /tmp/tree-gate-src
+                      rm -rf .tree-gate
+    record_tree:
+        steps:
+            - run:
+                  name: Record this tree as passed
+                  command: .circleci/scripts/tree_gate.sh mark
+            - save_cache:
+                  key: *tree_key
+                  paths: [.tree-gate/verified]
+
 run_tests: &run_tests
     ios/test:
         name: test
@@ -14,10 +42,19 @@ run_tests: &run_tests
         # Main's coverage includes the SPM checkouts under DerivedData (Nimble, Quick), so qlty's
         # 90% file-presence validation fails (build 642: 16.47% of files present).
         qlty_skip_errors: true
+        # Conditions stay inline: pipeline values do not resolve in a command an orb job calls.
+        pre-steps:
+          - when:
+                condition: &on_main
+                    equal: [main, << pipeline.git.branch >>]
+                steps: [halt_if_verified]
         post-steps:
           - slack/notify:
                 event: fail
                 template: basic_fail_1
+          - unless:
+                condition: *on_main
+                steps: [record_tree]
         requires: [prepare]
 
 branch_filters: &branch_filters [main, /^hotfix.*/, /^release\/.*/]
@@ -39,9 +76,12 @@ workflows:
                   context: *ios_contexts
                   scripts:
                       - run: bundle exec danger
+                      - run: .circleci/scripts/tree_gate.sh --self-test
                   filters:
                       branches:
-                          ignore: *branch_filters
+                          # Dependabot branches buy no macOS run: a bump is tested once a person
+                          # rebases it onto a branch of their own (as #225 did for #219-#223).
+                          ignore: [main, /^hotfix.*/, /^release\/.*/, /^dependabot\/.*/]
 
             - <<: *run_tests
 
